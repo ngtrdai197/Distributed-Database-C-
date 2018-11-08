@@ -16,24 +16,18 @@ namespace TTN_PT
         public FormThi()
         {
             InitializeComponent();
-            label1.Text = "It is a long established fact that a reader will be " +
-                "distracted by the readable content of a page when looking at its layout";
-            
 
+            txtCauHoi.Text = "It is a long established fact that a " +
+                "reader will be distracted by the readable content of a " +
+                "page when looking at its layout. " +
+                "The point of using Lorem Ipsum is that it has a more-or-less " +
+                "normal distribution of letters";
+            grbThi.Visible = false;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void btnThi_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
+            grbThi.Visible = true;
 
         }
     }

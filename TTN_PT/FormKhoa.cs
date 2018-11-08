@@ -21,17 +21,18 @@ namespace TTN_PT
         private void kHOABindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.kHOABindingSource.EndEdit();
+            this.bdsKhoa.EndEdit();
             this.tableAdapterManager.UpdateAll(this.tTN_DS);
 
         }
 
         private void FormKhoa_Load(object sender, EventArgs e)
         {
-            kHOATableAdapter.Connection.ConnectionString = Program.connstr;
 
-            // TODO: This line of code loads data into the 'tTN_DS.KHOA' table. You can move, or remove it, as needed.
-            this.kHOATableAdapter.Fill(this.tTN_DS.KHOA);
+            GiaoVienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.GiaoVienTableAdapter.Fill(this.tTN_DS.GIAOVIEN);
+            KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.KhoaTableAdapter.Fill(this.tTN_DS.KHOA);
             comboBox1.DataSource = Program.bds_dspm;
             comboBox1.DisplayMember = "TENCS";
             comboBox1.ValueMember = "TENSERVER";
@@ -65,13 +66,14 @@ namespace TTN_PT
                     }
                     else
                     {
-                        kHOATableAdapter.Connection.ConnectionString = Program.connstr;
-                        kHOATableAdapter.Fill(tTN_DS.KHOA);
+                        KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                        KhoaTableAdapter.Fill(tTN_DS.KHOA);
 
                     }
 
                 }
             }
         }
+
     }
 }

@@ -35,9 +35,7 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnGiangVien = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDangKiThi = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -46,6 +44,8 @@
             this.btnKhoa = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stHoten = new System.Windows.Forms.ToolStripStatusLabel();
@@ -89,31 +89,17 @@
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnSinhVien);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnDangKiThi);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Sinh viên";
             // 
-            // btnSinhVien
+            // btnDangKiThi
             // 
-            this.btnSinhVien.Caption = "Sinh Viên";
-            this.btnSinhVien.Id = 2;
-            this.btnSinhVien.ImageOptions.Image = global::TTN_PT.Properties.Resources.Student_3_icon;
-            this.btnSinhVien.Name = "btnSinhVien";
-            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Đăng xuất";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Đăng Xuất";
-            this.barButtonItem1.Id = 3;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.btnDangKiThi.Caption = "Đăng kí thi";
+            this.btnDangKiThi.Id = 2;
+            this.btnDangKiThi.ImageOptions.Image = global::TTN_PT.Properties.Resources.Student_3_icon;
+            this.btnDangKiThi.Name = "btnDangKiThi";
+            this.btnDangKiThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
             // 
             // ribbonPageGroup4
             // 
@@ -171,13 +157,27 @@
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Đăng xuất";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Đăng Xuất";
+            this.barButtonItem1.Id = 3;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // ribbon
             // 
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.btnGiangVien,
-            this.btnSinhVien,
+            this.btnDangKiThi,
             this.barButtonItem1,
             this.barButtonItem2,
             this.btnMonhoc,
@@ -251,7 +251,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.BarButtonItem btnGiangVien;
-        private DevExpress.XtraBars.BarButtonItem btnSinhVien;
+        private DevExpress.XtraBars.BarButtonItem btnDangKiThi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;

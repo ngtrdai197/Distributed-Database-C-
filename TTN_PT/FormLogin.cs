@@ -75,17 +75,36 @@ namespace TTN_PT
                     Program.passwordDN = Program.password;
 
                     SqlDataReader myReader;
-                    String strlenh = "EXEC SP_DANGNHAP '" + Program.mlogin + "'";
-                    myReader = Program.ExecSqlDataReader(strlenh);
-                    if (myReader == null) return;
-                    myReader.Read();
-                    Program.username = myReader.GetString(0);
-                    Program.mHoten = myReader.GetString(1);
-                    Program.mGroup = myReader.GetString(2);
-                    myReader.Close();
 
-                    FormMain frMain = new FormMain();
-                    frMain.Show();
+                    if (rdbGV.Checked == true)
+                    {
+                        String strlenh = "EXEC SP_DANGNHAP '" + Program.mlogin + "'";
+                        myReader = Program.ExecSqlDataReader(strlenh);
+                        if (myReader == null) return;
+                        myReader.Read();
+                        Program.username = myReader.GetString(0);
+                        Program.mHoten = myReader.GetString(1);
+                        Program.mGroup = myReader.GetString(2);
+                        myReader.Close();
+
+                        FormMain frMain = new FormMain();
+                        frMain.Show();
+                    }
+
+                    else if (rdbSV.Checked == true)
+                    {
+                        String strlenh = "EXEC SP_DANGNHAP_SV '" + Program.mlogin + "'";
+                        myReader = Program.ExecSqlDataReader(strlenh);
+                        if (myReader == null) return;
+                        myReader.Read();
+                        Program.username = myReader.GetString(0);
+                        Program.mHoten = myReader.GetString(1);
+                        Program.mGroup = myReader.GetString(2);
+                        myReader.Close();
+
+                        FormThi frmThi = new FormThi();
+                        frmThi.Show();
+                    }
 
                     this.Hide();
                 }

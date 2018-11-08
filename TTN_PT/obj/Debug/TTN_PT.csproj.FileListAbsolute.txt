@@ -192,3 +192,5 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\es\DevExpress.Diagram.v17.1.C
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormThi.resources
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormTest.resources
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormDangKiThi.resources

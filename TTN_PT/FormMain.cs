@@ -39,16 +39,16 @@ namespace TTN_PT
 
         private void btnSinhVien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = CheckExists(typeof(FormSinhVien));
+            Form frm = CheckExists(typeof(FormDangKiThi));
             if (frm != null)
             {
                 frm.Activate();
             }
             else
             {
-                FormSinhVien frmSinhVien = new FormSinhVien();
-                frmSinhVien.MdiParent = this;
-                frmSinhVien.Show();
+                FormDangKiThi frmDKThi = new FormDangKiThi();
+                frmDKThi.MdiParent = this;
+                frmDKThi.Show();
             }
         }
 

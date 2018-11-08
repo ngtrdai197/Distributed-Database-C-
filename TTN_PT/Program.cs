@@ -27,6 +27,7 @@ namespace TTN_PT
         public static String passwordDN = "";
         public static String mGroup = "";
         public static String mHoten = "";
+        public static SqlCommand cmd = new SqlCommand();
         public static int mCoSo = 0;
 
         // giữ danh sách phân mảnh của cơ sở khi đăng nhập
@@ -80,7 +81,7 @@ namespace TTN_PT
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new FormThi());
+            Application.Run(new FormLogin());
         }
     }
 }

@@ -89,6 +89,12 @@
     <Compile Include="FormBoDe.Designer.cs">
       <DependentUpon>FormBoDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDangKiThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangKiThi.Designer.cs">
+      <DependentUpon>FormDangKiThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     <Compile Include="FormSinhVien.Designer.cs">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +158,9 @@
     </Compile>
     <EmbeddedResource Include="FormBoDe.resx">
       <DependentUpon>FormBoDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDangKiThi.resx">
+      <DependentUpon>FormDangKiThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien.resx">
       <DependentUpon>FormGiangVien.cs</DependentUpon>
@@ -167,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThi.resx">
       <DependentUpon>FormThi.cs</DependentUpon>
