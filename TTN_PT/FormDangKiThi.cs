@@ -21,7 +21,7 @@ namespace TTN_PT
         private void gIAOVIEN_DANGKYBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.gIAOVIEN_DANGKYBindingSource.EndEdit();
+            this.bdsGVDangKy.EndEdit();
             this.tableAdapterManager.UpdateAll(this.tTN_DS);
 
         }
@@ -29,7 +29,7 @@ namespace TTN_PT
         private void FormDangKiThi_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'tTN_DS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
-            this.gIAOVIEN_DANGKYTableAdapter.Fill(this.tTN_DS.GIAOVIEN_DANGKY);
+            this.GVDangKyTableAdapter.Fill(this.tTN_DS.GIAOVIEN_DANGKY);
 
         }
     }

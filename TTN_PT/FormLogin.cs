@@ -16,8 +16,10 @@ namespace TTN_PT
         {
             InitializeComponent();
 
-            txtLogin.Text = "HAI";
+            txtLogin.Text = "THANH";
             txtPass.Text = "123";
+            rdbSV.Checked = true;
+
         }
 
         private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
