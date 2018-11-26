@@ -150,6 +150,7 @@
       <DependentUpon>FormThi.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CauHoi.cs" />
+    <Compile Include="Models\KetQua.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TTN_DS.Designer.cs">

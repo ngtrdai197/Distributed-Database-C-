@@ -47,6 +47,7 @@
             this.lbHoten = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grbCoverThi = new System.Windows.Forms.GroupBox();
+            this.btnNopbaithi = new System.Windows.Forms.Button();
             this.btnTieptheo = new System.Windows.Forms.Button();
             this.btnLuilai = new System.Windows.Forms.Button();
             this.grbThi = new System.Windows.Forms.GroupBox();
@@ -63,7 +64,6 @@
             this.lbGiay = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbPhut = new System.Windows.Forms.Label();
-            this.btnNopbaithi = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -260,6 +260,17 @@
             this.grbCoverThi.TabIndex = 1;
             this.grbCoverThi.TabStop = false;
             // 
+            // btnNopbaithi
+            // 
+            this.btnNopbaithi.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNopbaithi.Location = new System.Drawing.Point(704, 409);
+            this.btnNopbaithi.Name = "btnNopbaithi";
+            this.btnNopbaithi.Size = new System.Drawing.Size(75, 36);
+            this.btnNopbaithi.TabIndex = 4;
+            this.btnNopbaithi.Text = "Nộp bài";
+            this.btnNopbaithi.UseVisualStyleBackColor = true;
+            this.btnNopbaithi.Click += new System.EventHandler(this.btnNopbaithi_Click);
+            // 
             // btnTieptheo
             // 
             this.btnTieptheo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -342,6 +353,7 @@
             this.rdB_D.TabStop = true;
             this.rdB_D.Text = "D: ";
             this.rdB_D.UseVisualStyleBackColor = true;
+            this.rdB_D.CheckedChanged += new System.EventHandler(this.rdB_D_CheckedChanged);
             // 
             // rdB_C
             // 
@@ -353,6 +365,7 @@
             this.rdB_C.TabStop = true;
             this.rdB_C.Text = "C: ";
             this.rdB_C.UseVisualStyleBackColor = true;
+            this.rdB_C.CheckedChanged += new System.EventHandler(this.rdB_C_CheckedChanged);
             // 
             // rdB_B
             // 
@@ -364,6 +377,7 @@
             this.rdB_B.TabStop = true;
             this.rdB_B.Text = "B: ";
             this.rdB_B.UseVisualStyleBackColor = true;
+            this.rdB_B.CheckedChanged += new System.EventHandler(this.rdB_B_CheckedChanged);
             // 
             // rdB_A
             // 
@@ -375,6 +389,7 @@
             this.rdB_A.TabStop = true;
             this.rdB_A.Text = "A: ";
             this.rdB_A.UseVisualStyleBackColor = true;
+            this.rdB_A.CheckedChanged += new System.EventHandler(this.rdB_A_CheckedChanged);
             // 
             // txtCauHoi
             // 
@@ -426,16 +441,6 @@
             this.lbPhut.Size = new System.Drawing.Size(29, 13);
             this.lbPhut.TabIndex = 0;
             this.lbPhut.Text = "Phút";
-            // 
-            // btnNopbaithi
-            // 
-            this.btnNopbaithi.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNopbaithi.Location = new System.Drawing.Point(704, 409);
-            this.btnNopbaithi.Name = "btnNopbaithi";
-            this.btnNopbaithi.Size = new System.Drawing.Size(75, 36);
-            this.btnNopbaithi.TabIndex = 4;
-            this.btnNopbaithi.Text = "Nộp bài";
-            this.btnNopbaithi.UseVisualStyleBackColor = true;
             // 
             // FormThi
             // 
