@@ -16,7 +16,7 @@ namespace TTN_PT
 {
     public partial class FormThi : DevExpress.XtraEditors.XtraForm
     {
-        private int phut, giay;
+        private int phut, giay, socauthi;
         private int vitri_cauhoi = 1;
         private int demcaudung = 0;
         private string cautraloi = "\0"; // mặc định chưa trả lời là 0
@@ -44,11 +44,14 @@ namespace TTN_PT
 
         private void btnThi_Click(object sender, EventArgs e)
         {
+            grbInfo.Enabled = false;
+            timer1.Start();
+            string monhoc = cbMonhoc.Items[cbMonhoc.SelectedIndex].ToString();
             vitri_cauhoi = 1;
             grbThi.Visible = true;
             SqlDataReader myReader;
             string strLenh = "DECLARE	@return_value int " + "EXEC @return_value = " +
-                "[dbo].[sp_Thi] @SOCAUHOII =" + 3 + ", @MAMH = N'MMTCB',"
+                "[dbo].[sp_Thi] @SOCAUHOII =" + 10 + ", @MAMH = N'" + monhoc + "',"
                 + "@KHOA = N'CNTT', @TRINHDO = N'A' SELECT  'Return Value' = @return_value";
             myReader = Program.ExecSqlDataReader(strLenh);
             if (myReader == null) return;
@@ -91,6 +94,7 @@ namespace TTN_PT
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
+
                 btnThi.Enabled = true;
                 SqlDataReader myReader;
                 string strlenh = "DECLARE	@return_value int " +
@@ -120,7 +124,9 @@ namespace TTN_PT
                     {
                         cbMonhoc.Items.Add(myReaderThi.GetString(0));
                         lbNgaythi.Text = myReaderThi.GetSqlDateTime(3).ToString();
-                        lbPhut.Text = myReaderThi.GetInt16(5).ToString() + " Phút"; // lấy số phút phải thi
+                        socauthi = myReaderThi.GetInt16(4);
+                        // phut = myReaderThi.GetInt16(5); // lấy số phút phải thi
+                        phut = 2;
                     }
                     myReaderThi.Close();
                     grbThoigianthi.Visible = true;
@@ -321,6 +327,14 @@ namespace TTN_PT
 
         private void btnNopbaithi_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
+            grbCoverThi.Hide();
+            MessageBox.Show("Kết thúc phần thi ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            TinhDiemSV();
+        }
+
+        private void TinhDiemSV()
+        {
             for (int i = 0; i < cauhoi_thi.Count; i++)
             {
                 CauHoi ch = (CauHoi)cauhoi_thi[i];
@@ -329,7 +343,34 @@ namespace TTN_PT
                     demcaudung++;
                 }
             }
-            MessageBox.Show("Co: " + demcaudung); // lưu được số câu đúng
+            float diem = ((float)demcaudung / (float)10) * 10;
+            Math.Round(diem, 1);
+            if (diem >= 0 && diem < 0.25) { diem = 0; }
+            else if (diem >= 0.25 && diem < 0.75) { diem = 0.5f; }
+            else if (diem >= 0.75 && diem < 1.25) { diem = 1; }
+            else if (diem >= 1.25 && diem < 2.25) { diem = 2; }
+            else if (diem >= 2.25 && diem < 2.75) { diem = 2.5f; }
+            else if (diem >= 2.75 && diem < 3.25) { diem = 3; }
+            else if (diem >= 3.25 && diem < 3.75) { diem = 3.5f; }
+            else if (diem >= 3.75 && diem < 4.25) { diem = 4; }
+            else if (diem >= 4.25 && diem < 4.75) { diem = 4.5f; }
+            else if (diem >= 4.75 && diem < 5.25) { diem = 5; }
+            else if (diem >= 5.25 && diem < 5.75) { diem = 5.5f; }
+            else if (diem >= 5.75 && diem < 6.25) { diem = 6; }
+            else if (diem >= 6.25 && diem < 6.75) { diem = 6.5f; }
+            else if (diem >= 6.75 && diem < 7.25) { diem = 7; }
+            else if (diem >= 7.25 && diem < 7.75) { diem = 7.5f; }
+            else if (diem >= 7.75 && diem < 8.25) { diem = 8; }
+            else if (diem >= 8.25 && diem < 8.75) { diem = 8.5f; }
+            else if (diem >= 8.75 && diem < 9.25) { diem = 9; }
+            else if (diem >= 9.25 && diem < 9.75) { diem = 9.5f; }
+            else diem = 10;
+            MessageBox.Show("Số câu đúng là: " + demcaudung + "\nSố điểm là: " + diem, "Thông báo kết quả");
+            string monhoc = cbMonhoc.Items[cbMonhoc.SelectedIndex].ToString();
+            SqlDataReader myReader;
+            string lenh = "EXEC  sp_GhiDiem '" + txtMasv.Text + "','" + monhoc + "','" +
+                lbLanthi.Text + "','" + lbNgaythi.Text + "','" + diem + "'";
+            myReader = Program.ExecSqlDataReader(lenh);
         }
 
         private void cbMonhoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -346,6 +387,42 @@ namespace TTN_PT
                 myReader.Read();
                 lbLanthi.Text = myReader.GetInt16(0).ToString();
                 myReader.Close();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (phut >= 0)
+            {
+                if (giay <= 0)
+                {
+                    if (phut == 0)
+                    {
+                        timer1.Stop();
+                        grbCoverThi.Hide();
+                        MessageBox.Show("Kết thúc phần thi ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        TinhDiemSV();
+                    }
+                    else
+                    {
+                        giay = 59;
+                        phut--;
+                        this.lbGiay.Text = giay.ToString() + " Giây";
+                        this.lbPhut.Text = phut.ToString() + " Phút";
+                    }
+
+                }
+                else if (giay < 10)
+                {
+                    giay--;
+                    this.lbGiay.Text = "0" + giay.ToString() + " Giây";
+                }
+                else
+                {
+                    giay--;
+                    this.lbGiay.Text = giay.ToString() + " Giây";
+                    this.lbPhut.Text = phut.ToString() + " Phút";
+                }
             }
         }
 

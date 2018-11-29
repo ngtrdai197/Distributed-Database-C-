@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.components = new System.ComponentModel.Container();
+            this.grbInfo = new System.Windows.Forms.GroupBox();
             this.btnThi = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbNgaythi = new System.Windows.Forms.Label();
@@ -64,7 +65,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lbPhut = new System.Windows.Forms.Label();
             this.lbLanthi = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.grbInfo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grbCoverThi.SuspendLayout();
@@ -72,17 +74,17 @@
             this.grbThoigianthi.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grbInfo
             // 
-            this.groupBox1.Controls.Add(this.btnThi);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(950, 184);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
+            this.grbInfo.Controls.Add(this.btnThi);
+            this.grbInfo.Controls.Add(this.groupBox3);
+            this.grbInfo.Controls.Add(this.groupBox2);
+            this.grbInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grbInfo.Location = new System.Drawing.Point(0, 0);
+            this.grbInfo.Name = "grbInfo";
+            this.grbInfo.Size = new System.Drawing.Size(950, 184);
+            this.grbInfo.TabIndex = 0;
+            this.grbInfo.TabStop = false;
             // 
             // btnThi
             // 
@@ -296,9 +298,9 @@
             this.grbThi.Controls.Add(this.rdB_B);
             this.grbThi.Controls.Add(this.rdB_A);
             this.grbThi.Controls.Add(this.txtCauHoi);
-            this.grbThi.Location = new System.Drawing.Point(176, 20);
+            this.grbThi.Location = new System.Drawing.Point(283, 20);
             this.grbThi.Name = "grbThi";
-            this.grbThi.Size = new System.Drawing.Size(694, 367);
+            this.grbThi.Size = new System.Drawing.Size(664, 367);
             this.grbThi.TabIndex = 1;
             this.grbThi.TabStop = false;
             this.grbThi.Text = "Thi";
@@ -392,7 +394,7 @@
             this.txtCauHoi.Location = new System.Drawing.Point(3, 17);
             this.txtCauHoi.Multiline = true;
             this.txtCauHoi.Name = "txtCauHoi";
-            this.txtCauHoi.Size = new System.Drawing.Size(688, 91);
+            this.txtCauHoi.Size = new System.Drawing.Size(658, 91);
             this.txtCauHoi.TabIndex = 0;
             // 
             // grbThoigianthi
@@ -402,7 +404,7 @@
             this.grbThoigianthi.Controls.Add(this.lbPhut);
             this.grbThoigianthi.Location = new System.Drawing.Point(6, 20);
             this.grbThoigianthi.Name = "grbThoigianthi";
-            this.grbThoigianthi.Size = new System.Drawing.Size(151, 100);
+            this.grbThoigianthi.Size = new System.Drawing.Size(191, 100);
             this.grbThoigianthi.TabIndex = 0;
             this.grbThoigianthi.TabStop = false;
             this.grbThoigianthi.Text = "Thời gian thi";
@@ -412,9 +414,8 @@
             this.lbGiay.AutoSize = true;
             this.lbGiay.Location = new System.Drawing.Point(90, 31);
             this.lbGiay.Name = "lbGiay";
-            this.lbGiay.Size = new System.Drawing.Size(28, 13);
+            this.lbGiay.Size = new System.Drawing.Size(0, 13);
             this.lbGiay.TabIndex = 2;
-            this.lbGiay.Text = "Giây";
             // 
             // label9
             // 
@@ -430,9 +431,8 @@
             this.lbPhut.AutoSize = true;
             this.lbPhut.Location = new System.Drawing.Point(20, 31);
             this.lbPhut.Name = "lbPhut";
-            this.lbPhut.Size = new System.Drawing.Size(29, 13);
+            this.lbPhut.Size = new System.Drawing.Size(0, 13);
             this.lbPhut.TabIndex = 0;
-            this.lbPhut.Text = "Phút";
             // 
             // lbLanthi
             // 
@@ -443,17 +443,22 @@
             this.lbLanthi.TabIndex = 6;
             this.lbLanthi.Text = "label2";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FormThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 656);
             this.Controls.Add(this.grbCoverThi);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grbInfo);
             this.Name = "FormThi";
             this.Text = "FormThi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThi_FormClosing);
-            this.groupBox1.ResumeLayout(false);
+            this.grbInfo.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -469,7 +474,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbInfo;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -505,5 +510,6 @@
         private System.Windows.Forms.Button btnLuilai;
         private System.Windows.Forms.Button btnNopbaithi;
         private System.Windows.Forms.Label lbLanthi;
+        private System.Windows.Forms.Timer timer1;
     }
 }
