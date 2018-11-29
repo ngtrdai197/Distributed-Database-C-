@@ -194,3 +194,6 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ru\DevExpress.Diagram.v17.1.C
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormThi.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormTest.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormDangKiThi.resources
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.INDIEMTHEOMON.resources
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\DevExpress.RichEdit.v17.1.Export.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormInDiemTheoMonHoc.resources

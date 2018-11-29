@@ -32,7 +32,6 @@
             this.btnThi = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbNgaythi = new System.Windows.Forms.Label();
-            this.cbLanthi = new System.Windows.Forms.ComboBox();
             this.cbMonhoc = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@
             this.lbGiay = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbPhut = new System.Windows.Forms.Label();
+            this.lbLanthi = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,8 +96,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lbLanthi);
             this.groupBox3.Controls.Add(this.lbNgaythi);
-            this.groupBox3.Controls.Add(this.cbLanthi);
             this.groupBox3.Controls.Add(this.cbMonhoc);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
@@ -118,15 +118,6 @@
             this.lbNgaythi.Size = new System.Drawing.Size(0, 13);
             this.lbNgaythi.TabIndex = 5;
             // 
-            // cbLanthi
-            // 
-            this.cbLanthi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLanthi.FormattingEnabled = true;
-            this.cbLanthi.Location = new System.Drawing.Point(132, 110);
-            this.cbLanthi.Name = "cbLanthi";
-            this.cbLanthi.Size = new System.Drawing.Size(174, 21);
-            this.cbLanthi.TabIndex = 4;
-            // 
             // cbMonhoc
             // 
             this.cbMonhoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -135,6 +126,7 @@
             this.cbMonhoc.Name = "cbMonhoc";
             this.cbMonhoc.Size = new System.Drawing.Size(174, 21);
             this.cbMonhoc.TabIndex = 3;
+            this.cbMonhoc.SelectedIndexChanged += new System.EventHandler(this.cbMonhoc_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -442,6 +434,15 @@
             this.lbPhut.TabIndex = 0;
             this.lbPhut.Text = "Phút";
             // 
+            // lbLanthi
+            // 
+            this.lbLanthi.AutoSize = true;
+            this.lbLanthi.Location = new System.Drawing.Point(135, 118);
+            this.lbLanthi.Name = "lbLanthi";
+            this.lbLanthi.Size = new System.Drawing.Size(35, 13);
+            this.lbLanthi.TabIndex = 6;
+            this.lbLanthi.Text = "label2";
+            // 
             // FormThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,7 +471,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox cbLanthi;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -504,5 +504,6 @@
         private System.Windows.Forms.Button btnTieptheo;
         private System.Windows.Forms.Button btnLuilai;
         private System.Windows.Forms.Button btnNopbaithi;
+        private System.Windows.Forms.Label lbLanthi;
     }
 }

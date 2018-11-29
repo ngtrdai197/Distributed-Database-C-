@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using DevExpress.XtraReports.UI;
 
 namespace TTN_PT
 {
@@ -141,6 +142,17 @@ namespace TTN_PT
                 fLop.MdiParent = this;
                 fLop.Show();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormInDiemTheoMonHoc indiem = new FormInDiemTheoMonHoc();
+            indiem.Show();
         }
     }
 }

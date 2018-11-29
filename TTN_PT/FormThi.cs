@@ -48,7 +48,7 @@ namespace TTN_PT
             grbThi.Visible = true;
             SqlDataReader myReader;
             string strLenh = "DECLARE	@return_value int " + "EXEC @return_value = " +
-                "[dbo].[sp_Thi] @SOCAUHOII =" + 10 + ", @MAMH = N'MMTCB',"
+                "[dbo].[sp_Thi] @SOCAUHOII =" + 3 + ", @MAMH = N'MMTCB',"
                 + "@KHOA = N'CNTT', @TRINHDO = N'A' SELECT  'Return Value' = @return_value";
             myReader = Program.ExecSqlDataReader(strLenh);
             if (myReader == null) return;
@@ -119,14 +119,12 @@ namespace TTN_PT
                     while (myReaderThi.Read() == true)
                     {
                         cbMonhoc.Items.Add(myReaderThi.GetString(0));
-                        cbLanthi.Items.Add(myReaderThi.GetInt16(2));
                         lbNgaythi.Text = myReaderThi.GetSqlDateTime(3).ToString();
                         lbPhut.Text = myReaderThi.GetInt16(5).ToString() + " Phút"; // lấy số phút phải thi
                     }
                     myReaderThi.Close();
                     grbThoigianthi.Visible = true;
                     cbMonhoc.SelectedIndex = 0;
-                    cbLanthi.SelectedIndex = 0;
                 }
 
                 txtHoten.Enabled = txtMalop.Enabled = txtTenlop.Enabled = txtMasv.Enabled = false;
@@ -220,23 +218,23 @@ namespace TTN_PT
             if (vitri_cauhoi == 0)
             {
                 vitri_cauhoi = cauhoi_thi.Count;
-                if (ketqua[vitri_cauhoi - 1].Equals('A'))
+                if (ketqua[vitri_cauhoi - 1] == "A")
                 {
                     rdB_A.Checked = true;
                 }
-                else if (ketqua[vitri_cauhoi - 1].Equals('B'))
+                else if (ketqua[vitri_cauhoi - 1] == "B")
                 {
                     rdB_B.Checked = true;
                 }
-                else if (ketqua[vitri_cauhoi - 1].Equals('C'))
+                else if (ketqua[vitri_cauhoi - 1] == "C")
                 {
                     rdB_C.Checked = true;
                 }
-                else if (ketqua[vitri_cauhoi - 1].Equals('D'))
+                else if (ketqua[vitri_cauhoi - 1] == "D")
                 {
                     rdB_D.Checked = true;
                 }
-                else if (ketqua[vitri_cauhoi - 1].Equals('\0'))
+                else if (ketqua[vitri_cauhoi - 1] == "\0")
                 {
                     XuLyRadioButton(false);
                 }
@@ -249,23 +247,23 @@ namespace TTN_PT
             }
             else
             {
-                if (ketqua[vitri_cauhoi - 1].Equals('A'))
+                if (ketqua[vitri_cauhoi - 1] == "A")
                 {
                     rdB_A.Checked = true;
                 }
-                else if (ketqua[vitri_cauhoi - 1].Equals('B'))
+                else if (ketqua[vitri_cauhoi - 1] == "B")
                 {
                     rdB_B.Checked = true;
                 }
-                else if (ketqua[vitri_cauhoi - 1].Equals('C'))
+                else if (ketqua[vitri_cauhoi - 1] == "C")
                 {
                     rdB_C.Checked = true;
                 }
-                else if (ketqua[vitri_cauhoi - 1].Equals('D'))
+                else if (ketqua[vitri_cauhoi - 1] == "D")
                 {
                     rdB_D.Checked = true;
                 }
-                else if (ketqua[vitri_cauhoi - 1].Equals('\0'))
+                else if (ketqua[vitri_cauhoi - 1] == "\0")
                 {
                     XuLyRadioButton(false);
                 }
@@ -332,6 +330,23 @@ namespace TTN_PT
                 }
             }
             MessageBox.Show("Co: " + demcaudung); // lưu được số câu đúng
+        }
+
+        private void cbMonhoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string monhoc = cbMonhoc.Items[cbMonhoc.SelectedIndex].ToString();
+            SqlDataReader myReader;
+            string strLenh = "DECLARE @return_value int " +
+                "EXEC @return_value = [dbo].[SP_LAYLANTHITHEOMH]" +
+                "@MAMH = N'" + monhoc + "' " + "SELECT  'Return Value' = @return_value";
+            myReader = Program.ExecSqlDataReader(strLenh);
+            if (myReader == null) return;
+            else
+            {
+                myReader.Read();
+                lbLanthi.Text = myReader.GetInt16(0).ToString();
+                myReader.Close();
+            }
         }
 
         private void gIAOVIEN_DANGKYBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)

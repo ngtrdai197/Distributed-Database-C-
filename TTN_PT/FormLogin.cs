@@ -106,6 +106,7 @@ namespace TTN_PT
 
                         FormThi frmThi = new FormThi();
                         frmThi.Show();
+
                     }
 
                     this.Hide();
@@ -120,7 +121,8 @@ namespace TTN_PT
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            //Close();
+            Application.Exit();
         }
 
     }
