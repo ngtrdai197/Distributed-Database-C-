@@ -191,7 +191,8 @@ namespace TTN_PT
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            
+            
         }
 
         private void cbCoso_SelectedIndexChanged(object sender, EventArgs e)

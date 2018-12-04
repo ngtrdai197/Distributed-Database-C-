@@ -197,3 +197,4 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormDangKiThi.resource
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.INDIEMTHEOMON.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\DevExpress.RichEdit.v17.1.Export.dll
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormInDiemTheoMonHoc.resources
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.DANGKITHIcs.resources

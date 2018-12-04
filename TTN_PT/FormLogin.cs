@@ -16,9 +16,9 @@ namespace TTN_PT
         {
             InitializeComponent();
 
-            txtLogin.Text = "THANH";
+            txtLogin.Text = "HAI";
             txtPass.Text = "123";
-            rdbSV.Checked = true;
+            rdbGV.Checked = true;
 
         }
 

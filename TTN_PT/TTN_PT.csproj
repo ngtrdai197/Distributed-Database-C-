@@ -82,6 +82,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DANGKITHIcs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DANGKITHIcs.Designer.cs">
+      <DependentUpon>DANGKITHIcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="DS_VIEW.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +180,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TTN_DS.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DANGKITHIcs.resx">
+      <DependentUpon>DANGKITHIcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBoDe.resx">
       <DependentUpon>FormBoDe.cs</DependentUpon>
     </EmbeddedResource>

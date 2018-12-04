@@ -21,12 +21,28 @@ namespace TTN_PT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if(tbTenLop.Text.Equals("")|| tbTenLop.Text.Equals("")||)
-                
-            int lanthi = Int32.Parse(tbLanThi.Text);
-            INDIEMTHEOMON ii = new INDIEMTHEOMON(tbTenLop.Text,tbTenMonHoc.Text,lanthi);
-            ReportPrintTool ss = new ReportPrintTool(ii);
-            ss.ShowPreviewDialog();
+            if (txtTenmon.Text == "")
+            {
+                MessageBox.Show("Tên môn học không được để trống !");
+                return;
+            }else if(txtTenlop.Text == "")
+            {
+                MessageBox.Show("Tên lớp không được để trống !");
+                return;
+            }else if(txtLanthi.Text == "")
+            {
+                MessageBox.Show("Lần thi không được để trống !");
+                return;
+            }
+            else
+            {
+                int lanthi = Int32.Parse(txtLanthi.Text);
+                INDIEMTHEOMON ii = new INDIEMTHEOMON(txtTenlop.Text, txtTenmon.Text, lanthi);
+                ReportPrintTool ss = new ReportPrintTool(ii);
+                ss.ShowPreviewDialog();
+            }
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

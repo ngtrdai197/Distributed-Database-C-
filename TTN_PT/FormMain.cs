@@ -15,7 +15,7 @@ namespace TTN_PT
     public partial class FormMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
-
+        string role = Program.mGroup;
         public FormMain()
         {
             InitializeComponent();
@@ -23,6 +23,13 @@ namespace TTN_PT
             stHoten.Text = stHoten.Text + Program.mHoten + "  - ";
             stMa.Text = stMa.Text + Program.username + "  - ";
             toolStripStatusLabel3.Text = toolStripStatusLabel3.Text + Program.mGroup;
+            if (role == "GIANGVIEN")
+            {
+                btnDangKiThi.Enabled = btnKhoa.Enabled = btnIndiem.Enabled
+                    = btnMonhoc.Enabled = btnIndiem.Enabled = btnLop.Enabled = false;
+
+            }
+
         }
 
         //Kiểm tra form tồn tại chưa?
@@ -36,10 +43,12 @@ namespace TTN_PT
                 }
             }
             return null;
+
         }
 
         private void btnSinhVien_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             Form frm = CheckExists(typeof(FormDangKiThi));
             if (frm != null)
             {
@@ -51,6 +60,7 @@ namespace TTN_PT
                 frmDKThi.MdiParent = this;
                 frmDKThi.Show();
             }
+
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -67,22 +77,6 @@ namespace TTN_PT
             frmLogin.Show();
         }
 
-        private void btnGiangVien_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Form frm = CheckExists(typeof(FormGiangVien));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-
-                FormGiangVien frmGV = new FormGiangVien();
-                frmGV.MdiParent = this;
-                frmGV.Show();
-            }
-
-        }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -101,6 +95,7 @@ namespace TTN_PT
 
         private void btnMonhoc_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             Form f = CheckExists(typeof(FormMonHoc));
             if (f != null)
             {
@@ -112,10 +107,12 @@ namespace TTN_PT
                 fMonHoc.MdiParent = this;
                 fMonHoc.Show();
             }
+
         }
 
         private void btnKhoa_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             Form f = CheckExists(typeof(FormKhoa));
             if (f != null)
             {
@@ -127,10 +124,12 @@ namespace TTN_PT
                 fKhoa.MdiParent = this;
                 fKhoa.Show();
             }
+
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             Form f = CheckExists(typeof(FormLop));
             if (f != null)
             {
@@ -142,17 +141,27 @@ namespace TTN_PT
                 fLop.MdiParent = this;
                 fLop.Show();
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
             FormInDiemTheoMonHoc indiem = new FormInDiemTheoMonHoc();
             indiem.Show();
+
+        }
+
+        private void btnDSDKThi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+            DANGKITHIcs c9 = new DANGKITHIcs();
+            ReportPrintTool cau9 = new ReportPrintTool(c9);
+            cau9.ShowPreviewDialog();
         }
     }
 }

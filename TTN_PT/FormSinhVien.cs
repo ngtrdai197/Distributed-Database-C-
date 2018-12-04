@@ -200,7 +200,7 @@ namespace TTN_PT
 
             btnThem.Enabled = btnXoa.Enabled = btnLuu.Enabled = false;
             btnSua.Enabled = false;
-
+            txtMasv.Enabled = false;
             // tắt ds sinh viên
             sINHVIENGridControl.Enabled = false;
 
@@ -214,7 +214,7 @@ namespace TTN_PT
 
             sINHVIENGridControl.Enabled = btnSua.Enabled
                 = btnXoa.Enabled = btnLuu.Enabled = btnThem.Enabled = true;
-            txtTimkiem.Enabled = true;
+            txtTimkiem.Enabled = txtMasv.Enabled = true;
 
             sINHVIENTableAdapter.Update(tTN_DS.SINHVIEN);
             sINHVIENTableAdapter.Fill(tTN_DS.SINHVIEN);
@@ -223,7 +223,7 @@ namespace TTN_PT
 
         private void btnHuybo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            sINHVIENGridControl.Enabled = true;
+            sINHVIENGridControl.Enabled = txtMasv.Enabled = true;
 
             sINHVIENBindingSource.CancelEdit();
 

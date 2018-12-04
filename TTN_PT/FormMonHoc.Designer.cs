@@ -32,6 +32,7 @@
             System.Windows.Forms.Label mAMHLabel;
             System.Windows.Forms.Label tENMHLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonHoc));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -52,25 +53,25 @@
             this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.MonHocTableAdapter = new TTN_PT.TTN_DSTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new TTN_PT.TTN_DSTableAdapters.TableAdapterManager();
-            this.mONHOCGridControl = new DevExpress.XtraGrid.GridControl();
+            this.MonHocGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tENMHTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.mAMHTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.btnXacnhan = new System.Windows.Forms.Button();
+            this.txtTenMH = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaMH = new DevExpress.XtraEditors.TextEdit();
             mAMHLabel = new System.Windows.Forms.Label();
             tENMHLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tTN_DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mONHOCGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tENMHTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mAMHTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mAMHLabel
@@ -129,6 +130,7 @@
             this.btnThem.Id = 0;
             this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
             this.btnThem.Name = "btnThem";
+            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
             // btnXoa
             // 
@@ -144,6 +146,7 @@
             this.btnSua.Id = 2;
             this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
             this.btnSua.Name = "btnSua";
+            this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
             // 
             // btnLuu
             // 
@@ -151,6 +154,7 @@
             this.btnLuu.Id = 3;
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
             this.btnLuu.Name = "btnLuu";
+            this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
             // 
             // btnHuybo
             // 
@@ -158,6 +162,7 @@
             this.btnHuybo.Id = 4;
             this.btnHuybo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHuybo.ImageOptions.Image")));
             this.btnHuybo.Name = "btnHuybo";
+            this.btnHuybo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuybo_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -267,17 +272,20 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TTN_PT.TTN_DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // mONHOCGridControl
+            // MonHocGridControl
             // 
-            this.mONHOCGridControl.DataSource = this.bdsMonHoc;
-            this.mONHOCGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mONHOCGridControl.Location = new System.Drawing.Point(0, 95);
-            this.mONHOCGridControl.MainView = this.gridView1;
-            this.mONHOCGridControl.MenuManager = this.barManager1;
-            this.mONHOCGridControl.Name = "mONHOCGridControl";
-            this.mONHOCGridControl.Size = new System.Drawing.Size(791, 220);
-            this.mONHOCGridControl.TabIndex = 8;
-            this.mONHOCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.MonHocGridControl.DataSource = this.bdsMonHoc;
+            this.MonHocGridControl.Dock = System.Windows.Forms.DockStyle.Top;
+            gridLevelNode2.RelationName = "Level1";
+            this.MonHocGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
+            this.MonHocGridControl.Location = new System.Drawing.Point(0, 95);
+            this.MonHocGridControl.MainView = this.gridView1;
+            this.MonHocGridControl.MenuManager = this.barManager1;
+            this.MonHocGridControl.Name = "MonHocGridControl";
+            this.MonHocGridControl.Size = new System.Drawing.Size(791, 220);
+            this.MonHocGridControl.TabIndex = 8;
+            this.MonHocGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -285,8 +293,9 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMAMH,
             this.colTENMH});
-            this.gridView1.GridControl = this.mONHOCGridControl;
+            this.gridView1.GridControl = this.MonHocGridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // colMAMH
             // 
@@ -310,9 +319,9 @@
             // 
             this.groupBox1.Controls.Add(this.btnXacnhan);
             this.groupBox1.Controls.Add(tENMHLabel);
-            this.groupBox1.Controls.Add(this.tENMHTextEdit);
+            this.groupBox1.Controls.Add(this.txtTenMH);
             this.groupBox1.Controls.Add(mAMHLabel);
-            this.groupBox1.Controls.Add(this.mAMHTextEdit);
+            this.groupBox1.Controls.Add(this.txtMaMH);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 315);
             this.groupBox1.Name = "groupBox1";
@@ -320,24 +329,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin môn học";
-            // 
-            // tENMHTextEdit
-            // 
-            this.tENMHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "TENMH", true));
-            this.tENMHTextEdit.Location = new System.Drawing.Point(188, 75);
-            this.tENMHTextEdit.MenuManager = this.barManager1;
-            this.tENMHTextEdit.Name = "tENMHTextEdit";
-            this.tENMHTextEdit.Size = new System.Drawing.Size(172, 20);
-            this.tENMHTextEdit.TabIndex = 3;
-            // 
-            // mAMHTextEdit
-            // 
-            this.mAMHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "MAMH", true));
-            this.mAMHTextEdit.Location = new System.Drawing.Point(188, 38);
-            this.mAMHTextEdit.MenuManager = this.barManager1;
-            this.mAMHTextEdit.Name = "mAMHTextEdit";
-            this.mAMHTextEdit.Size = new System.Drawing.Size(172, 20);
-            this.mAMHTextEdit.TabIndex = 1;
             // 
             // btnXacnhan
             // 
@@ -347,6 +338,25 @@
             this.btnXacnhan.TabIndex = 4;
             this.btnXacnhan.Text = "Xác nhận";
             this.btnXacnhan.UseVisualStyleBackColor = true;
+            this.btnXacnhan.Click += new System.EventHandler(this.btnXacnhan_Click);
+            // 
+            // txtTenMH
+            // 
+            this.txtTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "TENMH", true));
+            this.txtTenMH.Location = new System.Drawing.Point(188, 75);
+            this.txtTenMH.MenuManager = this.barManager1;
+            this.txtTenMH.Name = "txtTenMH";
+            this.txtTenMH.Size = new System.Drawing.Size(172, 20);
+            this.txtTenMH.TabIndex = 3;
+            // 
+            // txtMaMH
+            // 
+            this.txtMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "MAMH", true));
+            this.txtMaMH.Location = new System.Drawing.Point(188, 38);
+            this.txtMaMH.MenuManager = this.barManager1;
+            this.txtMaMH.Name = "txtMaMH";
+            this.txtMaMH.Size = new System.Drawing.Size(172, 20);
+            this.txtMaMH.TabIndex = 1;
             // 
             // FormMonHoc
             // 
@@ -354,7 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 462);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.mONHOCGridControl);
+            this.Controls.Add(this.MonHocGridControl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.txtTimkiem);
@@ -363,19 +373,19 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FormMonHoc";
-            this.Text = "FormMonHoc";
+            this.Text = "Môn Học";
             this.Load += new System.EventHandler(this.FormMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tTN_DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mONHOCGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tENMHTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mAMHTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,13 +413,13 @@
         private System.Windows.Forms.ComboBox cbCoSo;
         private TTN_DSTableAdapters.MONHOCTableAdapter MonHocTableAdapter;
         private TTN_DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl mONHOCGridControl;
+        private DevExpress.XtraGrid.GridControl MonHocGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.TextEdit tENMHTextEdit;
-        private DevExpress.XtraEditors.TextEdit mAMHTextEdit;
+        private DevExpress.XtraEditors.TextEdit txtTenMH;
+        private DevExpress.XtraEditors.TextEdit txtMaMH;
         private System.Windows.Forms.Button btnXacnhan;
     }
 }
