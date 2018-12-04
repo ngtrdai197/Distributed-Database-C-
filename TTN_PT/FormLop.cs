@@ -351,7 +351,7 @@ namespace TTN_PT
             btnThemlop.Enabled = btnLuulop.Enabled = false;
             txtLopmalop.Enabled = txtKhoamakhoa.Enabled = txtLoptenlop.Enabled = true;
 
-            btnXacnhanlop.Enabled = true;
+            btnXacnhanlop.Enabled = btnHuybolop.Enabled = true;
             bdsLop.AddNew();
         }
 
@@ -391,6 +391,7 @@ namespace TTN_PT
         private void btnHuybolop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             btnThemlop.Enabled = true;
+            bdsLop.CancelEdit();
             btnLuulop.Enabled = btnHuybolop.Enabled = btnXacnhanlop.Enabled = false;
             lOPGridControl.Enabled = true;
         }

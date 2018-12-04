@@ -28,7 +28,7 @@ namespace TTN_PT
         public static String mGroup = "";
         public static String mHoten = "";
         public static SqlCommand cmd = new SqlCommand();
-        public static int mCoSo = 0;
+        public static int mCoSo;
 
         // giữ danh sách phân mảnh của cơ sở khi đăng nhập
         public static BindingSource bds_dspm = new BindingSource();
