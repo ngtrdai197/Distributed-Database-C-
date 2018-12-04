@@ -282,7 +282,7 @@ namespace TTN_PT
             btnThemKhoa.Enabled = btnLuukhoa.Enabled = false;
             txtMakhoa.Enabled = txtMacs.Enabled = txtTenkhoa.Enabled = true;
 
-            btnXacnhankhoa.Enabled = true;
+           btnHuykhoa.Enabled= btnXacnhankhoa.Enabled = true;
             bdsKhoa.AddNew();
         }
 
@@ -323,6 +323,11 @@ namespace TTN_PT
                 MessageBox.Show("Lỗi ghi sinh viên !" + ex.Message);
                 return;
             }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

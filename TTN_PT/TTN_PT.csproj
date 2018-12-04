@@ -175,6 +175,9 @@
     <Compile Include="Models\KetQua.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TTN_DS.cs">
+      <DependentUpon>TTN_DS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TTN_DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -75,10 +75,12 @@
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnXacnhankhoa = new System.Windows.Forms.Button();
             this.txtMacs = new DevExpress.XtraEditors.TextEdit();
             this.txtTenkhoa = new DevExpress.XtraEditors.TextEdit();
             this.txtMakhoa = new DevExpress.XtraEditors.TextEdit();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnXnsua = new System.Windows.Forms.Button();
             this.btnXacnhanGv = new System.Windows.Forms.Button();
             this.txtMakhoaGv = new DevExpress.XtraEditors.TextEdit();
             this.txtDiachiGv = new DevExpress.XtraEditors.TextEdit();
@@ -88,15 +90,13 @@
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThemKhoa = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLuukhoa = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHuykhoa = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.GiaoVienTableAdapter = new TTN_PT.TTN_DSTableAdapters.GIAOVIENTableAdapter();
-            this.btnXacnhankhoa = new System.Windows.Forms.Button();
-            this.btnXnsua = new System.Windows.Forms.Button();
-            this.btnLuukhoa = new DevExpress.XtraBars.BarButtonItem();
-            this.btnHuykhoa = new DevExpress.XtraBars.BarButtonItem();
             mAKHLabel = new System.Windows.Forms.Label();
             tENKHLabel = new System.Windows.Forms.Label();
             mACSLabel = new System.Windows.Forms.Label();
@@ -283,7 +283,7 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(3, 17);
             this.standaloneBarDockControl2.Manager = this.barManager1;
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(506, 51);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(505, 51);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // barDockControlTop
@@ -325,7 +325,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(3, 17);
             this.standaloneBarDockControl1.Manager = this.barManager1;
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(315, 51);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(316, 51);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // panel1
@@ -412,7 +412,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(321, 219);
+            this.groupBox1.Size = new System.Drawing.Size(322, 219);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Khoa";
@@ -425,7 +425,7 @@
             this.KhoaGridControl.MainView = this.gridView1;
             this.KhoaGridControl.MenuManager = this.barManager1;
             this.KhoaGridControl.Name = "KhoaGridControl";
-            this.KhoaGridControl.Size = new System.Drawing.Size(315, 263);
+            this.KhoaGridControl.Size = new System.Drawing.Size(316, 263);
             this.KhoaGridControl.TabIndex = 1;
             this.KhoaGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -466,9 +466,9 @@
             this.groupBox2.Controls.Add(this.GiaoVienGridControl);
             this.groupBox2.Controls.Add(this.standaloneBarDockControl2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(330, 3);
+            this.groupBox2.Location = new System.Drawing.Point(331, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(512, 219);
+            this.groupBox2.Size = new System.Drawing.Size(511, 219);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giảng viên";
@@ -481,7 +481,7 @@
             this.GiaoVienGridControl.MainView = this.gridView2;
             this.GiaoVienGridControl.MenuManager = this.barManager1;
             this.GiaoVienGridControl.Name = "GiaoVienGridControl";
-            this.GiaoVienGridControl.Size = new System.Drawing.Size(506, 148);
+            this.GiaoVienGridControl.Size = new System.Drawing.Size(505, 148);
             this.GiaoVienGridControl.TabIndex = 1;
             this.GiaoVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -550,10 +550,21 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 228);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(321, 207);
+            this.groupBox3.Size = new System.Drawing.Size(322, 207);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin khoa";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // btnXacnhankhoa
+            // 
+            this.btnXacnhankhoa.Location = new System.Drawing.Point(211, 151);
+            this.btnXacnhankhoa.Name = "btnXacnhankhoa";
+            this.btnXacnhankhoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXacnhankhoa.TabIndex = 6;
+            this.btnXacnhankhoa.Text = "Xác nhận";
+            this.btnXacnhankhoa.UseVisualStyleBackColor = true;
+            this.btnXacnhankhoa.Click += new System.EventHandler(this.btnXacnhankhoa_Click);
             // 
             // txtMacs
             // 
@@ -597,12 +608,21 @@
             this.groupBox4.Controls.Add(mAGVLabel);
             this.groupBox4.Controls.Add(this.txtMaGv);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(330, 228);
+            this.groupBox4.Location = new System.Drawing.Point(331, 228);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(512, 207);
+            this.groupBox4.Size = new System.Drawing.Size(511, 207);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin giảng viên";
+            // 
+            // btnXnsua
+            // 
+            this.btnXnsua.Location = new System.Drawing.Point(342, 109);
+            this.btnXnsua.Name = "btnXnsua";
+            this.btnXnsua.Size = new System.Drawing.Size(75, 23);
+            this.btnXnsua.TabIndex = 11;
+            this.btnXnsua.Text = "Xác nhận";
+            this.btnXnsua.UseVisualStyleBackColor = true;
             // 
             // btnXacnhanGv
             // 
@@ -695,6 +715,22 @@
             this.btnThemKhoa.Name = "btnThemKhoa";
             this.btnThemKhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThemKhoa_ItemClick);
             // 
+            // btnLuukhoa
+            // 
+            this.btnLuukhoa.Caption = "Lưu";
+            this.btnLuukhoa.Id = 1;
+            this.btnLuukhoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuukhoa.ImageOptions.Image")));
+            this.btnLuukhoa.Name = "btnLuukhoa";
+            this.btnLuukhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuukhoa_ItemClick);
+            // 
+            // btnHuykhoa
+            // 
+            this.btnHuykhoa.Caption = "Hủy bỏ";
+            this.btnHuykhoa.Id = 2;
+            this.btnHuykhoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHuykhoa.ImageOptions.Image")));
+            this.btnHuykhoa.Name = "btnHuykhoa";
+            this.btnHuykhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuykhoa_ItemClick);
+            // 
             // barDockControl1
             // 
             this.barDockControl1.CausesValidation = false;
@@ -730,41 +766,6 @@
             // GiaoVienTableAdapter
             // 
             this.GiaoVienTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnXacnhankhoa
-            // 
-            this.btnXacnhankhoa.Location = new System.Drawing.Point(211, 151);
-            this.btnXacnhankhoa.Name = "btnXacnhankhoa";
-            this.btnXacnhankhoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXacnhankhoa.TabIndex = 6;
-            this.btnXacnhankhoa.Text = "Xác nhận";
-            this.btnXacnhankhoa.UseVisualStyleBackColor = true;
-            this.btnXacnhankhoa.Click += new System.EventHandler(this.btnXacnhankhoa_Click);
-            // 
-            // btnXnsua
-            // 
-            this.btnXnsua.Location = new System.Drawing.Point(342, 109);
-            this.btnXnsua.Name = "btnXnsua";
-            this.btnXnsua.Size = new System.Drawing.Size(75, 23);
-            this.btnXnsua.TabIndex = 11;
-            this.btnXnsua.Text = "Xác nhận";
-            this.btnXnsua.UseVisualStyleBackColor = true;
-            // 
-            // btnLuukhoa
-            // 
-            this.btnLuukhoa.Caption = "Lưu";
-            this.btnLuukhoa.Id = 1;
-            this.btnLuukhoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnLuukhoa.Name = "btnLuukhoa";
-            this.btnLuukhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuukhoa_ItemClick);
-            // 
-            // btnHuykhoa
-            // 
-            this.btnHuykhoa.Caption = "Hủy bỏ";
-            this.btnHuykhoa.Id = 2;
-            this.btnHuykhoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image1")));
-            this.btnHuykhoa.Name = "btnHuykhoa";
-            this.btnHuykhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuykhoa_ItemClick);
             // 
             // FormKhoa
             // 

@@ -12,8 +12,7 @@ namespace TTN_PT
         {
             InitializeComponent();
             sp_8TableAdapter1.Connection.ConnectionString = Program.connstr;
-            sp_8TableAdapter1.Fill(ttN_DS1.sp_8,tenlop,tenmonhoc,lanthi);
-            
+            sp_8TableAdapter1.Fill(ttN_DS1.sp_8,tenlop,tenmonhoc,lanthi);          
         }
 
     }
