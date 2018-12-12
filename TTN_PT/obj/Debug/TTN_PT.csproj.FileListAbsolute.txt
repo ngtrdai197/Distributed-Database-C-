@@ -198,3 +198,17 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.csproj.CopyComplete
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.exe
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.pdb
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\TTN_PT.pdb
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\DevExpress.XtraScheduler.v17.1.Core.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\DevExpress.XtraScheduler.v17.1.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\DevExpress.XtraScheduler.v17.1.xml
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\DevExpress.XtraScheduler.v17.1.Core.xml
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\de\DevExpress.XtraScheduler.v17.1.resources.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\es\DevExpress.XtraScheduler.v17.1.resources.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ja\DevExpress.XtraScheduler.v17.1.resources.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ru\DevExpress.XtraScheduler.v17.1.resources.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\de\DevExpress.XtraScheduler.v17.1.Core.resources.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\es\DevExpress.XtraScheduler.v17.1.Core.resources.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ja\DevExpress.XtraScheduler.v17.1.Core.resources.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ru\DevExpress.XtraScheduler.v17.1.Core.resources.dll
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormNhapNgay.resources
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.TAOLOGIN.resources

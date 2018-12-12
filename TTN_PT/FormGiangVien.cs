@@ -14,7 +14,9 @@ namespace TTN_PT
 {
     public partial class FormGiangVien : DevExpress.XtraEditors.XtraForm
     {
+        int chucnang;
         public FormGiangVien()
+
         {
             InitializeComponent();
         }
@@ -29,175 +31,204 @@ namespace TTN_PT
 
         private void FormGiangVien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsLOGIN.V_DSTKSV' table. You can move, or remove it, as needed.
+            this.v_DSTKSVTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.v_DSTKSVTableAdapter.Fill(this.dsLOGIN.V_DSTKSV);
+            // TODO: This line of code loads data into the 'dsLOGIN.V_DSTKSV' table. You can move, or remove it, as needed.
+            this.v_DSTKSVTableAdapter.Fill(this.dsLOGIN.V_DSTKSV);
+            // TODO: This line of code loads data into the 'tTN_DS.SINHVIEN' table. You can move, or remove it, as needed.
+            this.sINHVIENTableAdapter.Fill(this.tTN_DS.SINHVIEN);
+            // TODO: This line of code loads data into the 'dsLOGIN.V_DSNHOM' table. You can move, or remove it, as needed.
+            this.v_DSNHOMTableAdapter.Fill(this.dsLOGIN.V_DSNHOM);
+            // TODO: This line of code loads data into the 'dsLOGIN.V_DSTK' table. You can move, or remove it, as needed.
+            this.v_DSTKTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.v_DSTKTableAdapter.Fill(this.dsLOGIN.V_DSTK);
+            // TODO: This line of code loads data into the 'dsLOGIN.V_DSNHOM' table. You can move, or remove it, as needed.
+            this.v_DSNHOMTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.v_DSNHOMTableAdapter.Fill(this.dsLOGIN.V_DSNHOM);
             gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             // TODO: This line of code loads data into the 'tTN_DS.SINHVIEN' table. You can move, or remove it, as needed.
             this.gIAOVIENTableAdapter.Fill(this.tTN_DS.GIAOVIEN);
-            cbCoso.DataSource = Program.bds_dspm;
-            cbCoso.DisplayMember = "TENCS";
-            cbCoso.ValueMember = "TENSERVER";
+            cbCoSo.DataSource = Program.bds_dspm;
+            cbCoSo.DisplayMember = "TENCS";
+            cbCoSo.ValueMember = "TENSERVER";
 
-            // disable button
-            btnXacnhan.Enabled = false;
+
             btnHuybo.Enabled = false;
             btnLuu.Enabled = false;
 
             if (Program.mGroup == "TRUONG")
             {
-                cbCoso.Enabled = true;
-                btnSua.Enabled = btnXoa.Enabled = btnLuu.Enabled = btnThem.Enabled = false; // nhom truong ko duoc them moi 1 sv
+                cbNh.Enabled = false;
+                barLGSV.Enabled = false;
+                cbCoSo.Enabled = true;
+
 
             }
             else
             {
-                cbCoso.Enabled = false;
+                cbNh.Enabled = true;
+                barLGSV.Enabled = true;
+                cbCoSo.Enabled = false;
             }
 
         }
 
-        private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnXacnhan.Enabled = true;
-            btnHuybo.Enabled = true;
 
-            gIAOVIENGridControl.Enabled = btnSua.Enabled = btnXoa.Enabled = btnLuu.Enabled = false;
-            gIAOVIENBindingSource.AddNew();
-            btnThem.Enabled = false;
+            gbDangKi.Visible = true;
+            lbNhom.Visible = true;
+            cbNh.Visible = true;
+            sINHVIENGridControl.Visible = false;
+            gIAOVIENGridControl.Visible = true;
+            cbMAGV.Visible = true;
+            cbMASV.Visible = false;
+            chucnang = 1;
+
+
+            gIAOVIENGridControl.Dock = DockStyle.Fill;
         }
 
-        private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //tắt btn xác nhận
-            btnXacnhan.Enabled = false;
-            btnHuybo.Enabled = false;
+            gbDangKi.Visible = true;
+            lbNhom.Visible = false;
+            cbNh.Visible = false;
+            sINHVIENGridControl.Visible = true;
+            gIAOVIENGridControl.Visible = false;
+            cbMAGV.Visible = false;
+            cbMASV.Visible = true;
+            sINHVIENGridControl.Dock = DockStyle.Fill;
+            chucnang = 2;
 
-            gIAOVIENGridControl.Enabled = btnSua.Enabled
-                = btnXoa.Enabled = btnLuu.Enabled = btnThem.Enabled = true;
-            gIAOVIENTableAdapter.Update(tTN_DS.GIAOVIEN);
-            gIAOVIENTableAdapter.Fill(tTN_DS.GIAOVIEN);
-            MessageBox.Show("Cập nhật danh sách thành công");
-        }
-
-        private void btnXacnhan_Click(object sender, EventArgs e)
-        {
-
-            SqlDataReader myReader;
-            String strlenh = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MAGV] " +
-                "@MAGV = N'" + txtMaGv.Text + "' SELECT  'Return Value' = @return_value";
-            myReader = Program.ExecSqlDataReader(strlenh);
-            if (myReader == null) return;
-            myReader.Read();
-            int value = myReader.GetInt32(0);
-
-            if (txtMaGv.Text.Trim() == "")
-            {
-                MessageBox.Show("Mã giảng viên không được để trống");
-            }
-            else if (txtHo.Text.Trim() == "")
-            {
-                MessageBox.Show("Họ giảng viên không được để trống");
-            }
-            else if (txtTen.Text.Trim() == "")
-            {
-                MessageBox.Show("Tên giảng viên không được để trống");
-            }
-            else if (txtMakhoa.Text.Trim() == "")
-            {
-                MessageBox.Show("Mã khoa giảng viên không được để trống");
-            }
-            else if (txtDiachi.Text.Trim() == "")
-            {
-                MessageBox.Show("Địa chỉ giảng viên viên không được để trống");
-            }
-            else
-            {
-                btnHuybo.Enabled = true;
-                if (value == 1)
-                {
-                    MessageBox.Show("Mã giảng viên trùng. Kiểm tra lại!");
-                    myReader.Close();
-
-                }
-                else
-                {
-                    try
-                    {
-                        gIAOVIENBindingSource.EndEdit();
-                        gIAOVIENBindingSource.ResetCurrentItem();
-
-                        // huy thao tac
-                        btnLuu.Enabled = true;
-
-                        btnThem.Enabled = false;
-                        myReader.Close();
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi ghi giảng viên !" + ex.Message);
-                        return;
-                    }
-                }
-            }
-        }
-
-        private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            btnXacnhan.Enabled = true;
-            btnHuybo.Enabled = true;
-
-            btnThem.Enabled = btnXoa.Enabled = btnLuu.Enabled = false;
-            btnSua.Enabled = false;
-
-            // tắt ds sinh viên
-            gIAOVIENGridControl.Enabled = false;
-        }
-
-        private void btnHuybo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            gIAOVIENGridControl.Enabled = true;
-
-            if (Program.mGroup == "TRUONG")
-            {
-                btnXacnhan.Enabled = btnSua.Enabled =
-                    btnXoa.Enabled = btnLuu.Enabled =
-                    btnThem.Enabled = false; // nhom truong ko duoc them moi 1 sv
-            }
-            else
-            {
-                btnHuybo.Enabled = btnLuu.Enabled = btnXacnhan.Enabled = false;
-                btnSua.Enabled = btnXoa.Enabled = btnThem.Enabled = true;
-            }
-        }
-
-        private void btnTimkiem_Click(object sender, EventArgs e)
-        {
-            this.gIAOVIENBindingSource.Filter = "MAGV LIKE '%" + txtTimkiem.Text + "%'"
-                + " OR TEN LIKE '%" + this.txtTimkiem.Text + "%'";
-            if (txtTimkiem.Text == "")
-            {
-                gIAOVIENTableAdapter.Fill(tTN_DS.GIAOVIEN);
-            }
-        }
-
-        private void txtTimkiem_KeyUp(object sender, KeyEventArgs e)
-        {
-            this.gIAOVIENBindingSource.Filter = "MAGV LIKE '%" + txtTimkiem.Text + "%'"
-                + " OR TEN LIKE '%" + this.txtTimkiem.Text + "%'";
-            if (txtTimkiem.Text == "")
-            {
-                gIAOVIENTableAdapter.Fill(tTN_DS.GIAOVIEN);
-            }
-        }
-
-        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            
-            
         }
 
         private void cbCoso_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbCoSo.SelectedValue != null)
+            {
+                if (cbCoSo.ValueMember != "")
+                {
+                    if (Program.servername != cbCoSo.SelectedValue.ToString())
+                    {
+                        Program.servername = cbCoSo.SelectedValue.ToString();
+                    }
+                    if (cbCoSo.SelectedIndex != Program.mCoSo)
+                    {
+                        Program.mlogin = Program.remotelogin;
+                        Program.password = Program.remotepassword;
+                    }
+                    else
+                    {
+                        Program.mlogin = Program.mloginDN;
+                        Program.password = Program.passwordDN;
+                    }
+                    if (Program.KetNoi() == 0)
+                    {
+                        MessageBox.Show("Không thể kết nối", "Lỗi kết nối", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                        gIAOVIENTableAdapter.Fill(tTN_DS.GIAOVIEN);
 
+                        sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                        sINHVIENTableAdapter.Fill(tTN_DS.SINHVIEN);
+
+                        this.v_DSNHOMTableAdapter.Connection.ConnectionString = Program.connstr;
+                        this.v_DSNHOMTableAdapter.Fill(this.dsLOGIN.V_DSNHOM);
+
+                        this.v_DSTKTableAdapter.Connection.ConnectionString = Program.connstr;
+                        this.v_DSTKTableAdapter.Fill(this.dsLOGIN.V_DSTK);
+
+                        this.v_DSTKSVTableAdapter.Connection.ConnectionString = Program.connstr;
+                        this.v_DSTKSVTableAdapter.Fill(this.dsLOGIN.V_DSTKSV);
+
+
+
+
+
+
+                    }
+
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (chucnang == 1)
+            {
+                if (edtUser.Text.Equals("") || edtPass.Text.Equals(""))
+                {
+                    MessageBox.Show("tài khoản hoặc mật khẩu không hợp lệ!");
+                }
+                else
+                {
+                    string sqlcmd1 = "DECLARE	@return_value int EXEC	" +
+                        "@return_value = [dbo].[SP_CHECKLOGIN] " +
+                        "@LGNAME = N'" + edtUser.Text.ToString().Trim() + "' " +
+                        "SELECT	'Return Value' = @return_value";
+
+                    Program.myReader = Program.ExecSqlDataReader(sqlcmd1);
+                    Program.myReader.Read();
+                    int value = Program.myReader.GetInt32(0);
+                    Program.myReader.Close();
+                    if (value == 0)
+                    {
+                        MessageBox.Show("Tên đăng nhập đã tồn tại!");
+                    }
+                    else
+                    {
+                        string sqlcmd = "exec SP_TAOLOGIN_1 '" + edtUser.Text.ToString().Trim() + "','" + edtPass.Text.ToString().Trim() + "','" + cbMAGV.Text.ToString() + "','" + cbNh.Text.ToString() + "'";
+                        Program.myReader = Program.ExecSqlDataReader(sqlcmd);
+                        Program.myReader.Read();
+                        Program.myReader.Close();
+                        MessageBox.Show("Thành công!");
+                    }
+
+                }
+
+            }
+            else if (chucnang == 2)
+            {
+
+                if (edtUser.Text.Equals("") || edtPass.Text.Equals(""))
+                {
+                    MessageBox.Show("tài khoản hoặc mật khẩu không hợp lệ!");
+                }
+                else
+                {
+                    string sqlcmd1 = "DECLARE	@return_value int EXEC	@return_value = [dbo].[SP_CHECKLOGIN] @LGNAME = N'" + edtUser.Text.ToString().Trim() + "' SELECT	'Return Value' = @return_value";
+                    Program.myReader = Program.ExecSqlDataReader(sqlcmd1);
+                    Program.myReader.Read();
+                    int value = Program.myReader.GetInt32(0);
+                    Program.myReader.Close();
+                    if (value == 0)
+                    {
+                        MessageBox.Show("Tên đăng nhập đã tồn tại!");
+                    }
+                    else
+                    {
+                        string sqlcmd = "exec SP_TAOLOGIN_1 '" + edtUser.Text.ToString().Trim() + "','" + edtPass.Text.ToString().Trim() + "','" + cbMASV.Text.ToString() + "','SINHVIEN'";
+                        Program.myReader = Program.ExecSqlDataReader(sqlcmd);
+                        Program.myReader.Read();
+                        Program.myReader.Close();
+                        MessageBox.Show("Thành công!");
+                    }
+
+                }
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            edtUser.ResetText();
+            edtPass.ResetText();
+            gbDangKi.Visible = false;
         }
     }
 }

@@ -287,7 +287,10 @@ namespace TTN_PT
             btnThemKhoa.Enabled = btnLuukhoa.Enabled = false;
             txtMakhoa.Enabled = txtMacs.Enabled = txtTenkhoa.Enabled = true;
 
+           btnHuykhoa.Enabled= btnXacnhankhoa.Enabled = true;
+
             btnXacnhankhoa.Enabled = btnHuykhoa.Enabled = true;
+
             bdsKhoa.AddNew();
         }
 
@@ -345,7 +348,7 @@ namespace TTN_PT
             {
                 MessageBox.Show("Địa chỉ giảng viên không được để trống");
             }
-            
+
             else
             {
                 try
