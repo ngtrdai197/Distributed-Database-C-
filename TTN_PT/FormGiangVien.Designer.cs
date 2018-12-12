@@ -68,6 +68,8 @@
             this.cbMAGV = new System.Windows.Forms.ComboBox();
             this.cbNh = new System.Windows.Forms.ComboBox();
             this.gbDangKi = new System.Windows.Forms.GroupBox();
+            this.cbMASV = new System.Windows.Forms.ComboBox();
+            this.v_DSTKSVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gIAOVIENTableAdapter = new TTN_PT.TTN_DSTableAdapters.GIAOVIENTableAdapter();
             this.tableAdapterManager = new TTN_PT.TTN_DSTableAdapters.TableAdapterManager();
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
@@ -86,9 +88,7 @@
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gIAOVIENGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.v_DSTKSVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.v_DSTKSVTableAdapter = new TTN_PT.DsLOGINTableAdapters.V_DSTKSVTableAdapter();
-            this.cbMASV = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -99,13 +99,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsLOGIN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DSTKBindingSource)).BeginInit();
             this.gbDangKi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.v_DSTKSVBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DSTKSVBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // barDockControlTop
@@ -421,6 +421,23 @@
             this.gbDangKi.Text = "Đăng kí tài khoản";
             this.gbDangKi.Visible = false;
             // 
+            // cbMASV
+            // 
+            this.cbMASV.DataSource = this.v_DSTKSVBindingSource;
+            this.cbMASV.DisplayMember = "MASV";
+            this.cbMASV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMASV.FormattingEnabled = true;
+            this.cbMASV.Location = new System.Drawing.Point(146, 116);
+            this.cbMASV.Name = "cbMASV";
+            this.cbMASV.Size = new System.Drawing.Size(193, 21);
+            this.cbMASV.TabIndex = 10;
+            this.cbMASV.ValueMember = "MASV";
+            // 
+            // v_DSTKSVBindingSource
+            // 
+            this.v_DSTKSVBindingSource.DataMember = "V_DSTKSV";
+            this.v_DSTKSVBindingSource.DataSource = this.dsLOGIN;
+            // 
             // gIAOVIENTableAdapter
             // 
             this.gIAOVIENTableAdapter.ClearBeforeFill = true;
@@ -582,26 +599,9 @@
             this.gridView1.GridControl = this.gIAOVIENGridControl;
             this.gridView1.Name = "gridView1";
             // 
-            // v_DSTKSVBindingSource
-            // 
-            this.v_DSTKSVBindingSource.DataMember = "V_DSTKSV";
-            this.v_DSTKSVBindingSource.DataSource = this.dsLOGIN;
-            // 
             // v_DSTKSVTableAdapter
             // 
             this.v_DSTKSVTableAdapter.ClearBeforeFill = true;
-            // 
-            // cbMASV
-            // 
-            this.cbMASV.DataSource = this.v_DSTKSVBindingSource;
-            this.cbMASV.DisplayMember = "MASV";
-            this.cbMASV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMASV.FormattingEnabled = true;
-            this.cbMASV.Location = new System.Drawing.Point(146, 116);
-            this.cbMASV.Name = "cbMASV";
-            this.cbMASV.Size = new System.Drawing.Size(193, 21);
-            this.cbMASV.TabIndex = 10;
-            this.cbMASV.ValueMember = "MASV";
             // 
             // FormGiangVien
             // 
@@ -639,13 +639,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DSTKBindingSource)).EndInit();
             this.gbDangKi.ResumeLayout(false);
             this.gbDangKi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.v_DSTKSVBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DSTKSVBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

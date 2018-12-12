@@ -15,7 +15,9 @@ namespace TTN_PT
             DateTime dt = Convert.ToDateTime("10/10/2018");
             DateTime dt1 = Convert.ToDateTime("11/11/2018");
             sp_9TableAdapter3.Fill(ttN_DS3.sp_9, dt, dt1);
-            
+            int rowCount = (this.PageHeight - this.Margins.Top - this.Margins.Bottom);
+
+
         }
 
     }

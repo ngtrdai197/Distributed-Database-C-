@@ -566,6 +566,16 @@
             this.btnXacnhankhoa.UseVisualStyleBackColor = true;
             this.btnXacnhankhoa.Click += new System.EventHandler(this.btnXacnhankhoa_Click);
             // 
+            // btnXacnhankhoa
+            // 
+            this.btnXacnhankhoa.Location = new System.Drawing.Point(211, 151);
+            this.btnXacnhankhoa.Name = "btnXacnhankhoa";
+            this.btnXacnhankhoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXacnhankhoa.TabIndex = 6;
+            this.btnXacnhankhoa.Text = "Xác nhận";
+            this.btnXacnhankhoa.UseVisualStyleBackColor = true;
+            this.btnXacnhankhoa.Click += new System.EventHandler(this.btnXacnhankhoa_Click);
+            // 
             // txtMacs
             // 
             this.txtMacs.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsKhoa, "MACS", true));
@@ -623,6 +633,10 @@
             this.btnXnsua.TabIndex = 11;
             this.btnXnsua.Text = "Xác nhận";
             this.btnXnsua.UseVisualStyleBackColor = true;
+
+
+            this.btnXnsua.Click += new System.EventHandler(this.btnXnsua_Click);
+
             // 
             // btnXacnhanGv
             // 

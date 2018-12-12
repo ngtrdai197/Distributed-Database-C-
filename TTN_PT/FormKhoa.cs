@@ -98,7 +98,6 @@ namespace TTN_PT
                     {
                         KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
                         KhoaTableAdapter.Fill(tTN_DS.KHOA);
-
                     }
 
                 }
@@ -136,15 +135,19 @@ namespace TTN_PT
             if (value == 1)
             {
                 MessageBox.Show("Giảng viên đã tạo câu hỏi. Không thể xóa!");
+                btnThemGv.Enabled = btnSuaGv.Enabled = btnXoaGv.Enabled = true;
+                return;
             }
             else
             {
                 // xóa
-                DialogResult dr = MessageBox.Show("Bạn có chắc chắc muốn xóa", "Xóa sinh viên", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                DialogResult dr = MessageBox.Show("Bạn có chắc chắc muốn xóa", "Xóa giảng viên viên", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
                 if (dr == DialogResult.Yes)
                 {
                     bdsGiaoVien.RemoveCurrent();
                     GiaoVienTableAdapter.Update(tTN_DS.GIAOVIEN);
+                    MessageBox.Show("Xóa giảng viên thành công");
+                    btnThemGv.Enabled = btnXoaGv.Enabled = btnSuaGv.Enabled = true;
                 }
                 else
                 {
@@ -173,7 +176,7 @@ namespace TTN_PT
             TrangThaiButton(true);
             btnXnsua.Visible = true;
             btnXacnhanGv.Visible = false;
-            btnThemGv.Enabled = btnXoaGv.Enabled = btnLuuGv.Enabled = false;
+            btnThemGv.Enabled = btnXoaGv.Enabled = btnLuuGv.Enabled = txtMaGv.Enabled = txtMakhoa.Enabled = false;
             btnSuaGv.Enabled = false;
 
             // tắt ds sinh viên
@@ -189,8 +192,9 @@ namespace TTN_PT
             btnHuyboGv.Enabled = false;
             TrangThaiButton(false);
             TrangThaiButtonKhoa(true);
+            btnLuuGv.Enabled = false;
             GiaoVienGridControl.Enabled = btnSuaGv.Enabled
-                = btnXoaGv.Enabled = btnLuuGv.Enabled = btnThemGv.Enabled = true;
+                = btnXoaGv.Enabled = btnThemGv.Enabled = true;
             GiaoVienTableAdapter.Update(tTN_DS.GIAOVIEN);
             GiaoVienTableAdapter.Fill(tTN_DS.GIAOVIEN);
             MessageBox.Show("Cập nhật danh sách thành công");
@@ -283,7 +287,7 @@ namespace TTN_PT
             btnThemKhoa.Enabled = btnLuukhoa.Enabled = false;
             txtMakhoa.Enabled = txtMacs.Enabled = txtTenkhoa.Enabled = true;
 
-           btnHuykhoa.Enabled= btnXacnhankhoa.Enabled = true;
+            btnHuykhoa.Enabled = btnXacnhankhoa.Enabled = true;
 
             btnXacnhankhoa.Enabled = btnHuykhoa.Enabled = true;
 
@@ -325,14 +329,52 @@ namespace TTN_PT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi ghi sinh viên !" + ex.Message);
+                MessageBox.Show("Lỗi ghi khoa viên !" + ex.Message);
                 return;
             }
         }
+
 
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
+        private void btnXnsua_Click(object sender, EventArgs e)
+        {
+            if (txtHoGv.Text.Trim() == "")
+            {
+                MessageBox.Show("Họ giảng viên không được để trống");
+            }
+            else if (txtTenGv.Text.Trim() == "")
+            {
+                MessageBox.Show("Tên giảng viên không được để trống");
+            }
+            else if (txtDiachiGv.Text.Trim() == "")
+            {
+                MessageBox.Show("Địa chỉ giảng viên không được để trống");
+            }
+
+            else
+            {
+                try
+                {
+                    bdsGiaoVien.EndEdit();
+                    bdsGiaoVien.ResetCurrentItem();
+
+                    // huy thao tac
+                    btnLuuGv.Enabled = true;
+
+                    btnThemGv.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi giảng viên !" + ex.Message);
+                    return;
+                }
+
+            }
+
+        }
     }
 }
+    
