@@ -48,6 +48,8 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnDSDKThi = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barTaoLG = new DevExpress.XtraBars.BarButtonItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stHoten = new System.Windows.Forms.ToolStripStatusLabel();
@@ -72,7 +74,8 @@
             this.ribbonPageGroup7,
             this.ribbonPageGroup8,
             this.ribbonPageGroup3,
-            this.ribbonPageGroup9});
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Hệ thống";
             // 
@@ -184,8 +187,23 @@
             // 
             this.btnDSDKThi.Caption = "Danh sách ĐK Thi";
             this.btnDSDKThi.Id = 10;
+            this.btnDSDKThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSDKThi.ImageOptions.Image")));
             this.btnDSDKThi.Name = "btnDSDKThi";
             this.btnDSDKThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSDKThi_ItemClick);
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barTaoLG);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
+            // barTaoLG
+            // 
+            this.barTaoLG.Caption = "Tạo LOGIN";
+            this.barTaoLG.Id = 12;
+            this.barTaoLG.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.barTaoLG.Name = "barTaoLG";
+            this.barTaoLG.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick_1);
             // 
             // ribbon
             // 
@@ -199,13 +217,14 @@
             this.btnKhoa,
             this.btnLop,
             this.btnIndiem,
-            this.btnDSDKThi});
+            this.btnDSDKThi,
+            this.barTaoLG});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 11;
+            this.ribbon.MaxItemId = 13;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(830, 143);
+            this.ribbon.Size = new System.Drawing.Size(882, 143);
             // 
             // statusStrip1
             // 
@@ -215,7 +234,7 @@
             this.toolStripStatusLabel3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 452);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(830, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(882, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "Họ:";
             // 
@@ -241,7 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 474);
+            this.ClientSize = new System.Drawing.Size(882, 474);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
@@ -250,6 +269,7 @@
             this.Text = "FormMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -284,5 +304,7 @@
         private DevExpress.XtraBars.BarButtonItem btnIndiem;
         private DevExpress.XtraBars.BarButtonItem btnDSDKThi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem barTaoLG;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

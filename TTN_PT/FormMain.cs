@@ -25,6 +25,7 @@ namespace TTN_PT
             toolStripStatusLabel3.Text = toolStripStatusLabel3.Text + Program.mGroup;
             if (role == "GIANGVIEN")
             {
+               
                 btnDangKiThi.Enabled = btnKhoa.Enabled = btnIndiem.Enabled
                     = btnMonhoc.Enabled = btnIndiem.Enabled = btnLop.Enabled = false;
 
@@ -162,6 +163,29 @@ namespace TTN_PT
             DANGKITHIcs c9 = new DANGKITHIcs();
             ReportPrintTool cau9 = new ReportPrintTool(c9);
             cau9.ShowPreviewDialog();
+        }
+
+        private void barButtonItem2_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            Form f = CheckExists(typeof(FormGiangVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormGiangVien fTaoLogin = new FormGiangVien();
+                fTaoLogin.MdiParent = this;
+                fTaoLogin.Show();
+            }
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            if (Program.mGroup.Equals("GIAOVIEN"))
+            {
+                barTaoLG.Enabled = false;
+            }
         }
     }
 }

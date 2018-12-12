@@ -25,7 +25,7 @@ namespace TTN_PT
         }
         private void TrangThaiButtonKhoa(bool trangthai)
         {
-            txtMakhoa.Enabled = txtTenkhoa.Enabled = txtMacs.Enabled 
+            txtMakhoa.Enabled = txtTenkhoa.Enabled = txtMacs.Enabled
                 = btnThemKhoa.Enabled = btnXacnhankhoa.Enabled = trangthai;
         }
 
@@ -199,6 +199,7 @@ namespace TTN_PT
         private void btnHuyboGv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             GiaoVienGridControl.Enabled = true;
+            bdsGiaoVien.CancelEdit();
             btnXnsua.Visible = false;
             TrangThaiButtonKhoa(true);
             if (Program.mGroup == "TRUONG")
@@ -283,12 +284,16 @@ namespace TTN_PT
             txtMakhoa.Enabled = txtMacs.Enabled = txtTenkhoa.Enabled = true;
 
            btnHuykhoa.Enabled= btnXacnhankhoa.Enabled = true;
+
+            btnXacnhankhoa.Enabled = btnHuykhoa.Enabled = true;
+
             bdsKhoa.AddNew();
         }
 
         private void btnHuykhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             btnThemKhoa.Enabled = true;
+            bdsKhoa.CancelEdit();
             btnLuukhoa.Enabled = btnHuykhoa.Enabled = btnXacnhankhoa.Enabled = false;
             KhoaGridControl.Enabled = true;
         }

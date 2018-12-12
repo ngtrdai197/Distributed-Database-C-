@@ -75,7 +75,7 @@ namespace TTN_PT
                     Program.bds_dspm = this.v_DS_PHANMANHBindingSource;
                     Program.mloginDN = Program.mlogin;
                     Program.passwordDN = Program.password;
-
+                    Program.mCoSo = cbCoSo.SelectedIndex;
                     SqlDataReader myReader;
 
                     if (rdbGV.Checked == true)
@@ -91,6 +91,8 @@ namespace TTN_PT
 
                         FormMain frMain = new FormMain();
                         frMain.Show();
+                        //FormNhapNgay frNhapNgay = new FormNhapNgay();
+                        //frNhapNgay.Show();
                     }
 
                     else if (rdbSV.Checked == true)
