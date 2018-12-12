@@ -51,7 +51,7 @@ namespace TTN_PT
             grbThi.Visible = true;
             SqlDataReader myReader;
             string strLenh = "DECLARE	@return_value int " + "EXEC @return_value = " +
-                "[dbo].[sp_Thi] @SOCAUHOII =" + 10 + ", @MAMH = N'" + monhoc + "',"
+                "[dbo].[sp_Thi] @SOCAUHOII =" + socauthi + ", @MAMH = N'" + monhoc + "',"
                 + "@KHOA = N'CNTT', @TRINHDO = N'A' SELECT  'Return Value' = @return_value";
             myReader = Program.ExecSqlDataReader(strLenh);
             if (myReader == null) return;
@@ -125,8 +125,7 @@ namespace TTN_PT
                         cbMonhoc.Items.Add(myReaderThi.GetString(0));
                         lbNgaythi.Text = myReaderThi.GetSqlDateTime(3).ToString();
                         socauthi = myReaderThi.GetInt16(4);
-                        // phut = myReaderThi.GetInt16(5); // lấy số phút phải thi
-                        phut = 2;
+                        phut = myReaderThi.GetInt16(5); // lấy số phút phải thi
                     }
                     myReaderThi.Close();
                     grbThoigianthi.Visible = true;
@@ -343,7 +342,7 @@ namespace TTN_PT
                     demcaudung++;
                 }
             }
-            float diem = ((float)demcaudung / (float)10) * 10;
+            float diem = ((float)demcaudung / (float)socauthi) * 10;
             Math.Round(diem, 1);
             if (diem >= 0 && diem < 0.25) { diem = 0; }
             else if (diem >= 0.25 && diem < 0.75) { diem = 0.5f; }
@@ -426,12 +425,5 @@ namespace TTN_PT
             }
         }
 
-        private void gIAOVIEN_DANGKYBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            //this.gIAOVIEN_DANGKYBindingSource.EndEdit();
-            //this.tableAdapterManager.UpdateAll(this.tTN_DS);
-
-        }
     }
 }

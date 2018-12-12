@@ -32,6 +32,7 @@
             this.grbInfo = new System.Windows.Forms.GroupBox();
             this.btnThi = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbLanthi = new System.Windows.Forms.Label();
             this.lbNgaythi = new System.Windows.Forms.Label();
             this.cbMonhoc = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.lbGiay = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbPhut = new System.Windows.Forms.Label();
-            this.lbLanthi = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.grbInfo.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -111,6 +111,14 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin thi";
+            // 
+            // lbLanthi
+            // 
+            this.lbLanthi.AutoSize = true;
+            this.lbLanthi.Location = new System.Drawing.Point(135, 118);
+            this.lbLanthi.Name = "lbLanthi";
+            this.lbLanthi.Size = new System.Drawing.Size(0, 13);
+            this.lbLanthi.TabIndex = 6;
             // 
             // lbNgaythi
             // 
@@ -433,15 +441,6 @@
             this.lbPhut.Name = "lbPhut";
             this.lbPhut.Size = new System.Drawing.Size(0, 13);
             this.lbPhut.TabIndex = 0;
-            // 
-            // lbLanthi
-            // 
-            this.lbLanthi.AutoSize = true;
-            this.lbLanthi.Location = new System.Drawing.Point(135, 118);
-            this.lbLanthi.Name = "lbLanthi";
-            this.lbLanthi.Size = new System.Drawing.Size(35, 13);
-            this.lbLanthi.TabIndex = 6;
-            this.lbLanthi.Text = "label2";
             // 
             // timer1
             // 

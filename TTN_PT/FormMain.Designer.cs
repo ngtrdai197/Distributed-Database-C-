@@ -71,8 +71,8 @@
             this.ribbonPageGroup6,
             this.ribbonPageGroup7,
             this.ribbonPageGroup8,
-            this.ribbonPageGroup3,
-            this.ribbonPageGroup9});
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup3});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Hệ thống";
             // 
@@ -80,7 +80,7 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnDangKiThi);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Sinh viên";
+            this.ribbonPageGroup2.Text = "Đăng ký thi";
             // 
             // btnDangKiThi
             // 
@@ -178,7 +178,7 @@
             // 
             this.ribbonPageGroup9.ItemLinks.Add(this.btnDSDKThi);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.Text = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "DS đăng ký thi";
             // 
             // btnDSDKThi
             // 
