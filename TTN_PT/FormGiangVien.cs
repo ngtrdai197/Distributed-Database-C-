@@ -167,11 +167,7 @@ namespace TTN_PT
                 }
                 else
                 {
-                    string sqlcmd1 = "DECLARE	@return_value int EXEC	" +
-                        "@return_value = [dbo].[SP_CHECKLOGIN] " +
-                        "@LGNAME = N'" + edtUser.Text.ToString().Trim() + "' " +
-                        "SELECT	'Return Value' = @return_value";
-
+                    string sqlcmd1 = "DECLARE	@return_value int EXEC	@return_value = [dbo].[SP_CHECKLOGIN] @LGNAME = N'" + edtUser.Text.ToString().Trim() + "' SELECT	'Return Value' = @return_value";
                     Program.myReader = Program.ExecSqlDataReader(sqlcmd1);
                     Program.myReader.Read();
                     int value = Program.myReader.GetInt32(0);
@@ -191,8 +187,7 @@ namespace TTN_PT
 
                 }
 
-            }
-            else if (chucnang == 2)
+            }else if (chucnang == 2)
             {
 
                 if (edtUser.Text.Equals("") || edtPass.Text.Equals(""))

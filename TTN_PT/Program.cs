@@ -80,7 +80,7 @@ namespace TTN_PT
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new FormLogin());
+            Application.Run(new FormNhapNgay());
         }
     }
 }
