@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label cAUHOILabel;
             System.Windows.Forms.Label mAMHLabel;
             System.Windows.Forms.Label tRINHDOLabel;
@@ -39,7 +40,7 @@
             System.Windows.Forms.Label dAP_ANLabel;
             System.Windows.Forms.Label mAGVLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBoDe));
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
@@ -51,7 +52,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.tTN_DS = new TTN_PT.TTN_DS();
-            this.bODEBindingSource = new System.Windows.Forms.BindingSource();
+            this.bODEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bODETableAdapter = new TTN_PT.TTN_DSTableAdapters.BODETableAdapter();
             this.tableAdapterManager = new TTN_PT.TTN_DSTableAdapters.TableAdapterManager();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -402,7 +403,7 @@
             // 
             // btnXacNhan
             // 
-            this.btnXacNhan.Location = new System.Drawing.Point(479, 113);
+            this.btnXacNhan.Location = new System.Drawing.Point(497, 119);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(75, 23);
             this.btnXacNhan.TabIndex = 20;

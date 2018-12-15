@@ -46,7 +46,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lOPGridControl = new DevExpress.XtraGrid.GridControl();
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
-            this.tTN_DS = new TTN_PT.TTN_DS();
+            this.TTN_DS = new TTN_PT.TTN_DS();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -115,7 +115,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tTN_DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TTN_DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -286,13 +286,13 @@
             // bdsLop
             // 
             this.bdsLop.DataMember = "LOP";
-            this.bdsLop.DataSource = this.tTN_DS;
+            this.bdsLop.DataSource = this.TTN_DS;
             // 
-            // tTN_DS
+            // TTN_DS
             // 
-            this.tTN_DS.DataSetName = "TTN_DS";
-            this.tTN_DS.EnforceConstraints = false;
-            this.tTN_DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.TTN_DS.DataSetName = "TTN_DS";
+            this.TTN_DS.EnforceConstraints = false;
+            this.TTN_DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -826,7 +826,7 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lOPGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tTN_DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TTN_DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -861,7 +861,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private System.Windows.Forms.BindingSource bdsLop;
-        private TTN_DS tTN_DS;
+        private TTN_DS TTN_DS;
         private TTN_DSTableAdapters.LOPTableAdapter LopTableAdapter;
         private TTN_DSTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl lOPGridControl;

@@ -160,9 +160,11 @@ namespace TTN_PT
         private void btnDSDKThi_ItemClick(object sender, ItemClickEventArgs e)
         {
 
-            DANGKITHIcs c9 = new DANGKITHIcs();
-            ReportPrintTool cau9 = new ReportPrintTool(c9);
-            cau9.ShowPreviewDialog();
+            //DANGKITHIcs c9 = new DANGKITHIcs();
+            //ReportPrintTool cau9 = new ReportPrintTool(c9);
+            //cau9.ShowPreviewDialog();
+            FormNhapNgay nhapngay = new FormNhapNgay();
+            nhapngay.Show();
         }
 
         private void barButtonItem2_ItemClick_1(object sender, ItemClickEventArgs e)

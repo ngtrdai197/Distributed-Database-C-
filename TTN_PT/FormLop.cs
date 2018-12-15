@@ -35,7 +35,7 @@ namespace TTN_PT
         {
             this.Validate();
             this.bdsLop.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.tTN_DS);
+            this.tableAdapterManager.UpdateAll(this.TTN_DS);
 
         }
 
@@ -43,12 +43,12 @@ namespace TTN_PT
         {
             // TODO: This line of code loads data into the 'tTN_DS.SINHVIEN' table. You can move, or remove it, as needed.
             SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.SinhVienTableAdapter.Fill(this.tTN_DS.SINHVIEN);
+            this.SinhVienTableAdapter.Fill(this.TTN_DS.SINHVIEN);
             // TODO: This line of code loads data into the 'tTN_DS.LOP' table. You can move, or remove it, as needed.
             LopTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.LopTableAdapter.Fill(this.tTN_DS.LOP);
+            this.LopTableAdapter.Fill(this.TTN_DS.LOP);
 
-            this.LopTableAdapter.Fill(this.tTN_DS.LOP);
+            this.LopTableAdapter.Fill(this.TTN_DS.LOP);
             cbCoSo.DataSource = Program.bds_dspm;
             cbCoSo.DisplayMember = "TENCS";
             cbCoSo.ValueMember = "TENSERVER";
@@ -105,10 +105,10 @@ namespace TTN_PT
                     else
                     {
                         LopTableAdapter.Connection.ConnectionString = Program.connstr;
-                        LopTableAdapter.Fill(tTN_DS.LOP);
+                        LopTableAdapter.Fill(TTN_DS.LOP);
 
                         SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.SinhVienTableAdapter.Fill(this.tTN_DS.SINHVIEN);
+                        this.SinhVienTableAdapter.Fill(this.TTN_DS.SINHVIEN);
                     }
 
                 }
@@ -204,7 +204,7 @@ namespace TTN_PT
             if (dr == DialogResult.Yes)
             {
                 bdsSinhVien.RemoveCurrent();
-                SinhVienTableAdapter.Update(tTN_DS.SINHVIEN);
+                SinhVienTableAdapter.Update(TTN_DS.SINHVIEN);
 
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
             }
@@ -254,8 +254,8 @@ namespace TTN_PT
             btnSua.Enabled = btnXoa.Enabled = btnThem.Enabled = true;
             sINHVIENGridControl.Enabled = txtTimkiem.Enabled = true;
 
-            SinhVienTableAdapter.Update(tTN_DS.SINHVIEN);
-            SinhVienTableAdapter.Fill(tTN_DS.SINHVIEN);
+            SinhVienTableAdapter.Update(TTN_DS.SINHVIEN);
+            SinhVienTableAdapter.Fill(TTN_DS.SINHVIEN);
             MessageBox.Show("Cập nhật danh sách thành công");
         }
 
@@ -291,7 +291,7 @@ namespace TTN_PT
                 + " OR TEN LIKE '%" + this.txtTimkiem.Text + "%'";
             if (txtTimkiem.Text == "")
             {
-                SinhVienTableAdapter.Fill(tTN_DS.SINHVIEN);
+                SinhVienTableAdapter.Fill(TTN_DS.SINHVIEN);
             }
         }
 
@@ -383,8 +383,8 @@ namespace TTN_PT
             btnLuulop.Enabled = btnHuybolop.Enabled = btnXacnhanlop.Enabled = false;
             lOPGridControl.Enabled = true;
 
-            LopTableAdapter.Update(tTN_DS.LOP);
-            LopTableAdapter.Fill(tTN_DS.LOP);
+            LopTableAdapter.Update(TTN_DS.LOP);
+            LopTableAdapter.Fill(TTN_DS.LOP);
             MessageBox.Show("Cập nhật danh sách thành công");
         }
 

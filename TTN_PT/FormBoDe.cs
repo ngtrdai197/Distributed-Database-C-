@@ -215,7 +215,7 @@ namespace TTN_PT
             myReader.Close();
 
             SqlDataReader myReader1;
-            String strlenh1 = "DECLARE	@return_value int EXEC @return_value = [dbo].[sp_KiemTraMaMonHoc] " +
+            String strlenh1 = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MAMH] " +
                 "@MAMH = N'" + txtMaMH.Text + "' SELECT  'Return Value' = @return_value";
             myReader1 = Program.ExecSqlDataReader(strlenh1);
             if (myReader1 == null) return;
@@ -224,7 +224,7 @@ namespace TTN_PT
             myReader1.Close();
 
             SqlDataReader myReader2;
-            String strlenh2 = "DECLARE	@return_value int EXEC @return_value = [dbo].[sp_KiemTraMaGiaoVienTonTai] " +
+            String strlenh2 = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MAGV] " +
                 "@MAGV = N'" + txtMaGV.Text + "' SELECT  'Return Value' = @return_value";
             myReader2 = Program.ExecSqlDataReader(strlenh2);
             if (myReader2 == null) return;

@@ -84,6 +84,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DangKiThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangKiThi.Designer.cs">
+      <DependentUpon>DangKiThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="DANGKITHIcs.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -105,12 +111,6 @@
     </Compile>
     <Compile Include="FormBoDe.Designer.cs">
       <DependentUpon>FormBoDe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDangKiThi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDangKiThi.Designer.cs">
-      <DependentUpon>FormDangKiThi.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGiangVien.cs">
       <SubType>Form</SubType>
@@ -202,14 +202,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TTN_DS.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DangKiThi.resx">
+      <DependentUpon>DangKiThi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DANGKITHIcs.resx">
       <DependentUpon>DANGKITHIcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBoDe.resx">
       <DependentUpon>FormBoDe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDangKiThi.resx">
-      <DependentUpon>FormDangKiThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien.resx">
       <DependentUpon>FormGiangVien.cs</DependentUpon>
