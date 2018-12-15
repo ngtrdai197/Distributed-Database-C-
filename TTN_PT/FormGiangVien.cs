@@ -53,7 +53,7 @@ namespace TTN_PT
             cbCoSo.DisplayMember = "TENCS";
             cbCoSo.ValueMember = "TENSERVER";
 
-           
+
             btnHuybo.Enabled = false;
             btnLuu.Enabled = false;
 
@@ -62,7 +62,7 @@ namespace TTN_PT
                 cbNh.Enabled = false;
                 barLGSV.Enabled = false;
                 cbCoSo.Enabled = true;
-                
+
 
             }
             else
@@ -86,7 +86,7 @@ namespace TTN_PT
             cbMASV.Visible = false;
             chucnang = 1;
 
-           
+
             gIAOVIENGridControl.Dock = DockStyle.Fill;
         }
 
@@ -101,7 +101,7 @@ namespace TTN_PT
             cbMASV.Visible = true;
             sINHVIENGridControl.Dock = DockStyle.Fill;
             chucnang = 2;
-            
+
         }
 
         private void cbCoso_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,7 +186,7 @@ namespace TTN_PT
                     }
 
                 }
-               
+
             }else if (chucnang == 2)
             {
 
@@ -216,7 +216,7 @@ namespace TTN_PT
 
                 }
             }
-                
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -336,7 +336,7 @@
             // lbNhom
             // 
             this.lbNhom.AutoSize = true;
-            this.lbNhom.Location = new System.Drawing.Point(38, 161);
+            this.lbNhom.Location = new System.Drawing.Point(30, 165);
             this.lbNhom.Name = "lbNhom";
             this.lbNhom.Size = new System.Drawing.Size(74, 13);
             this.lbNhom.TabIndex = 3;

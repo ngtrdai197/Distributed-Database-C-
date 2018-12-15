@@ -44,7 +44,7 @@ namespace TTN_PT
         private void FormLogin_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS_VIEW.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.dS_VIEW.V_DS_PHANMANH);
+            v_DS_PHANMANHTableAdapter.Fill(dS_VIEW.V_DS_PHANMANH);
             cbCoSo.SelectedIndex = 1;
             cbCoSo.SelectedIndex = 0;
         }

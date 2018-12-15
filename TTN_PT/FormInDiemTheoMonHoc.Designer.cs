@@ -36,6 +36,7 @@
             this.txtLanthi = new System.Windows.Forms.TextBox();
             this.btnIn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.tableAdapterManager1 = new TTN_PT.DS_VIEWTableAdapters.TableAdapterManager();
             this.SuspendLayout();
             // 
             // label1
@@ -114,6 +115,12 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.UpdateOrder = TTN_PT.DS_VIEWTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // FormInDiemTheoMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,5 +150,6 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
+        private DS_VIEWTableAdapters.TableAdapterManager tableAdapterManager1;
     }
 }

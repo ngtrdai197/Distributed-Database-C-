@@ -4546,6 +4546,8 @@ namespace TTN_PT {
             
             private global::System.Data.DataColumn columnDATHI;
             
+            private global::System.Data.DataColumn columnColumn1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public sp_9DataTable() {
@@ -4637,6 +4639,14 @@ namespace TTN_PT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Column1Column {
+                get {
+                    return this.columnColumn1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4672,7 +4682,7 @@ namespace TTN_PT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sp_9Row Addsp_9Row(long STT, string HoTen, string TENMH, string TENLOP, short SOCAUTHI, System.DateTime NGAYTHI, string DATHI) {
+            public sp_9Row Addsp_9Row(long STT, string HoTen, string TENMH, string TENLOP, short SOCAUTHI, System.DateTime NGAYTHI, string DATHI, int Column1) {
                 sp_9Row rowsp_9Row = ((sp_9Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         STT,
@@ -4681,7 +4691,8 @@ namespace TTN_PT {
                         TENLOP,
                         SOCAUTHI,
                         NGAYTHI,
-                        DATHI};
+                        DATHI,
+                        Column1};
                 rowsp_9Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_9Row);
                 return rowsp_9Row;
@@ -4711,6 +4722,7 @@ namespace TTN_PT {
                 this.columnSOCAUTHI = base.Columns["SOCAUTHI"];
                 this.columnNGAYTHI = base.Columns["NGAYTHI"];
                 this.columnDATHI = base.Columns["DATHI"];
+                this.columnColumn1 = base.Columns["Column1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4730,6 +4742,8 @@ namespace TTN_PT {
                 base.Columns.Add(this.columnNGAYTHI);
                 this.columnDATHI = new global::System.Data.DataColumn("DATHI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDATHI);
+                this.columnColumn1 = new global::System.Data.DataColumn("Column1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColumn1);
                 this.columnSTT.ReadOnly = true;
                 this.columnHoTen.ReadOnly = true;
                 this.columnHoTen.MaxLength = 80;
@@ -4738,6 +4752,7 @@ namespace TTN_PT {
                 this.columnTENLOP.MaxLength = 40;
                 this.columnDATHI.ReadOnly = true;
                 this.columnDATHI.MaxLength = 1;
+                this.columnColumn1.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8860,6 +8875,22 @@ namespace TTN_PT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Column1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_9.Column1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Column1\' in table \'sp_9\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_9.Column1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsSTTNull() {
                 return this.IsNull(this.tablesp_9.STTColumn);
             }
@@ -8928,6 +8959,18 @@ namespace TTN_PT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetDATHINull() {
                 this[this.tablesp_9.DATHIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsColumn1Null() {
+                return this.IsNull(this.tablesp_9.Column1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetColumn1Null() {
+                this[this.tablesp_9.Column1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -15154,6 +15197,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             tableMapping.ColumnMappings.Add("SOCAUTHI", "SOCAUTHI");
             tableMapping.ColumnMappings.Add("NGAYTHI", "NGAYTHI");
             tableMapping.ColumnMappings.Add("DATHI", "DATHI");
+            tableMapping.ColumnMappings.Add("Column1", "Column1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

@@ -73,14 +73,9 @@
             this.ribbonPageGroup6,
             this.ribbonPageGroup7,
             this.ribbonPageGroup8,
-<<<<<<< HEAD
             this.ribbonPageGroup3,
             this.ribbonPageGroup9,
             this.ribbonPageGroup1});
-=======
-            this.ribbonPageGroup9,
-            this.ribbonPageGroup3});
->>>>>>> 07a428c089183782436fd4df080e45e9e5cb93ac
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Hệ thống";
             // 

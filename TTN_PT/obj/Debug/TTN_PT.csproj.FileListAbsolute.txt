@@ -181,7 +181,6 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormBoDe.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormDangKiThi.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormGiangVien.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormInDiemTheoMonHoc.resources
-<<<<<<< HEAD
 C:\Users\Nhi\Desktop\csdlpt\TTN_PT\bin\Debug\TTN_PT.exe.config
 C:\Users\Nhi\Desktop\csdlpt\TTN_PT\bin\Debug\TTN_PT.exe
 C:\Users\Nhi\Desktop\csdlpt\TTN_PT\bin\Debug\TTN_PT.pdb
@@ -561,7 +560,6 @@ C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\bin\Debug\de\DevExpress.Diagram.
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\bin\Debug\es\DevExpress.Diagram.v17.1.Core.resources.dll
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
-C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\obj\Debug\TTN_PT.csprojAssemblyReference.cache
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\obj\Debug\TTN_PT.DANGKITHIcs.resources
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\obj\Debug\TTN_PT.FormBoDe.resources
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\obj\Debug\TTN_PT.FormDangKiThi.resources
@@ -597,22 +595,4 @@ C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\bin\Debug\de\DevExpress.XtraSche
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\bin\Debug\es\DevExpress.XtraScheduler.v17.1.Core.resources.dll
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\bin\Debug\ja\DevExpress.XtraScheduler.v17.1.Core.resources.dll
 C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\bin\Debug\ru\DevExpress.XtraScheduler.v17.1.Core.resources.dll
-=======
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormKhoa.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormLogin.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormLop.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormMain.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormMonHoc.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormSinhVien.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormTest.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormThi.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.INDIEMTHEOMON.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.Properties.Resources.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.csproj.GenerateResource.cache
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.exe.licenses
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.csproj.CoreCompileInputs.cache
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.csproj.CopyComplete
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.exe
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.pdb
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\TTN_PT.pdb
->>>>>>> 07a428c089183782436fd4df080e45e9e5cb93ac
+C:\Users\Nhi\Documents\New folder\csdlpt\TTN_PT\obj\Debug\TTN_PT.csprojAssemblyReference.cache
