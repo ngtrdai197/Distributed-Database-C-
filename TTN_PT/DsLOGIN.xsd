@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsLOGIN" targetNamespace="http://tempuri.org/DsLOGIN.xsd" xmlns:mstns="http://tempuri.org/DsLOGIN.xsd" xmlns="http://tempuri.org/DsLOGIN.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DsLOGIN" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DsLOGIN (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TTN_PT.Properties.Settings.GlobalReference.Default.DsLOGIN" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DSNHOMTableAdapter" GeneratorDataComponentClassName="V_DSNHOMTableAdapter" Name="V_DSNHOM" UserDataComponentName="V_DSNHOMTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DsLOGIN (Settings)" DbObjectName="TTN.dbo.V_DSNHOM" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT name FROM dbo.V_DSNHOM</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DSTKTableAdapter" GeneratorDataComponentClassName="V_DSTKTableAdapter" Name="V_DSTK" UserDataComponentName="V_DSTKTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DsLOGIN (Settings)" DbObjectName="TTN.dbo.V_DSTK" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MAGV FROM dbo.V_DSTK</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAGV" DataSetColumn="MAGV" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DSTKSVTableAdapter" GeneratorDataComponentClassName="V_DSTKSVTableAdapter" Name="V_DSTKSV" UserDataComponentName="V_DSTKSVTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DsLOGIN (Settings)" DbObjectName="TTN.dbo.V_DSTKSV" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MASV FROM dbo.V_DSTKSV</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MASV" DataSetColumn="MASV" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsLOGIN" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DsLOGIN" msprop:Generator_UserDSName="DsLOGIN">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_DSNHOM" msprop:Generator_TableClassName="V_DSNHOMDataTable" msprop:Generator_TableVarName="tableV_DSNHOM" msprop:Generator_TablePropName="V_DSNHOM" msprop:Generator_RowDeletingName="V_DSNHOMRowDeleting" msprop:Generator_RowChangingName="V_DSNHOMRowChanging" msprop:Generator_RowEvHandlerName="V_DSNHOMRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DSNHOMRowDeleted" msprop:Generator_UserTableName="V_DSNHOM" msprop:Generator_RowChangedName="V_DSNHOMRowChanged" msprop:Generator_RowEvArgName="V_DSNHOMRowChangeEvent" msprop:Generator_RowClassName="V_DSNHOMRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_DSTK" msprop:Generator_TableClassName="V_DSTKDataTable" msprop:Generator_TableVarName="tableV_DSTK" msprop:Generator_TablePropName="V_DSTK" msprop:Generator_RowDeletingName="V_DSTKRowDeleting" msprop:Generator_RowChangingName="V_DSTKRowChanging" msprop:Generator_RowEvHandlerName="V_DSTKRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DSTKRowDeleted" msprop:Generator_UserTableName="V_DSTK" msprop:Generator_RowChangedName="V_DSTKRowChanged" msprop:Generator_RowEvArgName="V_DSTKRowChangeEvent" msprop:Generator_RowClassName="V_DSTKRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_DSTKSV" msprop:Generator_TableClassName="V_DSTKSVDataTable" msprop:Generator_TableVarName="tableV_DSTKSV" msprop:Generator_TablePropName="V_DSTKSV" msprop:Generator_RowDeletingName="V_DSTKSVRowDeleting" msprop:Generator_RowChangingName="V_DSTKSVRowChanging" msprop:Generator_RowEvHandlerName="V_DSTKSVRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DSTKSVRowDeleted" msprop:Generator_UserTableName="V_DSTKSV" msprop:Generator_RowChangedName="V_DSTKSVRowChanged" msprop:Generator_RowEvArgName="V_DSTKSVRowChangeEvent" msprop:Generator_RowClassName="V_DSTKSVRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MASV" msprop:Generator_ColumnVarNameInTable="columnMASV" msprop:Generator_ColumnPropNameInRow="MASV" msprop:Generator_ColumnPropNameInTable="MASVColumn" msprop:Generator_UserColumnName="MASV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_DSTK" />
+      <xs:field xpath="mstns:MAGV" />
+    </xs:unique>
+    <xs:unique name="V_DSTKSV_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_DSTKSV" />
+      <xs:field xpath="mstns:MASV" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

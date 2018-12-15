@@ -88,6 +88,11 @@
     <Compile Include="DANGKITHIcs.Designer.cs">
       <DependentUpon>DANGKITHIcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="DsLOGIN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsLOGIN.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_VIEW.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,6 +239,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="DsLOGIN.xsc">
+      <DependentUpon>DsLOGIN.xsd</DependentUpon>
+    </None>
+    <None Include="DsLOGIN.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsLOGIN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DsLOGIN.xss">
+      <DependentUpon>DsLOGIN.xsd</DependentUpon>
+    </None>
     <None Include="DS_VIEW.xsc">
       <DependentUpon>DS_VIEW.xsd</DependentUpon>
     </None>

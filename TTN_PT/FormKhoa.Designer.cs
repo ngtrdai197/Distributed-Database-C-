@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mAKHLabel;
             System.Windows.Forms.Label tENKHLabel;
             System.Windows.Forms.Label mACSLabel;
@@ -38,7 +37,7 @@
             System.Windows.Forms.Label dIACHILabel;
             System.Windows.Forms.Label mAKHLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKhoa));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThemGv = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoaGv = new DevExpress.XtraBars.BarButtonItem();
@@ -55,7 +54,7 @@
             this.cbCoSo = new System.Windows.Forms.ComboBox();
             this.lbCoSo = new System.Windows.Forms.Label();
             this.tTN_DS = new TTN_PT.TTN_DS();
-            this.bdsKhoa = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsKhoa = new System.Windows.Forms.BindingSource();
             this.KhoaTableAdapter = new TTN_PT.TTN_DSTableAdapters.KHOATableAdapter();
             this.tableAdapterManager = new TTN_PT.TTN_DSTableAdapters.TableAdapterManager();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -67,7 +66,7 @@
             this.colMACS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.GiaoVienGridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdsGiaoVien = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsGiaoVien = new System.Windows.Forms.BindingSource();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,7 +86,7 @@
             this.txtTenGv = new DevExpress.XtraEditors.TextEdit();
             this.txtHoGv = new DevExpress.XtraEditors.TextEdit();
             this.txtMaGv = new DevExpress.XtraEditors.TextEdit();
-            this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager2 = new DevExpress.XtraBars.BarManager();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThemKhoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuukhoa = new DevExpress.XtraBars.BarButtonItem();
@@ -337,6 +336,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(845, 59);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cbCoSo
             // 
