@@ -152,17 +152,23 @@
     <Compile Include="FormMonHoc.Designer.cs">
       <DependentUpon>FormMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNhapNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhapNgay.Designer.cs">
+      <DependentUpon>FormNhapNgay.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSinhVien.Designer.cs">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTest.cs">
+    <Compile Include="FormTaoLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTest.Designer.cs">
-      <DependentUpon>FormTest.cs</DependentUpon>
+    <Compile Include="FormTaoLogin.Designer.cs">
+      <DependentUpon>FormTaoLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormThi.cs">
       <SubType>Form</SubType>
@@ -215,11 +221,14 @@
     <EmbeddedResource Include="FormMonHoc.resx">
       <DependentUpon>FormMonHoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNhapNgay.resx">
+      <DependentUpon>FormNhapNgay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTest.resx">
-      <DependentUpon>FormTest.cs</DependentUpon>
+    <EmbeddedResource Include="FormTaoLogin.resx">
+      <DependentUpon>FormTaoLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThi.resx">
       <DependentUpon>FormThi.cs</DependentUpon>

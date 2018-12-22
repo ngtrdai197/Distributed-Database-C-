@@ -80,7 +80,7 @@ namespace TTN_PT
 
                     if (rdbGV.Checked == true)
                     {
-                        String strlenh = "EXEC SP_DANGNHAP '" + Program.mlogin + "'";
+                        string strlenh = "EXEC SP_DANGNHAP '" + Program.mlogin + "'";
                         myReader = Program.ExecSqlDataReader(strlenh);
                         if (myReader == null) return;
                         myReader.Read();
@@ -95,7 +95,7 @@ namespace TTN_PT
 
                     else if (rdbSV.Checked == true)
                     {
-                        String strlenh = "EXEC SP_DANGNHAP_SV '" + Program.mlogin + "'";
+                        string strlenh = "EXEC SP_DANGNHAP_SV '" + Program.mlogin + "'";
                         myReader = Program.ExecSqlDataReader(strlenh);
                         if (myReader == null) return;
                         myReader.Read();
@@ -104,8 +104,8 @@ namespace TTN_PT
                         Program.mGroup = myReader.GetString(2);
                         myReader.Close();
 
-                        FormThi frmThi = new FormThi();
-                        frmThi.Show();
+                        FormMain frMain = new FormMain();
+                        frMain.Show();
 
                     }
 
@@ -121,7 +121,6 @@ namespace TTN_PT
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //Close();
             Application.Exit();
         }
 

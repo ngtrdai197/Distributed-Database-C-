@@ -32,7 +32,7 @@
             System.Windows.Forms.Label mAMHLabel;
             System.Windows.Forms.Label tENMHLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonHoc));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -243,6 +243,7 @@
             this.cbCoSo.Name = "cbCoSo";
             this.cbCoSo.Size = new System.Drawing.Size(191, 21);
             this.cbCoSo.TabIndex = 0;
+            this.cbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbCoSo_SelectedIndexChanged);
             // 
             // tTN_DS
             // 
@@ -276,9 +277,9 @@
             // 
             this.MonHocGridControl.DataSource = this.bdsMonHoc;
             this.MonHocGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.MonHocGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.MonHocGridControl.Location = new System.Drawing.Point(0, 95);
             this.MonHocGridControl.MainView = this.gridView1;
             this.MonHocGridControl.MenuManager = this.barManager1;

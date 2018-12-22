@@ -8,12 +8,12 @@ namespace TTN_PT
 {
     public partial class DANGKITHIcs : DevExpress.XtraReports.UI.XtraReport
     {
-        public DANGKITHIcs()
+        public DANGKITHIcs(DateTime tungay, DateTime denngay)
         {
             InitializeComponent();
             sp_9TableAdapter3.Connection.ConnectionString = Program.connstr;
-            DateTime dt = Convert.ToDateTime("10/10/2018");
-            DateTime dt1 = Convert.ToDateTime("11/30/2018");
+            DateTime dt = Convert.ToDateTime(tungay);
+            DateTime dt1 = Convert.ToDateTime(denngay);
             sp_9TableAdapter3.Fill(ttN_DS3.sp_9, dt, dt1);
             
         }

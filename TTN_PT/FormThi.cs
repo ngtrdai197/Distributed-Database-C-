@@ -17,6 +17,7 @@ namespace TTN_PT
     public partial class FormThi : DevExpress.XtraEditors.XtraForm
     {
         private int phut, giay, socauthi;
+        string role;
         private int vitri_cauhoi = 1;
         private int demcaudung = 0;
         private string cautraloi = "\0"; // mặc định chưa trả lời là 0
@@ -28,9 +29,16 @@ namespace TTN_PT
         public FormThi()
         {
             InitializeComponent();
+            // nhóm quyền có thể thi và được thi thử
+            role = Program.mGroup;
+            if (role != "SINHVIEN")
+            {
+                btnNopbaithi.Enabled = false; // nhóm giảng viên chỉ được thi thử và ko đc ghi điểm
+            }
 
-            grbThi.Visible = false;
             grbThoigianthi.Visible = false;
+            grbCoverThi.Visible = false;
+
             txtHoten.Visible = txtMalop.Visible = txtTenlop.Visible = false;
             lbHoten.Visible = lbMalop.Visible = lbTenlop.Visible = false;
             btnThi.Enabled = false;
@@ -44,49 +52,95 @@ namespace TTN_PT
 
         private void btnThi_Click(object sender, EventArgs e)
         {
-            grbInfo.Enabled = false;
-            timer1.Start();
-            string monhoc = cbMonhoc.Items[cbMonhoc.SelectedIndex].ToString();
-            vitri_cauhoi = 1;
-            grbThi.Visible = true;
-            SqlDataReader myReader;
-            string strLenh = "DECLARE	@return_value int " + "EXEC @return_value = " +
-                "[dbo].[sp_Thi] @SOCAUHOII =" + socauthi + ", @MAMH = N'" + monhoc + "',"
-                + "@KHOA = N'CNTT', @TRINHDO = N'A' SELECT  'Return Value' = @return_value";
-            myReader = Program.ExecSqlDataReader(strLenh);
-            if (myReader == null) return;
+
+            SqlDataReader reader_MaLopThi;
+            string query = "DECLARE	@return_value int " + "EXEC @return_value = " +
+                "[dbo].[KiemTramaLopSV_GiangVienDangKi] @MASV =N'" + txtMasv.Text + "' " +
+                "SELECT  'Return Value' = @return_value";
+            reader_MaLopThi = Program.ExecSqlDataReader(query);
+            if (reader_MaLopThi == null) return;
             else
             {
-                // đọc dữ liệu đến hết => false break
-                while (myReader.Read() == true)
+                reader_MaLopThi.Read();
+                int value = reader_MaLopThi.GetInt32(0);
+                reader_MaLopThi.Close();
+                if (value == 0) // lớp chưa được đăng kí thi => không cho thi
                 {
-                    // tạo đối tượng để lưu câu hỏi nhận được từ db
-                    CauHoi ch = new CauHoi();
-                    ch.CauHoiId = myReader.GetInt32(0);
-                    ch.MaMH = myReader.GetString(1);
-                    ch.TrinhDo = myReader.GetString(2);
-                    ch.NoiDung = myReader.GetString(3);
-                    ch.DA_A = myReader.GetString(4);
-                    ch.DA_B = myReader.GetString(5);
-                    ch.DA_C = myReader.GetString(6);
-                    ch.DA_D = myReader.GetString(7);
-                    ch.DAP_AN = myReader.GetString(8);
-                    ch.MaGV = myReader.GetString(9);
-
-                    // thêm vào mảng
-                    cauhoi_thi.Add(ch);
+                    MessageBox.Show("Sinh viên không thuộc đợt thi này", "Thông báo");
                 }
-                myReader.Close(); // ngắt kết nối
+                else // lớp được đăng kí thi
+                {
 
-                // đọc câu hỏi đầu tiên trong mảng câu hỏi nhận được từ db
-                CauHoi cauhoi = (CauHoi)cauhoi_thi[vitri_cauhoi - 1];
-                txtCauHoi.Text = "Câu " + vitri_cauhoi + " : " + cauhoi.NoiDung;
-                lbDA_A.Text = cauhoi.DA_A;
-                lbDA_B.Text = cauhoi.DA_B;
-                lbDA_C.Text = cauhoi.DA_C;
-                lbDA_D.Text = cauhoi.DA_D;
+                    // sinh viên đã thi và có điểm trong table bảng điểm
+                    SqlDataReader reader_SVThi;
+                    string query_SVThi = "DECLARE	@return_value int " + "EXEC @return_value = " +
+                        "[dbo].[KiemTramaLopSV_GiangVienDangKi] @MASV =N'" + txtMasv.Text + "' " +
+                        "SELECT  'Return Value' = @return_value";
+                    reader_SVThi = Program.ExecSqlDataReader(query_SVThi);
+                    if (reader_SVThi == null) return;
+                    else
+                    {
+                        reader_SVThi.Read();
+                        int value_SVThi = reader_SVThi.GetInt32(0);
+                        reader_SVThi.Close();
+                        if (value_SVThi == 1)
+                        {
+                            MessageBox.Show("Sinh viên đã thi rồi.", "Thông báo");
+                        }
+                        else
+                        {
+                            // sinh viên chưa được thi
+                            grbInfo.Enabled = false;
+                            timer1.Start();
+                            string monhoc = cbMonhoc.Items[cbMonhoc.SelectedIndex].ToString();
+                            vitri_cauhoi = 1;
+                            grbCoverThi.Visible = true;
 
+                            SqlDataReader myReader;
+                            // sp lấy thông tin thi
+                            string strLenh = "DECLARE	@return_value int " + "EXEC @return_value = " +
+                                "[dbo].[sp_Thi] @SOCAUHOII =" + socauthi + ", @MAMH = N'" + monhoc + "',"
+                                + "@KHOA = N'CNTT', @TRINHDO = N'A' SELECT  'Return Value' = @return_value";
+                            myReader = Program.ExecSqlDataReader(strLenh);
+                            if (myReader == null) return;
+                            else
+                            {
+                                // đọc dữ liệu đến hết => false break
+                                while (myReader.Read() == true)
+                                {
+                                    // tạo đối tượng để lưu câu hỏi nhận được từ db
+                                    CauHoi ch = new CauHoi();
+                                    ch.CauHoiId = myReader.GetInt32(0);
+                                    ch.MaMH = myReader.GetString(1);
+                                    ch.TrinhDo = myReader.GetString(2);
+                                    ch.NoiDung = myReader.GetString(3);
+                                    ch.DA_A = myReader.GetString(4);
+                                    ch.DA_B = myReader.GetString(5);
+                                    ch.DA_C = myReader.GetString(6);
+                                    ch.DA_D = myReader.GetString(7);
+                                    ch.DAP_AN = myReader.GetString(8);
+                                    ch.MaGV = myReader.GetString(9);
+
+                                    // thêm vào mảng
+                                    cauhoi_thi.Add(ch);
+                                }
+                                myReader.Close(); // ngắt kết nối
+
+                                // đọc câu hỏi đầu tiên trong mảng câu hỏi nhận được từ db
+                                CauHoi cauhoi = (CauHoi)cauhoi_thi[vitri_cauhoi - 1];
+                                txtCauHoi.Text = "Câu " + vitri_cauhoi + " : " + cauhoi.NoiDung;
+                                lbDA_A.Text = cauhoi.DA_A;
+                                lbDA_B.Text = cauhoi.DA_B;
+                                lbDA_C.Text = cauhoi.DA_C;
+                                lbDA_D.Text = cauhoi.DA_D;
+
+                            }
+                        }
+                    }
+
+                }
             }
+
         }
 
 
@@ -129,7 +183,10 @@ namespace TTN_PT
                     }
                     myReaderThi.Close();
                     grbThoigianthi.Visible = true;
-                    cbMonhoc.SelectedIndex = 0;
+                    if (cbMonhoc.Items.Count > 0)
+                    {
+                        cbMonhoc.SelectedIndex = 0;
+                    }
                 }
 
                 txtHoten.Enabled = txtMalop.Enabled = txtTenlop.Enabled = txtMasv.Enabled = false;
@@ -326,10 +383,15 @@ namespace TTN_PT
 
         private void btnNopbaithi_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
-            grbCoverThi.Hide();
-            MessageBox.Show("Kết thúc phần thi ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            TinhDiemSV();
+            // nhóm quyền sinh viên mới có thể tự động tính điểm + ghi điểm vào db
+            if (role != "SINHVIEN")
+            {
+                timer1.Stop();
+                grbCoverThi.Hide();
+                MessageBox.Show("Kết thúc phần thi ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TinhDiemSV();
+            }
+
         }
 
         private void TinhDiemSV()
@@ -400,7 +462,10 @@ namespace TTN_PT
                         timer1.Stop();
                         grbCoverThi.Hide();
                         MessageBox.Show("Kết thúc phần thi ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        TinhDiemSV();
+                        if (role == "SINHVIEN")
+                        {
+                            TinhDiemSV(); // quyền sv mới được ghi điểm
+                        }
                     }
                     else
                     {

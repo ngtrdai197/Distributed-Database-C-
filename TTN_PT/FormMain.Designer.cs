@@ -44,10 +44,14 @@
             this.btnLop = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnIndiem = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnDSDKThi = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnFormThi = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnTaoLogin = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stHoten = new System.Windows.Forms.ToolStripStatusLabel();
@@ -72,6 +76,8 @@
             this.ribbonPageGroup7,
             this.ribbonPageGroup8,
             this.ribbonPageGroup9,
+            this.ribbonPageGroup10,
+            this.ribbonPageGroup1,
             this.ribbonPageGroup3});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Hệ thống";
@@ -160,6 +166,48 @@
             this.btnIndiem.Name = "btnIndiem";
             this.btnIndiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnDSDKThi);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "DS đăng ký thi";
+            // 
+            // btnDSDKThi
+            // 
+            this.btnDSDKThi.Caption = "Danh sách ĐK Thi";
+            this.btnDSDKThi.Id = 10;
+            this.btnDSDKThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSDKThi.ImageOptions.Image")));
+            this.btnDSDKThi.Name = "btnDSDKThi";
+            this.btnDSDKThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSDKThi_ItemClick);
+            // 
+            // ribbonPageGroup10
+            // 
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnFormThi);
+            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
+            this.ribbonPageGroup10.Text = "Chương trình thi";
+            // 
+            // btnFormThi
+            // 
+            this.btnFormThi.Caption = "Chương trình thi";
+            this.btnFormThi.Id = 13;
+            this.btnFormThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFormThi.ImageOptions.Image")));
+            this.btnFormThi.Name = "btnFormThi";
+            this.btnFormThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick_1);
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnTaoLogin);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Tạo Login";
+            // 
+            // btnTaoLogin
+            // 
+            this.btnTaoLogin.Caption = "Tạo Login";
+            this.btnTaoLogin.Id = 11;
+            this.btnTaoLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoLogin.ImageOptions.Image")));
+            this.btnTaoLogin.Name = "btnTaoLogin";
+            this.btnTaoLogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoLogin_ItemClick);
+            // 
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem1);
@@ -174,19 +222,6 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
-            // ribbonPageGroup9
-            // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.btnDSDKThi);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.Text = "DS đăng ký thi";
-            // 
-            // btnDSDKThi
-            // 
-            this.btnDSDKThi.Caption = "Danh sách ĐK Thi";
-            this.btnDSDKThi.Id = 10;
-            this.btnDSDKThi.Name = "btnDSDKThi";
-            this.btnDSDKThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSDKThi_ItemClick);
-            // 
             // ribbon
             // 
             this.ribbon.ExpandCollapseItem.Id = 0;
@@ -199,13 +234,15 @@
             this.btnKhoa,
             this.btnLop,
             this.btnIndiem,
-            this.btnDSDKThi});
+            this.btnDSDKThi,
+            this.btnTaoLogin,
+            this.btnFormThi});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 11;
+            this.ribbon.MaxItemId = 14;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(830, 143);
+            this.ribbon.Size = new System.Drawing.Size(929, 143);
             // 
             // statusStrip1
             // 
@@ -215,7 +252,7 @@
             this.toolStripStatusLabel3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 452);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(830, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(929, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "Họ:";
             // 
@@ -241,7 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 474);
+            this.ClientSize = new System.Drawing.Size(929, 474);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
@@ -250,6 +287,7 @@
             this.Text = "FormMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -284,5 +322,9 @@
         private DevExpress.XtraBars.BarButtonItem btnIndiem;
         private DevExpress.XtraBars.BarButtonItem btnDSDKThi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem btnTaoLogin;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem btnFormThi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
     }
 }

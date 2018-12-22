@@ -82,7 +82,7 @@
             this.grbInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.grbInfo.Location = new System.Drawing.Point(0, 0);
             this.grbInfo.Name = "grbInfo";
-            this.grbInfo.Size = new System.Drawing.Size(950, 184);
+            this.grbInfo.Size = new System.Drawing.Size(950, 187);
             this.grbInfo.TabIndex = 0;
             this.grbInfo.TabStop = false;
             // 
@@ -107,7 +107,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Location = new System.Drawing.Point(584, 17);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(363, 164);
+            this.groupBox3.Size = new System.Drawing.Size(363, 167);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin thi";
@@ -178,7 +178,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox2.Location = new System.Drawing.Point(3, 17);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(313, 164);
+            this.groupBox2.Size = new System.Drawing.Size(313, 167);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin sinh viên";
@@ -256,7 +256,7 @@
             this.grbCoverThi.Controls.Add(this.grbThi);
             this.grbCoverThi.Controls.Add(this.grbThoigianthi);
             this.grbCoverThi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grbCoverThi.Location = new System.Drawing.Point(0, 184);
+            this.grbCoverThi.Location = new System.Drawing.Point(0, 187);
             this.grbCoverThi.Name = "grbCoverThi";
             this.grbCoverThi.Size = new System.Drawing.Size(950, 460);
             this.grbCoverThi.TabIndex = 1;
@@ -265,7 +265,7 @@
             // btnNopbaithi
             // 
             this.btnNopbaithi.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNopbaithi.Location = new System.Drawing.Point(704, 409);
+            this.btnNopbaithi.Location = new System.Drawing.Point(851, 211);
             this.btnNopbaithi.Name = "btnNopbaithi";
             this.btnNopbaithi.Size = new System.Drawing.Size(75, 36);
             this.btnNopbaithi.TabIndex = 4;
@@ -276,7 +276,7 @@
             // btnTieptheo
             // 
             this.btnTieptheo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTieptheo.Location = new System.Drawing.Point(494, 409);
+            this.btnTieptheo.Location = new System.Drawing.Point(851, 155);
             this.btnTieptheo.Name = "btnTieptheo";
             this.btnTieptheo.Size = new System.Drawing.Size(75, 36);
             this.btnTieptheo.TabIndex = 3;
@@ -287,7 +287,7 @@
             // btnLuilai
             // 
             this.btnLuilai.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuilai.Location = new System.Drawing.Point(301, 409);
+            this.btnLuilai.Location = new System.Drawing.Point(851, 92);
             this.btnLuilai.Name = "btnLuilai";
             this.btnLuilai.Size = new System.Drawing.Size(75, 36);
             this.btnLuilai.TabIndex = 2;
@@ -308,7 +308,7 @@
             this.grbThi.Controls.Add(this.txtCauHoi);
             this.grbThi.Location = new System.Drawing.Point(283, 20);
             this.grbThi.Name = "grbThi";
-            this.grbThi.Size = new System.Drawing.Size(664, 367);
+            this.grbThi.Size = new System.Drawing.Size(540, 367);
             this.grbThi.TabIndex = 1;
             this.grbThi.TabStop = false;
             this.grbThi.Text = "Thi";
@@ -402,7 +402,7 @@
             this.txtCauHoi.Location = new System.Drawing.Point(3, 17);
             this.txtCauHoi.Multiline = true;
             this.txtCauHoi.Name = "txtCauHoi";
-            this.txtCauHoi.Size = new System.Drawing.Size(658, 91);
+            this.txtCauHoi.Size = new System.Drawing.Size(534, 91);
             this.txtCauHoi.TabIndex = 0;
             // 
             // grbThoigianthi

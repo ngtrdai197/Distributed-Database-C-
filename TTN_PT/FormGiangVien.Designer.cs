@@ -462,7 +462,7 @@
             // 
             // btnXacnhan
             // 
-            this.btnXacnhan.Location = new System.Drawing.Point(320, 121);
+            this.btnXacnhan.Location = new System.Drawing.Point(317, 121);
             this.btnXacnhan.Name = "btnXacnhan";
             this.btnXacnhan.Size = new System.Drawing.Size(75, 23);
             this.btnXacnhan.TabIndex = 18;

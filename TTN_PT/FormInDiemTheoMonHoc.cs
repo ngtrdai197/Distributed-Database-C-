@@ -49,5 +49,58 @@ namespace TTN_PT
         {
             this.Close();
         }
+
+        private void FormInDiemTheoMonHoc_Load(object sender, EventArgs e)
+        {
+            sp_8TableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'dS_VIEW.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            this.v_DS_PHANMANHTableAdapter.Fill(this.dS_VIEW.V_DS_PHANMANH);
+            cbCoSo.DataSource = Program.bds_dspm;
+            cbCoSo.DisplayMember = "TENCS";
+            cbCoSo.ValueMember = "TENSERVER";
+            if (Program.mGroup == "TRUONG")
+            {
+                cbCoSo.Enabled = true;
+            }
+            else
+            {
+                cbCoSo.Enabled = false;
+            }
+        }
+
+        private void v_DS_PHANMANHComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCoSo.SelectedValue != null)
+            {
+                if (cbCoSo.ValueMember != "")
+                {
+                    if (Program.servername != cbCoSo.SelectedValue.ToString())
+                    {
+                        Program.servername = cbCoSo.SelectedValue.ToString();
+                    }
+                    if (cbCoSo.SelectedIndex != Program.mCoSo)
+                    {
+                        Program.mlogin = Program.remotelogin;
+                        Program.password = Program.remotepassword;
+                    }
+                    else
+                    {
+                        Program.mlogin = Program.mloginDN;
+                        Program.password = Program.passwordDN;
+                    }
+                    if (Program.KetNoi() == 0)
+                    {
+                        MessageBox.Show("Không thể kết nối", "Lỗi kết nối", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        sp_8TableAdapter.Connection.ConnectionString = Program.connstr;
+                    }
+
+                }
+            }
+        }
+        
     }
 }

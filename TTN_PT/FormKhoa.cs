@@ -146,6 +146,12 @@ namespace TTN_PT
                 {
                     bdsGiaoVien.RemoveCurrent();
                     GiaoVienTableAdapter.Update(tTN_DS.GIAOVIEN);
+                    SqlDataReader reader_Login;
+                    string query_login = "DECLARE	@return_value int EXEC " +
+                        "@return_value = [dbo].[SP_XOALOGIN] @MAGV = N'"+ txtMaGv.Text+"' " +
+                        "SELECT  'Return Value' = @return_value";
+                    reader_Login = Program.ExecSqlDataReader(query_login);
+                    reader_Login.Close();
                     MessageBox.Show("Xóa giảng viên thành công");
                     btnThemGv.Enabled = btnXoaGv.Enabled = btnSuaGv.Enabled = true;
                 }

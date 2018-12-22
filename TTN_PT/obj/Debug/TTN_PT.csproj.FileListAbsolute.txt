@@ -175,7 +175,6 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\de\DevExpress.Diagram.v17.1.C
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\es\DevExpress.Diagram.v17.1.Core.resources.dll
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.csprojAssemblyReference.cache
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.DANGKITHIcs.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormBoDe.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormDangKiThi.resources
@@ -187,7 +186,6 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormLop.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormMain.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormMonHoc.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormSinhVien.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormTest.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormThi.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.INDIEMTHEOMON.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.Properties.Resources.resources
@@ -198,3 +196,6 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.csproj.CopyComplete
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.exe
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.pdb
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\TTN_PT.pdb
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormNhapNgay.resources
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormTaoLogin.resources
+C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.csprojAssemblyReference.cache

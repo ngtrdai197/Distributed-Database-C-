@@ -51,6 +51,11 @@ namespace TTN_PT
             }
         }
 
+        private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Program.servername = cbCoSo.SelectedValue.ToString();
+        }
+
         private void btnTim_Click(object sender, EventArgs e)
         {
             bdsMonHoc.Filter = "MAMH LIKE '%" + txtTimkiem.Text + "%'"
@@ -167,7 +172,7 @@ namespace TTN_PT
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
             SqlDataReader myReader;
-            String strlenh = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MAMH] " +
+            string strlenh = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MAMH] " +
                 "@MAMH = N'" + txtMaMH.Text + "' SELECT  'Return Value' = @return_value";
             myReader = Program.ExecSqlDataReader(strlenh);
             if (myReader == null) return;
@@ -211,5 +216,6 @@ namespace TTN_PT
 
             }
         }
+
     }
 }

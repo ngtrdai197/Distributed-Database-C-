@@ -42,6 +42,8 @@ namespace TTN_PT
         private void FormLop_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'tTN_DS.SINHVIEN' table. You can move, or remove it, as needed.
+
+            // tải danh sách sinh viên cơ sở khác khi di chuyển site
             SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SinhVienTableAdapter.Fill(this.tTN_DS.SINHVIEN);
             // TODO: This line of code loads data into the 'tTN_DS.LOP' table. You can move, or remove it, as needed.
@@ -68,7 +70,8 @@ namespace TTN_PT
             if (Program.mGroup == "TRUONG")
             {
                 cbCoSo.Enabled = true;
-                btnSua.Enabled = btnXoa.Enabled = btnLuu.Enabled = btnThem.Enabled = false; // nhom truong ko duoc them moi 1 sv
+                btnSua.Enabled = btnXoa.Enabled = btnThemlop.Enabled
+                    = btnLuu.Enabled = btnThem.Enabled = false; // nhom truong ko duoc them moi 1 sv
             }
             else
             {
@@ -87,6 +90,7 @@ namespace TTN_PT
                     {
                         Program.servername = cbCoSo.SelectedValue.ToString();
                     }
+                    // cơ sở vừa chọn khác cở sở ban đầu => thay đổi tk đăng nhập sang HTKN để có thể sang phân mảnh khác
                     if (cbCoSo.SelectedIndex != Program.mCoSo)
                     {
                         Program.mlogin = Program.remotelogin;
@@ -136,7 +140,7 @@ namespace TTN_PT
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
             SqlDataReader myReader;
-            String strlenh = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MASV] " +
+            string strlenh = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MASV] " +
                 "@MASV = N'" + txtMasv.Text + "' SELECT  'Return Value' = @return_value";
             myReader = Program.ExecSqlDataReader(strlenh);
             if (myReader == null) return;
@@ -357,17 +361,30 @@ namespace TTN_PT
 
         private void btnXacnhanlop_Click(object sender, EventArgs e)
         {
-            btnHuybolop.Enabled = true;
-            btnLuulop.Enabled = true;
+            SqlDataReader reader_lop;
+            string strlenh = "DECLARE    @return_value int EXEC    " +
+                "@return_value = [dbo].[CHECK_MALOP] @MALOP = N'" + txtLopmalop.Text + "'" +
+                "SELECT  'Return Value' = @return_value";
+            reader_lop = Program.ExecSqlDataReader(strlenh);
+            if (reader_lop == null) return;
+            reader_lop.Read();
+            int value = reader_lop.GetInt32(0);
+            reader_lop.Close();
 
             try
             {
-                bdsLop.EndEdit();
-                bdsLop.ResetCurrentItem();
-
-                // huy thao tac
-                btnLuulop.Enabled = true;
-
+                if (value == 1)
+                {
+                    MessageBox.Show("Mã lớp nhập vào đã tồn tại. Kiểm tra lại !!!", "Thông báo");
+                    txtLopmalop.Focus(); return;
+                }
+                else
+                {
+                    bdsLop.EndEdit();
+                    bdsLop.ResetCurrentItem();
+                    btnHuybolop.Enabled = true;
+                    btnLuulop.Enabled = true;
+                }
                 btnThemlop.Enabled = false;
             }
             catch (Exception ex)
@@ -386,6 +403,7 @@ namespace TTN_PT
             LopTableAdapter.Update(tTN_DS.LOP);
             LopTableAdapter.Fill(tTN_DS.LOP);
             MessageBox.Show("Cập nhật danh sách thành công");
+            txtLopmalop.Enabled = txtKhoamakhoa.Enabled = txtLoptenlop.Enabled = true;
         }
 
         private void btnHuybolop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -393,6 +411,7 @@ namespace TTN_PT
             btnThemlop.Enabled = true;
             bdsLop.CancelEdit();
             btnLuulop.Enabled = btnHuybolop.Enabled = btnXacnhanlop.Enabled = false;
+            txtLopmalop.Enabled = txtKhoamakhoa.Enabled = txtLoptenlop.Enabled = true;
             lOPGridControl.Enabled = true;
         }
 

@@ -15,7 +15,6 @@ namespace TTN_PT
     public partial class FormMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
-        string role = Program.mGroup;
         public FormMain()
         {
             InitializeComponent();
@@ -23,13 +22,30 @@ namespace TTN_PT
             stHoten.Text = stHoten.Text + Program.mHoten + "  - ";
             stMa.Text = stMa.Text + Program.username + "  - ";
             toolStripStatusLabel3.Text = toolStripStatusLabel3.Text + Program.mGroup;
-            if (role == "GIANGVIEN")
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            if (Program.servername == "NGTRDAI197\\NGTRDAI_03")
             {
-                btnDangKiThi.Enabled = btnKhoa.Enabled = btnIndiem.Enabled
-                    = btnMonhoc.Enabled = btnIndiem.Enabled = btnLop.Enabled = false;
-
+                btnDangKiThi.Enabled = btnBode.Enabled = btnMonhoc.Enabled = btnIndiem.Enabled =
+                     btnDSDKThi.Enabled = btnFormThi.Enabled = false;
             }
-
+            else
+            {
+                string role = Program.mGroup;
+                if (role == "GIANGVIEN" || role == "GIAOVIEN")
+                {
+                    btnKhoa.Enabled = btnIndiem.Enabled
+                        = btnMonhoc.Enabled = btnDSDKThi.Enabled = btnLop.Enabled
+                        = btnTaoLogin.Enabled = false;
+                }
+                else if (role == "SINHVIEN")
+                {
+                    btnDangKiThi.Enabled = btnBode.Enabled = btnMonhoc.Enabled = btnKhoa.Enabled = btnLop.Enabled
+                        = btnIndiem.Enabled = btnDSDKThi.Enabled = btnTaoLogin.Enabled = false;
+                }
+            }
         }
 
         //Kiểm tra form tồn tại chưa?
@@ -159,9 +175,39 @@ namespace TTN_PT
         private void btnDSDKThi_ItemClick(object sender, ItemClickEventArgs e)
         {
 
-            DANGKITHIcs c9 = new DANGKITHIcs();
-            ReportPrintTool cau9 = new ReportPrintTool(c9);
-            cau9.ShowPreviewDialog();
+            FormNhapNgay fNhapNgay = new FormNhapNgay();
+            fNhapNgay.Show();
         }
+
+        private void btnTaoLogin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = CheckExists(typeof(FormTaoLogin));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormTaoLogin fTaologin = new FormTaoLogin();
+                fTaologin.MdiParent = this;
+                fTaologin.Show();
+            }
+        }
+
+        private void barButtonItem2_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            Form f = CheckExists(typeof(FormThi));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormThi fThi = new FormThi();
+                fThi.MdiParent = this;
+                fThi.Show();
+            }
+        }
+
     }
 }
