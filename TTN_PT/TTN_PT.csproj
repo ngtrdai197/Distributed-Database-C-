@@ -70,6 +70,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -109,12 +110,6 @@
     </Compile>
     <Compile Include="FormDangKiThi.Designer.cs">
       <DependentUpon>FormDangKiThi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormGiangVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGiangVien.Designer.cs">
-      <DependentUpon>FormGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInDiemTheoMonHoc.cs">
       <SubType>Form</SubType>
@@ -158,12 +153,6 @@
     <Compile Include="FormNhapNgay.Designer.cs">
       <DependentUpon>FormNhapNgay.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSinhVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien.Designer.cs">
-      <DependentUpon>FormSinhVien.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormTaoLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,9 +189,6 @@
     <EmbeddedResource Include="FormDangKiThi.resx">
       <DependentUpon>FormDangKiThi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGiangVien.resx">
-      <DependentUpon>FormGiangVien.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormInDiemTheoMonHoc.resx">
       <DependentUpon>FormInDiemTheoMonHoc.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,9 +209,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNhapNgay.resx">
       <DependentUpon>FormNhapNgay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSinhVien.resx">
-      <DependentUpon>FormSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTaoLogin.resx">
       <DependentUpon>FormTaoLogin.cs</DependentUpon>

@@ -76,10 +76,15 @@ namespace TTN_PT
                     {
                         Program.servername = cbCoSo.SelectedValue.ToString();
                     }
-                    if (cbCoSo.SelectedIndex != Program.mCoSo)
+                    if (cbCoSo.SelectedIndex != Program.mCoSo && cbCoSo.SelectedIndex != 2)
                     {
                         Program.mlogin = Program.remotelogin;
                         Program.password = Program.remotepassword;
+                    }
+                    else if (cbCoSo.SelectedIndex == 2)
+                    {
+                        MessageBox.Show("Cơ sở này không có dữ liệu để hiển thị.", "Thông báo");
+                        return;
                     }
                     else
                     {

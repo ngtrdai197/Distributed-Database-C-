@@ -178,14 +178,12 @@ C:\Users\Root\source\repos\TTN_PT\TTN_PT\bin\Debug\ru\DevExpress.Diagram.v17.1.C
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.DANGKITHIcs.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormBoDe.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormDangKiThi.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormGiangVien.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormInDiemTheoMonHoc.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormKhoa.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormLogin.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormLop.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormMain.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormMonHoc.resources
-C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormSinhVien.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.FormThi.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.INDIEMTHEOMON.resources
 C:\Users\Root\source\repos\TTN_PT\TTN_PT\obj\Debug\TTN_PT.Properties.Resources.resources

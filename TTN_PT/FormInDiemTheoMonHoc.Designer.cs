@@ -217,6 +217,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormInDiemTheoMonHoc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormInDiemTheoMonHoc";
             this.Load += new System.EventHandler(this.FormInDiemTheoMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dS_VIEW)).EndInit();

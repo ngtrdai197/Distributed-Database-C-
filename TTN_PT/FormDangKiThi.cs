@@ -19,6 +19,12 @@ namespace TTN_PT
             InitializeComponent();
         }
 
+        private void trangThaiTextbox(bool trangthai)
+        {
+            txtMaGv.Enabled = txtLanThi.Enabled = txtMaLop.Enabled = txtMaMH.Enabled = txtSoCauThi.Enabled
+                = txtThoiGian.Enabled = txtTrinhDo.Enabled = dtNgayThi.Enabled= trangthai;
+        }
+
         private void gIAOVIEN_DANGKYBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -38,7 +44,7 @@ namespace TTN_PT
             cbCoSo.ValueMember = "TENSERVER";
 
             btnXacnhan.Enabled = btnHuy.Enabled = btnLuu.Enabled = false;
-
+            trangThaiTextbox(false);
             // nhóm !TRUONG không được di chuyển sang site khác
             if (Program.mGroup == "TRUONG")
             {
@@ -53,53 +59,55 @@ namespace TTN_PT
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            trangThaiTextbox(true);
             btnXacnhan.Enabled = true;
             btnHuy.Enabled = true;
             btnThem.Enabled = false;
             GiaoVien_DangKyGridControl.Enabled = false;
             bdsGVDangKy.AddNew();
+            txtMaGv.Focus();
         }
 
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
             if (txtMaGv.Text.Trim() == "")
             {
-                MessageBox.Show("Mã giảng viên không được để trống");
+                MessageBox.Show("Mã giảng viên không được để trống", "Thông báo");
                 txtMaGv.Focus(); return;
             }
             else if (txtMaLop.Text.Trim() == "")
             {
-                MessageBox.Show("Mã lớp không được để trống");
+                MessageBox.Show("Mã lớp không được để trống", "Thông báo");
                 txtMaLop.Focus(); return;
             }
             else if (txtMaMH.Text.Trim() == "")
             {
-                MessageBox.Show("Mã môn học không được để trống");
+                MessageBox.Show("Mã môn học không được để trống", "Thông báo");
                 txtMaMH.Focus(); return;
             }
             else if (txtSoCauThi.Text.Trim() == "")
             {
-                MessageBox.Show("Số câu thi không được để trống");
+                MessageBox.Show("Số câu thi không được để trống", "Thông báo");
                 txtSoCauThi.Focus(); return;
             }
             else if (txtThoiGian.Text.Trim() == "")
             {
-                MessageBox.Show("Thời thi không được để trống");
+                MessageBox.Show("Thời thi không được để trống", "Thông báo");
                 txtThoiGian.Focus(); return;
             }
             else if (txtTrinhDo.Text.Trim() == "")
             {
-                MessageBox.Show("Trình độ thi không được để trống");
+                MessageBox.Show("Trình độ thi không được để trống", "Thông báo");
                 txtTrinhDo.Focus(); return;
             }
             else if (txtLanThi.Text.Trim() == "")
             {
-                MessageBox.Show("Lần thi không được để trống");
+                MessageBox.Show("Lần thi không được để trống", "Thông báo");
                 txtLanThi.Focus(); return;
             }
             else if (dtNgayThi.Text.Trim() == "")
             {
-                MessageBox.Show("Ngày thi không được để trống");
+                MessageBox.Show("Ngày thi không được để trống", "Thông báo");
                 dtNgayThi.Focus(); return;
             }
             else if (txtTrinhDo.Text.Trim() != "A" && txtTrinhDo.Text.Trim() != "B" && txtTrinhDo.Text.Trim() != "C")
@@ -163,7 +171,7 @@ namespace TTN_PT
                             btnHuy.Enabled = true;
                             if (value_KTTTT == 1)
                             {
-                                MessageBox.Show("Thông tin đăng kí đã tồn tại.");
+                                MessageBox.Show("Thông tin đăng kí đã tồn tại.", "Thông báo");
                                 btnLuu.Enabled = false;
                                 return;
                             }
@@ -171,6 +179,8 @@ namespace TTN_PT
                             {
                                 try
                                 {
+                                    trangThaiTextbox(false);
+
                                     bdsGVDangKy.EndEdit();
                                     bdsGVDangKy.ResetCurrentItem();
 
@@ -189,14 +199,14 @@ namespace TTN_PT
                         }
                         else
                         {
-                            MessageBox.Show("Mã giảng viên không tồn tại. Kiểm tra lại !!!");
+                            MessageBox.Show("Mã giảng viên không tồn tại. Kiểm tra lại !!!", "Thông báo");
                             txtMaGv.Focus(); return;
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("Mã lớp không tồn tại. Kiểm tra lại !!!");
+                        MessageBox.Show("Mã lớp không tồn tại. Kiểm tra lại !!!", "Thông báo");
                         txtMaLop.Focus(); return;
                     }
 
@@ -207,9 +217,9 @@ namespace TTN_PT
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             GiaoVien_DangKyGridControl.Enabled = txtMaMH.Enabled = true;
-
+            trangThaiTextbox(false);
             bdsGVDangKy.CancelEdit();
-
+            GVDangKyTableAdapter.Fill(TTN_DS.GIAOVIEN_DANGKY);
             if (Program.mGroup == "TRUONG")
             {
                 btnXacnhan.Enabled = btnLuu.Enabled =
@@ -220,6 +230,41 @@ namespace TTN_PT
                 btnHuy.Enabled = btnLuu.Enabled = btnXacnhan.Enabled = false;
                 btnThem.Enabled = true;
                 //txtTimkiem.Enabled = true;
+            }
+        }
+
+        private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCoSo.SelectedValue != null)
+            {
+                if (cbCoSo.ValueMember != "")
+                {
+                    if (Program.servername != cbCoSo.SelectedValue.ToString())
+                    {
+                        Program.servername = cbCoSo.SelectedValue.ToString();
+                    }
+                    if (cbCoSo.SelectedIndex != Program.mCoSo)
+                    {
+                        Program.mlogin = Program.remotelogin;
+                        Program.password = Program.remotepassword;
+                    }
+                    else
+                    {
+                        Program.mlogin = Program.mloginDN;
+                        Program.password = Program.passwordDN;
+                    }
+                    if (Program.KetNoi() == 0)
+                    {
+                        MessageBox.Show("Không thể kết nối", "Lỗi kết nối", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        GVDangKyTableAdapter.Connection.ConnectionString = Program.connstr;
+                        GVDangKyTableAdapter.Fill(TTN_DS.GIAOVIEN_DANGKY);
+                    }
+
+                }
             }
         }
     }

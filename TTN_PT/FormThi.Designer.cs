@@ -456,7 +456,6 @@
             this.Controls.Add(this.grbInfo);
             this.Name = "FormThi";
             this.Text = "FormThi";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThi_FormClosing);
             this.grbInfo.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

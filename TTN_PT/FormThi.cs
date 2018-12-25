@@ -19,10 +19,9 @@ namespace TTN_PT
         private int phut, giay, socauthi;
         string role;
         private int vitri_cauhoi = 1;
-        private int demcaudung = 0;
         private string cautraloi = "\0"; // mặc định chưa trả lời là 0
         //private ArrayList ketqua = new ArrayList(); // danh sách chứa câu trả lời của sinh viên
-        private ArrayList dapan_bode = new ArrayList(); // danh sách đáp án từ bộ đề
+        //private ArrayList dapan_bode = new ArrayList(); // danh sách đáp án từ bộ đề
         private ArrayList cauhoi_thi = new ArrayList(); // danh sách câu hỏi từ bộ đề
         private string[] ketqua = new string[100];
 
@@ -73,13 +72,17 @@ namespace TTN_PT
 
                     // sinh viên đã thi và có điểm trong table bảng điểm
                     SqlDataReader reader_SVThi;
-                    string query_SVThi = "DECLARE	@return_value int " + "EXEC @return_value = " +
-                        "[dbo].[KiemTramaLopSV_GiangVienDangKi] @MASV =N'" + txtMasv.Text + "' " +
-                        "SELECT  'Return Value' = @return_value";
+                    string monhoc = cbMonhoc.Items[cbMonhoc.SelectedIndex].ToString();
+                    string query_SVThi = "DECLARE	@return_value int EXEC " +
+                        "@return_value = [dbo].[KiemTraSinhVienThiChua] " +
+                        "@MASV = N'" + txtMasv.Text + "'," +
+                        "@MAMH = N'" + monhoc + "'," +
+                        "@LAN = '" + lbLanthi.Text + "' SELECT  'Return Value' = @return_value";
                     reader_SVThi = Program.ExecSqlDataReader(query_SVThi);
                     if (reader_SVThi == null) return;
                     else
                     {
+
                         reader_SVThi.Read();
                         int value_SVThi = reader_SVThi.GetInt32(0);
                         reader_SVThi.Close();
@@ -89,10 +92,20 @@ namespace TTN_PT
                         }
                         else
                         {
+                            SqlDataReader reader_LayTrinhDo;
+                            string query_LayTrinhDo = "DECLARE	@return_value int " +
+                                "EXEC @return_value = [dbo].[sp_TraVeTrinhDo]" +
+                                "@MALOP = N'" + txtMalop.Text + "',@MAMH = N'" + monhoc + "',@lan = '" + lbLanthi.Text + "'" +
+                                "SELECT  'Return Value' = @return_value";
+                            reader_LayTrinhDo = Program.ExecSqlDataReader(query_LayTrinhDo);
+                            if (reader_SVThi == null) return;
+
+                            reader_LayTrinhDo.Read();
+                            string trinhDo = reader_LayTrinhDo.GetString(0);
+                            reader_LayTrinhDo.Close();
                             // sinh viên chưa được thi
                             grbInfo.Enabled = false;
                             timer1.Start();
-                            string monhoc = cbMonhoc.Items[cbMonhoc.SelectedIndex].ToString();
                             vitri_cauhoi = 1;
                             grbCoverThi.Visible = true;
 
@@ -100,7 +113,7 @@ namespace TTN_PT
                             // sp lấy thông tin thi
                             string strLenh = "DECLARE	@return_value int " + "EXEC @return_value = " +
                                 "[dbo].[sp_Thi] @SOCAUHOII =" + socauthi + ", @MAMH = N'" + monhoc + "',"
-                                + "@KHOA = N'CNTT', @TRINHDO = N'A' SELECT  'Return Value' = @return_value";
+                                + "@TRINHDO = N'" + trinhDo + "' SELECT  'Return Value' = @return_value";
                             myReader = Program.ExecSqlDataReader(strLenh);
                             if (myReader == null) return;
                             else
@@ -148,8 +161,6 @@ namespace TTN_PT
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-
-                btnThi.Enabled = true;
                 SqlDataReader myReader;
                 string strlenh = "DECLARE	@return_value int " +
                     "EXEC @return_value = [dbo].[SP_LAYTHONGTINSINHVIEN]@MASV = N'" + txtMasv.Text + "'" +
@@ -159,10 +170,22 @@ namespace TTN_PT
                 else
                 {
                     myReader.Read();
-                    txtHoten.Text = myReader.GetString(0) + " " + myReader.GetString(1);
-                    txtMalop.Text = myReader.GetString(2);
-                    txtTenlop.Text = myReader.GetString(3);
-                    myReader.Close();
+                    bool exists = myReader.HasRows; // trả về true nếu có 1 hoặc nhiều dòng dữ liệu
+                    if (exists)
+                    {
+                        btnThi.Enabled = true;
+                        txtHoten.Text = myReader.GetString(0) + " " + myReader.GetString(1);
+                        txtMalop.Text = myReader.GetString(2);
+                        txtTenlop.Text = myReader.GetString(3);
+                        myReader.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã sinh viên không tồn tại. Kiểm tra lại !!!", "Thông báo");
+                        myReader.Close();
+                        return;
+                    }
+                    
                 }
 
 
@@ -352,12 +375,6 @@ namespace TTN_PT
 
         }
 
-        private void FormThi_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
-        }
-
         private void rdB_A_CheckedChanged(object sender, EventArgs e)
         {
             cautraloi = "A";
@@ -384,7 +401,7 @@ namespace TTN_PT
         private void btnNopbaithi_Click(object sender, EventArgs e)
         {
             // nhóm quyền sinh viên mới có thể tự động tính điểm + ghi điểm vào db
-            if (role != "SINHVIEN")
+            if (role == "SINHVIEN")
             {
                 timer1.Stop();
                 grbCoverThi.Hide();
@@ -396,6 +413,7 @@ namespace TTN_PT
 
         private void TinhDiemSV()
         {
+            int demcaudung = 0;
             for (int i = 0; i < cauhoi_thi.Count; i++)
             {
                 CauHoi ch = (CauHoi)cauhoi_thi[i];
@@ -438,9 +456,8 @@ namespace TTN_PT
         {
             string monhoc = cbMonhoc.Items[cbMonhoc.SelectedIndex].ToString();
             SqlDataReader myReader;
-            string strLenh = "DECLARE @return_value int " +
-                "EXEC @return_value = [dbo].[SP_LAYLANTHITHEOMH]" +
-                "@MAMH = N'" + monhoc + "' " + "SELECT  'Return Value' = @return_value";
+            string strLenh = "DECLARE	@return_value int EXEC @return_value = [dbo].[SP_LAYLANTHITHEOMH]" +
+                "@MAMH = N'" + monhoc + "',@MALOP = N'" + txtMalop.Text + "' SELECT  'Return Value' = @return_value";
             myReader = Program.ExecSqlDataReader(strLenh);
             if (myReader == null) return;
             else

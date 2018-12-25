@@ -148,30 +148,30 @@ namespace TTN_PT
             int value = myReader.GetInt32(0);
             if (txtMasv.Text.Trim() == "")
             {
-                MessageBox.Show("Mã sinh viên không được để trống");
+                MessageBox.Show("Mã sinh viên không được để trống", "Thông báo");
             }
             else if (txtHo.Text.Trim() == "")
             {
-                MessageBox.Show("Họ sinh viên không được để trống");
+                MessageBox.Show("Họ sinh viên không được để trống", "Thông báo");
             }
             else if (txtTen.Text.Trim() == "")
             {
-                MessageBox.Show("Tên sinh viên không được để trống");
+                MessageBox.Show("Tên sinh viên không được để trống", "Thông báo");
             }
             else if (txtMalop.Text.Trim() == "")
             {
-                MessageBox.Show("Mã lớp sinh viên không được để trống");
+                MessageBox.Show("Mã lớp sinh viên không được để trống", "Thông báo");
             }
             else if (txtDiachi.Text.Trim() == "")
             {
-                MessageBox.Show("Địa chỉ sinh viên không được để trống");
+                MessageBox.Show("Địa chỉ sinh viên không được để trống", "Thông báo");
             }
             else
             {
                 btnHuybo.Enabled = true;
                 if (value == 1)
                 {
-                    MessageBox.Show("Mã sinh viên đã tồn tại.");
+                    MessageBox.Show("Mã sinh viên đã tồn tại.", "Thông báo");
                     myReader.Close();
                 }
                 else
@@ -260,7 +260,7 @@ namespace TTN_PT
 
             SinhVienTableAdapter.Update(tTN_DS.SINHVIEN);
             SinhVienTableAdapter.Fill(tTN_DS.SINHVIEN);
-            MessageBox.Show("Cập nhật danh sách thành công");
+            MessageBox.Show("Cập nhật danh sách thành công", "Thông báo");
         }
 
         private void btnHuybo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -272,6 +272,7 @@ namespace TTN_PT
             btnXnSua.Visible = false;
 
             bdsSinhVien.CancelEdit();
+            SinhVienTableAdapter.Fill(tTN_DS.SINHVIEN);
 
             if (Program.mGroup == "TRUONG")
             {
@@ -309,19 +310,19 @@ namespace TTN_PT
 
             if (txtHo.Text.Trim() == "")
             {
-                MessageBox.Show("Họ sinh viên không được để trống");
+                MessageBox.Show("Họ sinh viên không được để trống", "Thông báo");
             }
             else if (txtTen.Text.Trim() == "")
             {
-                MessageBox.Show("Tên sinh viên không được để trống");
+                MessageBox.Show("Tên sinh viên không được để trống", "Thông báo");
             }
             else if (txtMalop.Text.Trim() == "")
             {
-                MessageBox.Show("Mã lớp sinh viên không được để trống");
+                MessageBox.Show("Mã lớp sinh viên không được để trống", "Thông báo");
             }
             else if (txtDiachi.Text.Trim() == "")
             {
-                MessageBox.Show("Địa chỉ sinh viên không được để trống");
+                MessageBox.Show("Địa chỉ sinh viên không được để trống", "Thông báo");
             }
             else
             {
@@ -357,7 +358,7 @@ namespace TTN_PT
 
             btnXacnhanlop.Enabled = btnHuybolop.Enabled = true;
             bdsLop.AddNew();
-        }
+        } 
 
         private void btnXacnhanlop_Click(object sender, EventArgs e)
         {
@@ -402,7 +403,7 @@ namespace TTN_PT
 
             LopTableAdapter.Update(tTN_DS.LOP);
             LopTableAdapter.Fill(tTN_DS.LOP);
-            MessageBox.Show("Cập nhật danh sách thành công");
+            MessageBox.Show("Cập nhật danh sách thành công", "Thông báo");
             txtLopmalop.Enabled = txtKhoamakhoa.Enabled = txtLoptenlop.Enabled = true;
         }
 
@@ -411,11 +412,17 @@ namespace TTN_PT
             btnThemlop.Enabled = true;
             bdsLop.CancelEdit();
             btnLuulop.Enabled = btnHuybolop.Enabled = btnXacnhanlop.Enabled = false;
-            txtLopmalop.Enabled = txtKhoamakhoa.Enabled = txtLoptenlop.Enabled = true;
+            txtLopmalop.Enabled = txtKhoamakhoa.Enabled = txtLoptenlop.Enabled = false;
             lOPGridControl.Enabled = true;
+            LopTableAdapter.Fill(tTN_DS.LOP);
         }
 
         private void tENLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
         {
 
         }

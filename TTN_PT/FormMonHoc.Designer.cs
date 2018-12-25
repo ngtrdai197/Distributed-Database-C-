@@ -57,10 +57,11 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grbThongtinMH = new System.Windows.Forms.GroupBox();
             this.btnXacnhan = new System.Windows.Forms.Button();
             this.txtTenMH = new DevExpress.XtraEditors.TextEdit();
             this.txtMaMH = new DevExpress.XtraEditors.TextEdit();
+            this.btnXnSua = new System.Windows.Forms.Button();
             mAMHLabel = new System.Windows.Forms.Label();
             tENMHLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -69,7 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grbThongtinMH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).BeginInit();
             this.SuspendLayout();
@@ -316,24 +317,25 @@
             this.colTENMH.VisibleIndex = 1;
             this.colTENMH.Width = 506;
             // 
-            // groupBox1
+            // grbThongtinMH
             // 
-            this.groupBox1.Controls.Add(this.btnXacnhan);
-            this.groupBox1.Controls.Add(tENMHLabel);
-            this.groupBox1.Controls.Add(this.txtTenMH);
-            this.groupBox1.Controls.Add(mAMHLabel);
-            this.groupBox1.Controls.Add(this.txtMaMH);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 315);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(791, 144);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin môn học";
+            this.grbThongtinMH.Controls.Add(this.btnXnSua);
+            this.grbThongtinMH.Controls.Add(this.btnXacnhan);
+            this.grbThongtinMH.Controls.Add(tENMHLabel);
+            this.grbThongtinMH.Controls.Add(this.txtTenMH);
+            this.grbThongtinMH.Controls.Add(mAMHLabel);
+            this.grbThongtinMH.Controls.Add(this.txtMaMH);
+            this.grbThongtinMH.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grbThongtinMH.Location = new System.Drawing.Point(0, 315);
+            this.grbThongtinMH.Name = "grbThongtinMH";
+            this.grbThongtinMH.Size = new System.Drawing.Size(791, 144);
+            this.grbThongtinMH.TabIndex = 9;
+            this.grbThongtinMH.TabStop = false;
+            this.grbThongtinMH.Text = "Thông tin môn học";
             // 
             // btnXacnhan
             // 
-            this.btnXacnhan.Location = new System.Drawing.Point(465, 68);
+            this.btnXacnhan.Location = new System.Drawing.Point(477, 68);
             this.btnXacnhan.Name = "btnXacnhan";
             this.btnXacnhan.Size = new System.Drawing.Size(75, 23);
             this.btnXacnhan.TabIndex = 4;
@@ -359,12 +361,22 @@
             this.txtMaMH.Size = new System.Drawing.Size(172, 20);
             this.txtMaMH.TabIndex = 1;
             // 
+            // btnXnSua
+            // 
+            this.btnXnSua.Location = new System.Drawing.Point(477, 68);
+            this.btnXnSua.Name = "btnXnSua";
+            this.btnXnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnXnSua.TabIndex = 5;
+            this.btnXnSua.Text = "Xác nhận";
+            this.btnXnSua.UseVisualStyleBackColor = true;
+            this.btnXnSua.Click += new System.EventHandler(this.btnXnSua_Click);
+            // 
             // FormMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 462);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grbThongtinMH);
             this.Controls.Add(this.MonHocGridControl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnTim);
@@ -383,8 +395,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MonHocGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grbThongtinMH.ResumeLayout(false);
+            this.grbThongtinMH.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -418,9 +430,10 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbThongtinMH;
         private DevExpress.XtraEditors.TextEdit txtTenMH;
         private DevExpress.XtraEditors.TextEdit txtMaMH;
         private System.Windows.Forms.Button btnXacnhan;
+        private System.Windows.Forms.Button btnXnSua;
     }
 }

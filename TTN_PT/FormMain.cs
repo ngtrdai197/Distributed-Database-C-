@@ -19,9 +19,9 @@ namespace TTN_PT
         {
             InitializeComponent();
 
-            stHoten.Text = stHoten.Text + Program.mHoten + "  - ";
-            stMa.Text = stMa.Text + Program.username + "  - ";
-            toolStripStatusLabel3.Text = toolStripStatusLabel3.Text + Program.mGroup;
+            stHoten.Text = stHoten.Text + " " + Program.mHoten + "  - ";
+            stMa.Text = stMa.Text + " " + Program.username + "  - ";
+            toolStripStatusLabel3.Text = toolStripStatusLabel3.Text + " " + Program.mGroup;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -81,16 +81,32 @@ namespace TTN_PT
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FormLogin frmLogin = new FormLogin();
-            this.Hide();
-            frmLogin.Show();
+            Form f = CheckExists(typeof(FormLogin));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormLogin frmLogin = new FormLogin();
+                frmLogin.Show();
+                this.Hide();
+            }
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FormLogin frmLogin = new FormLogin();
-            this.Hide();
-            frmLogin.Show();
+            Form f = CheckExists(typeof(FormLogin));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormLogin frmLogin = new FormLogin();
+                this.Close();
+                frmLogin.Show();
+            }
         }
 
 

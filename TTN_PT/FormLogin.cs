@@ -18,8 +18,7 @@ namespace TTN_PT
 
             txtLogin.Text = "HAI";
             txtPass.Text = "123";
-            rdbGV.Checked = true;
-
+            //rdbGV.Checked = true;
         }
 
         private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,21 +107,25 @@ namespace TTN_PT
                         frMain.Show();
 
                     }
-
+                    else
+                    {
+                        MessageBox.Show("Chọn chức vụ trước khi đăng nhập !!!");
+                        return;
+                    }
+                     
                     this.Hide();
                 }
             }
         }
 
-        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
-
     }
 }

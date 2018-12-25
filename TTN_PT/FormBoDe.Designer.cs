@@ -44,6 +44,7 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSua = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuybo = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -73,6 +74,7 @@
             this.colDAP_AN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnXnSua = new System.Windows.Forms.Button();
             this.btnXacnhan = new System.Windows.Forms.Button();
             this.txtMaGV = new DevExpress.XtraEditors.TextEdit();
             this.txtDapAn = new DevExpress.XtraEditors.TextEdit();
@@ -84,8 +86,6 @@
             this.txtTrinhDo = new DevExpress.XtraEditors.TextEdit();
             this.txtMaMH = new DevExpress.XtraEditors.TextEdit();
             this.txtMaCH = new DevExpress.XtraEditors.TextEdit();
-            this.btnSua = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXnSua = new System.Windows.Forms.Button();
             cAUHOILabel = new System.Windows.Forms.Label();
             mAMHLabel = new System.Windows.Forms.Label();
             tRINHDOLabel = new System.Windows.Forms.Label();
@@ -251,6 +251,14 @@
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Caption = "Sửa";
+            this.btnSua.Id = 5;
+            this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
+            this.btnSua.Name = "btnSua";
+            this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
             // 
             // btnHuybo
             // 
@@ -514,6 +522,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin câu hỏi";
             // 
+            // btnXnSua
+            // 
+            this.btnXnSua.Location = new System.Drawing.Point(394, 150);
+            this.btnXnSua.Name = "btnXnSua";
+            this.btnXnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnXnSua.TabIndex = 21;
+            this.btnXnSua.Text = "Xác nhận";
+            this.btnXnSua.UseVisualStyleBackColor = true;
+            this.btnXnSua.Click += new System.EventHandler(this.btnXnSua_Click);
+            // 
             // btnXacnhan
             // 
             this.btnXacnhan.Location = new System.Drawing.Point(394, 150);
@@ -613,24 +631,6 @@
             this.txtMaCH.Name = "txtMaCH";
             this.txtMaCH.Size = new System.Drawing.Size(100, 20);
             this.txtMaCH.TabIndex = 1;
-            // 
-            // btnSua
-            // 
-            this.btnSua.Caption = "Sửa";
-            this.btnSua.Id = 5;
-            this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnSua.Name = "btnSua";
-            this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
-            // 
-            // btnXnSua
-            // 
-            this.btnXnSua.Location = new System.Drawing.Point(394, 150);
-            this.btnXnSua.Name = "btnXnSua";
-            this.btnXnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnXnSua.TabIndex = 21;
-            this.btnXnSua.Text = "Xác nhận";
-            this.btnXnSua.UseVisualStyleBackColor = true;
-            this.btnXnSua.Click += new System.EventHandler(this.btnXnSua_Click);
             // 
             // FormBoDe
             // 

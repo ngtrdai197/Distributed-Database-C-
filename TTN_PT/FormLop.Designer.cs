@@ -101,6 +101,7 @@
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
+            this.btnTimkiem = new System.Windows.Forms.Button();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
@@ -218,7 +219,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(987, 45);
+            this.panel1.Size = new System.Drawing.Size(1127, 45);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -255,7 +256,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.08492F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.91508F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(987, 577);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1127, 577);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // groupBox1
@@ -265,7 +266,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 357);
+            this.groupBox1.Size = new System.Drawing.Size(420, 357);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LỚP";
@@ -278,7 +279,7 @@
             this.lOPGridControl.MainView = this.gridView1;
             this.lOPGridControl.MenuManager = this.barManager1;
             this.lOPGridControl.Name = "lOPGridControl";
-            this.lOPGridControl.Size = new System.Drawing.Size(361, 287);
+            this.lOPGridControl.Size = new System.Drawing.Size(414, 287);
             this.lOPGridControl.TabIndex = 1;
             this.lOPGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -386,7 +387,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(3, 17);
             this.standaloneBarDockControl1.Manager = this.barManager1;
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(361, 50);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(414, 50);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // barDockControlTop
@@ -395,7 +396,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(987, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1127, 0);
             // 
             // barDockControlBottom
             // 
@@ -403,7 +404,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 622);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(987, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1127, 0);
             // 
             // barDockControlLeft
             // 
@@ -417,7 +418,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(987, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1127, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 622);
             // 
@@ -428,7 +429,7 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(3, 17);
             this.standaloneBarDockControl2.Manager = this.barManager1;
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(602, 50);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(689, 50);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // groupBox2
@@ -443,7 +444,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 366);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(367, 208);
+            this.groupBox2.Size = new System.Drawing.Size(420, 208);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin lớp";
@@ -485,13 +486,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnTimkiem);
             this.groupBox3.Controls.Add(this.txtTimkiem);
             this.groupBox3.Controls.Add(this.sINHVIENGridControl);
             this.groupBox3.Controls.Add(this.standaloneBarDockControl2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(376, 3);
+            this.groupBox3.Location = new System.Drawing.Point(429, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(608, 357);
+            this.groupBox3.Size = new System.Drawing.Size(695, 357);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SINH VIÊN";
@@ -513,7 +515,7 @@
             this.sINHVIENGridControl.MainView = this.gridView2;
             this.sINHVIENGridControl.MenuManager = this.barManager1;
             this.sINHVIENGridControl.Name = "sINHVIENGridControl";
-            this.sINHVIENGridControl.Size = new System.Drawing.Size(602, 287);
+            this.sINHVIENGridControl.Size = new System.Drawing.Size(689, 287);
             this.sINHVIENGridControl.TabIndex = 1;
             this.sINHVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -595,9 +597,9 @@
             this.groupBox4.Controls.Add(mASVLabel);
             this.groupBox4.Controls.Add(this.txtMasv);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(376, 366);
+            this.groupBox4.Location = new System.Drawing.Point(429, 366);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(608, 208);
+            this.groupBox4.Size = new System.Drawing.Size(695, 208);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin sinh viên";
@@ -776,7 +778,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager2;
-            this.barDockControl1.Size = new System.Drawing.Size(987, 0);
+            this.barDockControl1.Size = new System.Drawing.Size(1127, 0);
             // 
             // barDockControl2
             // 
@@ -784,7 +786,7 @@
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControl2.Location = new System.Drawing.Point(0, 622);
             this.barDockControl2.Manager = this.barManager2;
-            this.barDockControl2.Size = new System.Drawing.Size(987, 0);
+            this.barDockControl2.Size = new System.Drawing.Size(1127, 0);
             // 
             // barDockControl3
             // 
@@ -798,15 +800,25 @@
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(987, 0);
+            this.barDockControl4.Location = new System.Drawing.Point(1127, 0);
             this.barDockControl4.Manager = this.barManager2;
             this.barDockControl4.Size = new System.Drawing.Size(0, 622);
+            // 
+            // btnTimkiem
+            // 
+            this.btnTimkiem.Location = new System.Drawing.Point(611, 29);
+            this.btnTimkiem.Name = "btnTimkiem";
+            this.btnTimkiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimkiem.TabIndex = 4;
+            this.btnTimkiem.Text = "Search";
+            this.btnTimkiem.UseVisualStyleBackColor = true;
+            this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
             // 
             // FormLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 622);
+            this.ClientSize = new System.Drawing.Size(1127, 622);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
@@ -910,5 +922,6 @@
         private DevExpress.XtraBars.BarButtonItem btnLuulop;
         private DevExpress.XtraBars.BarButtonItem btnHuybolop;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnTimkiem;
     }
 }

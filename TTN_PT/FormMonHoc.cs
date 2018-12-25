@@ -39,21 +39,27 @@ namespace TTN_PT
             btnHuybo.Enabled = false;
             btnLuu.Enabled = false;
             btnXacnhan.Enabled = false;
+            btnXnSua.Visible = false; // ẩn xác nhận sửa
 
             if (Program.mGroup == "TRUONG")
             {
+                grbThongtinMH.Enabled = false;
                 cbCoSo.Enabled = true;
                 btnSua.Enabled = btnXoa.Enabled = btnLuu.Enabled = btnThem.Enabled = false; // nhom truong ko duoc them moi 1 sv
             }
             else
             {
                 cbCoSo.Enabled = false;
+                txtMaMH.Enabled = txtTenMH.Enabled = false;
             }
         }
 
         private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Program.servername = cbCoSo.SelectedValue.ToString();
+            if (cbCoSo.SelectedValue != null)
+            {
+                Program.servername = cbCoSo.SelectedValue.ToString();
+            }
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -91,9 +97,25 @@ namespace TTN_PT
             DialogResult dr = MessageBox.Show("Bạn có chắc chắc muốn xóa", "Xóa môn học", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
             if (dr == DialogResult.Yes)
             {
-                bdsMonHoc.RemoveCurrent();
-                MonHocTableAdapter.Update(tTN_DS.MONHOC);
+                SqlDataReader myReader;
+                string query = "DECLARE	@return_value int EXEC " +
+                    "@return_value = [dbo].[sp_KiemTraMaMonHoc_MonHoc_GiaoVienDangKi]" +
+                    "@MAMH = N'" + txtMaMH.Text + "'SELECT  'Return Value' = @return_value";
+                myReader = Program.ExecSqlDataReader(query);
+                myReader.Read();
+                if (myReader == null) return;
+                int value = myReader.GetInt32(0);
+                myReader.Close();
 
+                if (value == 1)
+                {
+                    MessageBox.Show("Không thể xóa môn học này. Do môn học này được chọn để Thi.", "Thông báo");
+                }
+                else
+                {
+                    bdsMonHoc.RemoveCurrent();
+                    MonHocTableAdapter.Update(tTN_DS.MONHOC);
+                }
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
             }
             else
@@ -114,6 +136,8 @@ namespace TTN_PT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            txtMaMH.Enabled = txtTenMH.Enabled = true;
+            btnXnSua.Visible = true;
             btnXacnhan.Enabled = true;
             btnHuybo.Enabled = true;
 
@@ -128,22 +152,23 @@ namespace TTN_PT
         {
             btnXacnhan.Enabled = false;
             btnHuybo.Enabled = false;
-
+            btnXnSua.Visible = false;
             MonHocGridControl.Enabled = btnSua.Enabled
                 = btnXoa.Enabled = btnLuu.Enabled = btnThem.Enabled = true;
-            txtTimkiem.Enabled = txtMaMH.Enabled = true;
+            txtTimkiem.Enabled = txtMaMH.Enabled = false;
 
             MonHocTableAdapter.Update(tTN_DS.MONHOC);
             MonHocTableAdapter.Fill(tTN_DS.MONHOC);
-            MessageBox.Show("Cập nhật danh sách thành công");
+            MessageBox.Show("Cập nhật danh sách thành công", "Thông báo");
         }
 
         private void btnHuybo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             MonHocGridControl.Enabled = txtMaMH.Enabled = true;
-
+            txtMaMH.Enabled = txtTenMH.Enabled = false;
+            btnXnSua.Visible = false;
             bdsMonHoc.CancelEdit();
-
+            MonHocTableAdapter.Fill(tTN_DS.MONHOC);
             if (Program.mGroup == "TRUONG")
             {
                 btnXacnhan.Enabled = btnSua.Enabled =
@@ -162,11 +187,13 @@ namespace TTN_PT
         {
             btnXacnhan.Enabled = true;
             btnHuybo.Enabled = true;
+            txtMaMH.Enabled = txtTenMH.Enabled = true;
 
             MonHocGridControl.Enabled = btnSua.Enabled = btnXoa.Enabled = btnLuu.Enabled = false;
             bdsMonHoc.AddNew();
             btnThem.Enabled = false;
             txtTimkiem.Enabled = false;
+            txtMaMH.Focus();
         }
 
         private void btnXacnhan_Click(object sender, EventArgs e)
@@ -178,13 +205,14 @@ namespace TTN_PT
             if (myReader == null) return;
             myReader.Read();
             int value = myReader.GetInt32(0);
+            myReader.Close();
             if (txtMaMH.Text.Trim() == "")
             {
-                MessageBox.Show("Mã của môn học không được để trống");
+                MessageBox.Show("Mã của môn học không được để trống", "Thông báo");
             }
             else if (txtTenMH.Text.Trim() == "")
             {
-                MessageBox.Show("Tên của môn học không được để trống");
+                MessageBox.Show("Tên của môn học không được để trống", "Thông báo");
             }
             else
             {
@@ -198,6 +226,8 @@ namespace TTN_PT
                 {
                     try
                     {
+                        txtMaMH.Enabled = txtTenMH.Enabled = false;
+
                         bdsMonHoc.EndEdit();
                         bdsMonHoc.ResetCurrentItem();
 
@@ -205,11 +235,10 @@ namespace TTN_PT
                         btnLuu.Enabled = true;
 
                         btnThem.Enabled = false;
-                        myReader.Close();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi ghi môn học !" + ex.Message);
+                        MessageBox.Show("Lỗi ghi môn học !" + ex.Message, "Thông báo");
                         return;
                     }
                 }
@@ -217,5 +246,32 @@ namespace TTN_PT
             }
         }
 
+        private void btnXnSua_Click(object sender, EventArgs e)
+        {
+            if (txtTenMH.Text.Trim() == "")
+            {
+                MessageBox.Show("Tên môn học không được để trống", "Thông báo");
+            }
+
+            else
+            {
+                try
+                {
+                    bdsMonHoc.EndEdit();
+                    bdsMonHoc.ResetCurrentItem();
+
+                    // huy thao tac
+                    btnLuu.Enabled = true;
+
+                    btnThem.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi môn học !" + ex.Message, "Thông báo");
+                    return;
+                }
+
+            }
+        }
     }
 }

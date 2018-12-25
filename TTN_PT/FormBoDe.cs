@@ -56,7 +56,7 @@ namespace TTN_PT
             if (Program.mGroup == "TRUONG")
             {
                 cbCoSo.Enabled = true;
-                btnLuu.Enabled = btnThem.Enabled = false; // nhom truong ko duoc them moi 1 bộ đề
+                btnLuu.Enabled = btnThem.Enabled = btnSua.Enabled = false; // nhom truong ko duoc them moi 1 bộ đề
             }
             else
             {
@@ -74,6 +74,7 @@ namespace TTN_PT
             BoDeGridControl.Enabled = btnLuu.Enabled = btnSua.Enabled = false;
             bdsBoDe.AddNew();
             btnThem.Enabled = false;
+            txtMaCH.Focus();
             //txtTimkiem.Enabled = false;
         }
 
@@ -165,7 +166,7 @@ namespace TTN_PT
             BoDeTableAdapter.Update(TTN_DS.BODE);
             BoDeTableAdapter.Fill(TTN_DS.BODE);
 
-            btnXacnhan.Enabled = btnSua.Enabled = btnLuu.Enabled = false;
+            btnXacnhan.Enabled = btnLuu.Enabled = false;
             btnSua.Enabled = true;
             btnHuybo.Enabled = false;
             btnXnSua.Visible = false;
@@ -180,7 +181,7 @@ namespace TTN_PT
             btnXnSua.Visible = false;
 
             bdsBoDe.CancelEdit();
-
+            BoDeTableAdapter.Fill(TTN_DS.BODE);
             if (Program.mGroup == "TRUONG")
             {
                 btnXacnhan.Enabled = btnLuu.Enabled =
@@ -196,7 +197,7 @@ namespace TTN_PT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            btnSua.Enabled = false;
             if (txtMaGV.Text == Program.username)
             {
                 TrangThaiButton(true);
@@ -215,7 +216,7 @@ namespace TTN_PT
                 MessageBox.Show("Không thể chỉnh sửa câu hỏi !!");
                 return;
             }
-                
+
         }
 
         private void btnXnSua_Click(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mAKHLabel;
             System.Windows.Forms.Label tENKHLabel;
             System.Windows.Forms.Label mACSLabel;
@@ -37,7 +38,7 @@
             System.Windows.Forms.Label dIACHILabel;
             System.Windows.Forms.Label mAKHLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKhoa));
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThemGv = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoaGv = new DevExpress.XtraBars.BarButtonItem();
@@ -54,7 +55,7 @@
             this.cbCoSo = new System.Windows.Forms.ComboBox();
             this.lbCoSo = new System.Windows.Forms.Label();
             this.tTN_DS = new TTN_PT.TTN_DS();
-            this.bdsKhoa = new System.Windows.Forms.BindingSource();
+            this.bdsKhoa = new System.Windows.Forms.BindingSource(this.components);
             this.KhoaTableAdapter = new TTN_PT.TTN_DSTableAdapters.KHOATableAdapter();
             this.tableAdapterManager = new TTN_PT.TTN_DSTableAdapters.TableAdapterManager();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,7 +67,7 @@
             this.colMACS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.GiaoVienGridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdsGiaoVien = new System.Windows.Forms.BindingSource();
+            this.bdsGiaoVien = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -86,7 +87,7 @@
             this.txtTenGv = new DevExpress.XtraEditors.TextEdit();
             this.txtHoGv = new DevExpress.XtraEditors.TextEdit();
             this.txtMaGv = new DevExpress.XtraEditors.TextEdit();
-            this.barManager2 = new DevExpress.XtraBars.BarManager();
+            this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThemKhoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuukhoa = new DevExpress.XtraBars.BarButtonItem();
@@ -282,7 +283,7 @@
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(3, 17);
             this.standaloneBarDockControl2.Manager = this.barManager1;
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(505, 51);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(509, 51);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // barDockControlTop
@@ -324,7 +325,7 @@
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(3, 17);
             this.standaloneBarDockControl1.Manager = this.barManager1;
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(316, 51);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(312, 51);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // panel1
@@ -389,8 +390,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.81657F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.18343F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.3432F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.6568F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 1);
@@ -399,8 +400,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 59);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.44928F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.55072F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.53425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.46575F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(845, 438);
             this.tableLayoutPanel1.TabIndex = 11;
@@ -412,7 +413,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(322, 219);
+            this.groupBox1.Size = new System.Drawing.Size(318, 246);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Khoa";
@@ -425,7 +426,7 @@
             this.KhoaGridControl.MainView = this.gridView1;
             this.KhoaGridControl.MenuManager = this.barManager1;
             this.KhoaGridControl.Name = "KhoaGridControl";
-            this.KhoaGridControl.Size = new System.Drawing.Size(316, 263);
+            this.KhoaGridControl.Size = new System.Drawing.Size(312, 263);
             this.KhoaGridControl.TabIndex = 1;
             this.KhoaGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -466,9 +467,9 @@
             this.groupBox2.Controls.Add(this.GiaoVienGridControl);
             this.groupBox2.Controls.Add(this.standaloneBarDockControl2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(331, 3);
+            this.groupBox2.Location = new System.Drawing.Point(327, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(511, 219);
+            this.groupBox2.Size = new System.Drawing.Size(515, 246);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giảng viên";
@@ -481,7 +482,7 @@
             this.GiaoVienGridControl.MainView = this.gridView2;
             this.GiaoVienGridControl.MenuManager = this.barManager1;
             this.GiaoVienGridControl.Name = "GiaoVienGridControl";
-            this.GiaoVienGridControl.Size = new System.Drawing.Size(505, 148);
+            this.GiaoVienGridControl.Size = new System.Drawing.Size(509, 175);
             this.GiaoVienGridControl.TabIndex = 1;
             this.GiaoVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -548,12 +549,13 @@
             this.groupBox3.Controls.Add(mAKHLabel);
             this.groupBox3.Controls.Add(this.txtMakhoa);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 228);
+            this.groupBox3.Location = new System.Drawing.Point(3, 255);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(322, 207);
+            this.groupBox3.Size = new System.Drawing.Size(318, 180);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin khoa";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // btnXacnhankhoa
             // 
@@ -573,6 +575,7 @@
             this.txtMacs.Name = "txtMacs";
             this.txtMacs.Size = new System.Drawing.Size(147, 20);
             this.txtMacs.TabIndex = 5;
+            this.txtMacs.EditValueChanged += new System.EventHandler(this.txtMacs_EditValueChanged);
             // 
             // txtTenkhoa
             // 
@@ -607,9 +610,9 @@
             this.groupBox4.Controls.Add(mAGVLabel);
             this.groupBox4.Controls.Add(this.txtMaGv);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(331, 228);
+            this.groupBox4.Location = new System.Drawing.Point(327, 255);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(511, 207);
+            this.groupBox4.Size = new System.Drawing.Size(515, 180);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin giảng viên";

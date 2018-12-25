@@ -33,7 +33,6 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.dS_VIEW = new TTN_PT.DS_VIEW();
             this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -43,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.rdbGV = new System.Windows.Forms.RadioButton();
             this.rdbSV = new System.Windows.Forms.RadioButton();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dS_VIEW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -83,18 +83,6 @@
             this.label2.Size = new System.Drawing.Size(81, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(294, 241);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 36);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnLogin
             // 
@@ -176,6 +164,18 @@
             this.rdbSV.Text = "Sinh viên";
             this.rdbSV.UseVisualStyleBackColor = true;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Red;
+            this.btnCancel.Location = new System.Drawing.Point(294, 241);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 36);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,8 +192,9 @@
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtLogin);
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLogin_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
             this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dS_VIEW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
@@ -208,7 +209,6 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnLogin;
         private DS_VIEW dS_VIEW;
         private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource;
@@ -218,6 +218,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rdbGV;
         private System.Windows.Forms.RadioButton rdbSV;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
 

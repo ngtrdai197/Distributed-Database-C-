@@ -134,7 +134,7 @@ namespace TTN_PT
             myReader.Close();
             if (value == 1)
             {
-                MessageBox.Show("Giảng viên đã tạo câu hỏi. Không thể xóa!");
+                MessageBox.Show("Giảng viên đã tạo câu hỏi. Không thể xóa!", "Thông báo");
                 btnThemGv.Enabled = btnSuaGv.Enabled = btnXoaGv.Enabled = true;
                 return;
             }
@@ -148,11 +148,11 @@ namespace TTN_PT
                     GiaoVienTableAdapter.Update(tTN_DS.GIAOVIEN);
                     SqlDataReader reader_Login;
                     string query_login = "DECLARE	@return_value int EXEC " +
-                        "@return_value = [dbo].[SP_XOALOGIN] @MAGV = N'"+ txtMaGv.Text+"' " +
+                        "@return_value = [dbo].[SP_XOALOGIN] @MAGV = N'" + txtMaGv.Text + "' " +
                         "SELECT  'Return Value' = @return_value";
                     reader_Login = Program.ExecSqlDataReader(query_login);
                     reader_Login.Close();
-                    MessageBox.Show("Xóa giảng viên thành công");
+                    MessageBox.Show("Xóa giảng viên thành công", "Thông báo");
                     btnThemGv.Enabled = btnXoaGv.Enabled = btnSuaGv.Enabled = true;
                 }
                 else
@@ -203,7 +203,7 @@ namespace TTN_PT
                 = btnXoaGv.Enabled = btnThemGv.Enabled = true;
             GiaoVienTableAdapter.Update(tTN_DS.GIAOVIEN);
             GiaoVienTableAdapter.Fill(tTN_DS.GIAOVIEN);
-            MessageBox.Show("Cập nhật danh sách thành công");
+            MessageBox.Show("Cập nhật danh sách thành công", "Thông báo");
         }
 
         private void btnHuyboGv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -212,6 +212,7 @@ namespace TTN_PT
             bdsGiaoVien.CancelEdit();
             btnXnsua.Visible = false;
             TrangThaiButtonKhoa(true);
+            GiaoVienTableAdapter.Fill(tTN_DS.GIAOVIEN);
             if (Program.mGroup == "TRUONG")
             {
                 btnXacnhanGv.Enabled = btnSuaGv.Enabled =
@@ -239,30 +240,30 @@ namespace TTN_PT
 
             if (txtMaGv.Text.Trim() == "")
             {
-                MessageBox.Show("Mã giảng viên không được để trống");
+                MessageBox.Show("Mã giảng viên không được để trống", "Thông báo");
             }
             else if (txtHoGv.Text.Trim() == "")
             {
-                MessageBox.Show("Họ giảng viên không được để trống");
+                MessageBox.Show("Họ giảng viên không được để trống", "Thông báo");
             }
             else if (txtTenGv.Text.Trim() == "")
             {
-                MessageBox.Show("Tên giảng viên không được để trống");
+                MessageBox.Show("Tên giảng viên không được để trống", "Thông báo");
             }
             else if (txtMakhoaGv.Text.Trim() == "")
             {
-                MessageBox.Show("Mã khoa giảng viên không được để trống");
+                MessageBox.Show("Mã khoa giảng viên không được để trống", "Thông báo");
             }
             else if (txtDiachiGv.Text.Trim() == "")
             {
-                MessageBox.Show("Địa chỉ giảng viên viên không được để trống");
+                MessageBox.Show("Địa chỉ giảng viên viên không được để trống", "Thông báo");
             }
             else
             {
                 btnHuyboGv.Enabled = true;
                 if (value == 1)
                 {
-                    MessageBox.Show("Mã giảng viên trùng. Kiểm tra lại!");
+                    MessageBox.Show("Mã giảng viên trùng. Kiểm tra lại!", "Thông báo");
                     myReader.Close();
                 }
                 else
@@ -303,6 +304,8 @@ namespace TTN_PT
             bdsKhoa.CancelEdit();
             btnLuukhoa.Enabled = btnHuykhoa.Enabled = btnXacnhankhoa.Enabled = false;
             KhoaGridControl.Enabled = true;
+            KhoaTableAdapter.Fill(tTN_DS.KHOA);
+
         }
 
         private void btnLuukhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -313,28 +316,77 @@ namespace TTN_PT
 
             KhoaTableAdapter.Update(tTN_DS.KHOA);
             KhoaTableAdapter.Fill(tTN_DS.KHOA);
-            MessageBox.Show("Cập nhật danh sách thành công");
+            MessageBox.Show("Cập nhật danh sách thành công", "Thông báo");
         }
 
         private void btnXacnhankhoa_Click(object sender, EventArgs e)
         {
             btnHuykhoa.Enabled = true;
-            btnLuukhoa.Enabled = true;
+            SqlDataReader myReader;
+            string query = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MAKHOA] " +
+                "@MAKHOA = N'" + txtMakhoa.Text + "' SELECT  'Return Value' = @return_value";
+            myReader = Program.ExecSqlDataReader(query);
+            if (myReader == null) return;
 
-            try
+            myReader.Read();
+            int value = myReader.GetInt32(0);
+            myReader.Close();
+            if (value == 1)
             {
-                bdsKhoa.EndEdit();
-                bdsKhoa.ResetCurrentItem();
-
-                // huy thao tac
-                btnLuukhoa.Enabled = true;
-                btnThemKhoa.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi ghi khoa viên !" + ex.Message);
+                MessageBox.Show("Mã khoa đã tồn tại. Kiểm tra lại !!!", "Thông báo");
                 return;
             }
+            else
+            {
+                if (cbCoSo.SelectedIndex == 0)
+                {
+                    if (txtMacs.Text == "CS1" || txtMacs.Text == "cs1")
+                    {
+                        try
+                        {
+                            btnLuukhoa.Enabled = true;
+                            bdsKhoa.EndEdit();
+                            bdsKhoa.ResetCurrentItem();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi ghi khoa !" + ex.Message);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã cơ sở không hợp lệ. Kiểm tra lại !!!", "Thông báo");
+                        return;
+                    }
+                }
+                else if(cbCoSo.SelectedIndex == 1)
+                {
+                    if (txtMacs.Text == "CS2" || txtMacs.Text == "cs2")
+                    {
+                        try
+                        {
+                            btnLuukhoa.Enabled = true;
+                            bdsKhoa.EndEdit();
+                            bdsKhoa.ResetCurrentItem();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi ghi khoa !" + ex.Message);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã cơ sở không hợp lệ. Kiểm tra lại !!!", "Thông báo");
+                        return;
+                    }
+                }
+                
+            }
+            // huy thao tac
+            btnThemKhoa.Enabled = false;
+
         }
 
         private void btnXnsua_Click(object sender, EventArgs e)
@@ -351,7 +403,7 @@ namespace TTN_PT
             {
                 MessageBox.Show("Địa chỉ giảng viên không được để trống");
             }
-            
+
             else
             {
                 try
@@ -374,6 +426,16 @@ namespace TTN_PT
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtMacs_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }

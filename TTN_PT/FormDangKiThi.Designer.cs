@@ -112,9 +112,9 @@
             mAGVLabel.AutoSize = true;
             mAGVLabel.Location = new System.Drawing.Point(70, 31);
             mAGVLabel.Name = "mAGVLabel";
-            mAGVLabel.Size = new System.Drawing.Size(39, 13);
+            mAGVLabel.Size = new System.Drawing.Size(44, 13);
             mAGVLabel.TabIndex = 0;
-            mAGVLabel.Text = "MAGV:";
+            mAGVLabel.Text = "Mã GV: ";
             // 
             // mALOPLabel
             // 
@@ -123,61 +123,61 @@
             mALOPLabel.Name = "mALOPLabel";
             mALOPLabel.Size = new System.Drawing.Size(45, 13);
             mALOPLabel.TabIndex = 2;
-            mALOPLabel.Text = "MALOP:";
+            mALOPLabel.Text = "Mã Lớp:";
             // 
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
             mAMHLabel.Location = new System.Drawing.Point(66, 100);
             mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(41, 13);
+            mAMHLabel.Size = new System.Drawing.Size(43, 13);
             mAMHLabel.TabIndex = 4;
-            mAMHLabel.Text = "MAMH:";
+            mAMHLabel.Text = "Mã MH:";
             // 
             // tRINHDOLabel
             // 
             tRINHDOLabel.AutoSize = true;
             tRINHDOLabel.Location = new System.Drawing.Point(66, 129);
             tRINHDOLabel.Name = "tRINHDOLabel";
-            tRINHDOLabel.Size = new System.Drawing.Size(57, 13);
+            tRINHDOLabel.Size = new System.Drawing.Size(52, 13);
             tRINHDOLabel.TabIndex = 6;
-            tRINHDOLabel.Text = "TRINHDO:";
+            tRINHDOLabel.Text = "Trình Độ:";
             // 
             // nGAYTHILabel
             // 
             nGAYTHILabel.AutoSize = true;
             nGAYTHILabel.Location = new System.Drawing.Point(66, 161);
             nGAYTHILabel.Name = "nGAYTHILabel";
-            nGAYTHILabel.Size = new System.Drawing.Size(55, 13);
+            nGAYTHILabel.Size = new System.Drawing.Size(53, 13);
             nGAYTHILabel.TabIndex = 8;
-            nGAYTHILabel.Text = "NGAYTHI:";
+            nGAYTHILabel.Text = "Ngày Thi:";
             // 
             // lANLabel
             // 
             lANLabel.AutoSize = true;
             lANLabel.Location = new System.Drawing.Point(395, 35);
             lANLabel.Name = "lANLabel";
-            lANLabel.Size = new System.Drawing.Size(30, 13);
+            lANLabel.Size = new System.Drawing.Size(28, 13);
             lANLabel.TabIndex = 10;
-            lANLabel.Text = "LAN:";
+            lANLabel.Text = "Lần:";
             // 
             // sOCAUTHILabel
             // 
             sOCAUTHILabel.AutoSize = true;
             sOCAUTHILabel.Location = new System.Drawing.Point(395, 68);
             sOCAUTHILabel.Name = "sOCAUTHILabel";
-            sOCAUTHILabel.Size = new System.Drawing.Size(63, 13);
+            sOCAUTHILabel.Size = new System.Drawing.Size(62, 13);
             sOCAUTHILabel.TabIndex = 12;
-            sOCAUTHILabel.Text = "SOCAUTHI:";
+            sOCAUTHILabel.Text = "Số Câu Thi:";
             // 
             // tHOIGIANLabel
             // 
             tHOIGIANLabel.AutoSize = true;
             tHOIGIANLabel.Location = new System.Drawing.Point(395, 109);
             tHOIGIANLabel.Name = "tHOIGIANLabel";
-            tHOIGIANLabel.Size = new System.Drawing.Size(61, 13);
+            tHOIGIANLabel.Size = new System.Drawing.Size(55, 13);
             tHOIGIANLabel.TabIndex = 14;
-            tHOIGIANLabel.Text = "THOIGIAN:";
+            tHOIGIANLabel.Text = "Thời Gian:";
             // 
             // barManager1
             // 
@@ -322,6 +322,7 @@
             this.cbCoSo.Size = new System.Drawing.Size(277, 21);
             this.cbCoSo.TabIndex = 0;
             this.cbCoSo.ValueMember = "TENSERVER";
+            this.cbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbCoSo_SelectedIndexChanged);
             // 
             // v_DS_PHANMANHBindingSource
             // 
@@ -460,7 +461,7 @@
             this.groupBox2.Size = new System.Drawing.Size(824, 218);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Thông tin đăng ký thi";
             // 
             // btnXacnhan
             // 
