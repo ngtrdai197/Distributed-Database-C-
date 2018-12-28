@@ -43,10 +43,10 @@ namespace TTN_PT
             btnThi.Enabled = false;
 
             // gán mặc định sinh viên chưa trả lời
-            for (int i = 0; i < cauhoi_thi.Count; i++)
-            {
-                ketqua[i] = "\0";
-            }
+            //for (int i = 0; i < cauhoi_thi.Count; i++)
+            //{
+            //    ketqua[i] = "\0";
+            //}
         }
 
         private void btnThi_Click(object sender, EventArgs e)
@@ -170,7 +170,7 @@ namespace TTN_PT
                 else
                 {
                     myReader.Read();
-                    bool exists = myReader.HasRows; // trả về true nếu có 1 hoặc nhiều dòng dữ liệu
+                    bool exists = myReader.HasRows; // trả về true nếu có 1 hoặc nhiều dòng dữ liệuc
                     if (exists)
                     {
                         btnThi.Enabled = true;

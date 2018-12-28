@@ -87,7 +87,7 @@ namespace TTN_PT
                         Program.mHoten = myReader.GetString(1);
                         Program.mGroup = myReader.GetString(2);
                         myReader.Close();
-
+                        this.SetVisibleCore(false);
                         FormMain frMain = new FormMain();
                         frMain.Show();
                     }
@@ -102,7 +102,7 @@ namespace TTN_PT
                         Program.mHoten = myReader.GetString(1);
                         Program.mGroup = myReader.GetString(2);
                         myReader.Close();
-
+                        this.SetVisibleCore(false);
                         FormMain frMain = new FormMain();
                         frMain.Show();
 
@@ -113,7 +113,7 @@ namespace TTN_PT
                         return;
                     }
                      
-                    this.Hide();
+                    
                 }
             }
         }
@@ -125,6 +125,7 @@ namespace TTN_PT
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.SetVisibleCore(false);
             Application.Exit();
         }
     }

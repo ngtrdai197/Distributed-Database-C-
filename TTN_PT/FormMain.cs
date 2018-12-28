@@ -45,6 +45,10 @@ namespace TTN_PT
                     btnDangKiThi.Enabled = btnBode.Enabled = btnMonhoc.Enabled = btnKhoa.Enabled = btnLop.Enabled
                         = btnIndiem.Enabled = btnDSDKThi.Enabled = btnTaoLogin.Enabled = false;
                 }
+                else if (role == "COSO" || role == "TRUONG")
+                {
+                    btnFormThi.Enabled = false;
+                }
             }
         }
 
@@ -96,6 +100,7 @@ namespace TTN_PT
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
+            this.Dispose();
             Form f = CheckExists(typeof(FormLogin));
             if (f != null)
             {
@@ -104,7 +109,6 @@ namespace TTN_PT
             else
             {
                 FormLogin frmLogin = new FormLogin();
-                this.Close();
                 frmLogin.Show();
             }
         }

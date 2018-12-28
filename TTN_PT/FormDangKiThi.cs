@@ -22,7 +22,7 @@ namespace TTN_PT
         private void trangThaiTextbox(bool trangthai)
         {
             txtMaGv.Enabled = txtLanThi.Enabled = txtMaLop.Enabled = txtMaMH.Enabled = txtSoCauThi.Enabled
-                = txtThoiGian.Enabled = txtTrinhDo.Enabled = dtNgayThi.Enabled= trangthai;
+                = txtThoiGian.Enabled = txtTrinhDo.Enabled = dtNgayThi.Enabled = trangthai;
         }
 
         private void gIAOVIEN_DANGKYBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -90,9 +90,19 @@ namespace TTN_PT
                 MessageBox.Show("Số câu thi không được để trống", "Thông báo");
                 txtSoCauThi.Focus(); return;
             }
+            else if (Int32.Parse(txtSoCauThi.Text.Trim()) < 10 || Int32.Parse(txtSoCauThi.Text.Trim()) > 100)
+            {
+                MessageBox.Show("Số câu thi >=10 và <=100", "Thông báo");
+                txtSoCauThi.Focus(); return;
+            }
             else if (txtThoiGian.Text.Trim() == "")
             {
                 MessageBox.Show("Thời thi không được để trống", "Thông báo");
+                txtThoiGian.Focus(); return;
+            }
+            else if (Int32.Parse(txtThoiGian.Text.Trim()) < 15 || Int32.Parse(txtThoiGian.Text.Trim()) > 60)
+            {
+                MessageBox.Show("Thời thi >=15 và <=60", "Thông báo");
                 txtThoiGian.Focus(); return;
             }
             else if (txtTrinhDo.Text.Trim() == "")
@@ -103,6 +113,10 @@ namespace TTN_PT
             else if (txtLanThi.Text.Trim() == "")
             {
                 MessageBox.Show("Lần thi không được để trống", "Thông báo");
+                txtLanThi.Focus(); return;
+            }else if (Int32.Parse(txtLanThi.Text.Trim()) < 1 || Int32.Parse(txtLanThi.Text.Trim()) > 2)
+            {
+                MessageBox.Show("Lần thi >=1 và <=2", "Thông báo");
                 txtLanThi.Focus(); return;
             }
             else if (dtNgayThi.Text.Trim() == "")
@@ -146,7 +160,8 @@ namespace TTN_PT
                     {
                         // KIEM TRA GIANG VIEN TON TAI KHONG?
                         SqlDataReader reader_gv;
-                        String query_gv = "DECLARE	@return_value int EXEC @return_value = [dbo].[CHECK_MAGV] " +
+                        string query_gv = "DECLARE	@return_value int EXEC " +
+                            "@return_value = [dbo].[sp_KiemTraMGiaoVienThuocCoSoNao] " +
                             "@MAGV = N'" + txtMaGv.Text + "' SELECT  'Return Value' = @return_value";
                         reader_gv = Program.ExecSqlDataReader(query_gv);
                         if (reader_gv == null) return;
@@ -199,7 +214,7 @@ namespace TTN_PT
                         }
                         else
                         {
-                            MessageBox.Show("Mã giảng viên không tồn tại. Kiểm tra lại !!!", "Thông báo");
+                            MessageBox.Show("Giảng viên không thuộc cơ sở hiện tại . Kiểm tra lại !!!", "Lỗi mã giảng viên");
                             txtMaGv.Focus(); return;
                         }
 
@@ -243,10 +258,15 @@ namespace TTN_PT
                     {
                         Program.servername = cbCoSo.SelectedValue.ToString();
                     }
-                    if (cbCoSo.SelectedIndex != Program.mCoSo)
+                    if (cbCoSo.SelectedIndex != Program.mCoSo && cbCoSo.SelectedIndex != 2)
                     {
                         Program.mlogin = Program.remotelogin;
                         Program.password = Program.remotepassword;
+                    }
+                    else if (cbCoSo.SelectedIndex == 2)
+                    {
+                        MessageBox.Show("Cơ sở này không có dữ liệu để hiển thị.", "Thông báo");
+                        return;
                     }
                     else
                     {
@@ -266,6 +286,16 @@ namespace TTN_PT
 
                 }
             }
+        }
+
+        private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnThem.Enabled = GiaoVien_DangKyGridControl.Enabled = true;
+            btnHuy.Enabled = btnXacnhan.Enabled = btnLuu.Enabled = false;
+            trangThaiTextbox(false);
+            GVDangKyTableAdapter.Update(TTN_DS.GIAOVIEN_DANGKY);
+            GVDangKyTableAdapter.Fill(TTN_DS.GIAOVIEN_DANGKY);
+            MessageBox.Show("Đăng ký thành công", "Thông báo");
         }
     }
 }

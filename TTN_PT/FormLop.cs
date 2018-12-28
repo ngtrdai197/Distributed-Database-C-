@@ -207,10 +207,29 @@ namespace TTN_PT
             DialogResult dr = MessageBox.Show("Bạn có chắc chắc muốn xóa", "Xóa sinh viên", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
             if (dr == DialogResult.Yes)
             {
-                bdsSinhVien.RemoveCurrent();
-                SinhVienTableAdapter.Update(tTN_DS.SINHVIEN);
+                SqlDataReader myReader;
+                string strlenh = "DECLARE	@return_value int EXEC " +
+                    "@return_value = [dbo].[sp_KiemTraMaSV_BangDiem] " +
+                    "@MASV = N'" + txtMasv.Text + "' SELECT  'Return Value' = @return_value";
+                myReader = Program.ExecSqlDataReader(strlenh);
+                if (myReader == null) return;
+                myReader.Read();
+                int value = myReader.GetInt32(0);
+                myReader.Close();
+                if (value == 0)
+                {
+                    bdsSinhVien.RemoveCurrent();
+                    SinhVienTableAdapter.Update(tTN_DS.SINHVIEN);
+                    SinhVienTableAdapter.Fill(tTN_DS.SINHVIEN);
+                    btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Không thể xóa SV. \nDo sinh viên đã tồn tại trong bảng điểm !","Cảnh báo xóa sinh viên");
+                    btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
+                    return;
+                }
 
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
             }
             else
             {

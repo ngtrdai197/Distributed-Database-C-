@@ -400,8 +400,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 59);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.53425F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.46575F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.39269F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.60731F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(845, 438);
             this.tableLayoutPanel1.TabIndex = 11;
@@ -413,7 +413,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 246);
+            this.groupBox1.Size = new System.Drawing.Size(318, 240);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Khoa";
@@ -469,7 +469,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(327, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(515, 246);
+            this.groupBox2.Size = new System.Drawing.Size(515, 240);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giảng viên";
@@ -482,7 +482,7 @@
             this.GiaoVienGridControl.MainView = this.gridView2;
             this.GiaoVienGridControl.MenuManager = this.barManager1;
             this.GiaoVienGridControl.Name = "GiaoVienGridControl";
-            this.GiaoVienGridControl.Size = new System.Drawing.Size(509, 175);
+            this.GiaoVienGridControl.Size = new System.Drawing.Size(509, 169);
             this.GiaoVienGridControl.TabIndex = 1;
             this.GiaoVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -549,9 +549,9 @@
             this.groupBox3.Controls.Add(mAKHLabel);
             this.groupBox3.Controls.Add(this.txtMakhoa);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 255);
+            this.groupBox3.Location = new System.Drawing.Point(3, 249);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(318, 180);
+            this.groupBox3.Size = new System.Drawing.Size(318, 186);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin khoa";
@@ -610,9 +610,9 @@
             this.groupBox4.Controls.Add(mAGVLabel);
             this.groupBox4.Controls.Add(this.txtMaGv);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(327, 255);
+            this.groupBox4.Location = new System.Drawing.Point(327, 249);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(515, 180);
+            this.groupBox4.Size = new System.Drawing.Size(515, 186);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin giảng viên";

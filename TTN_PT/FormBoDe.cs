@@ -213,7 +213,8 @@ namespace TTN_PT
             }
             else
             {
-                MessageBox.Show("Không thể chỉnh sửa câu hỏi !!");
+                MessageBox.Show("Không thể chỉnh sửa câu hỏi không phải do mình tạo !!");
+                btnSua.Enabled = true;
                 return;
             }
 
@@ -268,6 +269,11 @@ namespace TTN_PT
                 }
 
             }
+        }
+
+        private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
